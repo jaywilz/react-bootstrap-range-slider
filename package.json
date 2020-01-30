@@ -1,0 +1,50 @@
+{
+  "name": "react-bootstrap-range-slider",
+  "version": "0.1.0",
+  "description": "Range slider for React Bootstrap",
+  "main": "dist/index.js",
+  "repository": "git@github.com:jaywilz/react-bootstrap-range-slider.git",
+  "author": "Jason Wilson <jasoncwilson@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "prepublishOnly": "npm run release",
+    "release": "npm run build:dev && npm run build:prod",
+    "build": "BABEL_ENV=build NODE_ENV=production rollup -c",
+    "build:dev": "BABEL_ENV=build NODE_ENV=development rollup -c",
+    "test": "cross-env BABEL_ENV=test NODE_ENV=test jest --no-cache"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "cross-env": "^7.0.0",
+    "jest": "^25.1.0",
+    "less": "^3.10.3",
+    "react": "^16.12.0",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-less": "^1.1.2",
+    "rollup-plugin-license": "^0.13.0",
+    "rollup-plugin-replace": "^2.2.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^16.12.0"
+  }
+}

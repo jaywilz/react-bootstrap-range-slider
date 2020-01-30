@@ -1,0 +1,323 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangeSlider should render 1`] = `
+<input
+  className="react-bootstrap-range-slider"
+  disabled={false}
+  max={100}
+  min={0}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render when disabled 1`] = `
+<input
+  className="react-bootstrap-range-slider disabled"
+  disabled={true}
+  max={100}
+  min={0}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render with bsPrefix 1`] = `
+<input
+  className="a-prefix a-prefix--sm"
+  disabled={false}
+  max={100}
+  min={0}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render with id 1`] = `
+<span
+  className="react-bootstrap-range-slider__wrap"
+>
+  <input
+    className="react-bootstrap-range-slider"
+    disabled={false}
+    id="a-slider-id"
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 25,
+      }
+    }
+    type="range"
+    value={25}
+  />
+  <div
+    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--bottom react-bootstrap-range-slider__tooltip--auto"
+    style={
+      Object {
+        "left": "calc(25% + 4px)",
+      }
+    }
+  >
+    <div
+      className="show tooltip bs-tooltip-bottom"
+      id="a-slider-id__tooltip"
+      role="tooltip"
+      x-placement="bottom"
+    >
+      <div
+        className="arrow"
+      />
+      <div
+        className="tooltip-inner"
+      >
+        25
+      </div>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should render with size = sm 1`] = `
+<span
+  className="react-bootstrap-range-slider__wrap react-bootstrap-range-slider__wrap-sm"
+>
+  <input
+    className="react-bootstrap-range-slider react-bootstrap-range-slider--sm"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 25,
+      }
+    }
+    type="range"
+    value={25}
+  />
+  <div
+    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--bottom react-bootstrap-range-slider__tooltip--auto"
+    style={
+      Object {
+        "left": "calc(25% + 4px)",
+      }
+    }
+  >
+    <div
+      className="show tooltip bs-tooltip-bottom"
+      id="react-bootstrap-range-slider__tooltip--4"
+      role="tooltip"
+      x-placement="bottom"
+    >
+      <div
+        className="arrow"
+      />
+      <div
+        className="tooltip-inner"
+      >
+        25
+      </div>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should render with tooltip 1`] = `
+<span
+  className="react-bootstrap-range-slider__wrap"
+>
+  <input
+    className="react-bootstrap-range-slider"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 25,
+      }
+    }
+    type="range"
+    value={25}
+  />
+  <div
+    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--bottom react-bootstrap-range-slider__tooltip--auto"
+    style={
+      Object {
+        "left": "calc(25% + 4px)",
+      }
+    }
+  >
+    <div
+      className="show tooltip bs-tooltip-bottom"
+      id="react-bootstrap-range-slider__tooltip--1"
+      role="tooltip"
+      x-placement="bottom"
+    >
+      <div
+        className="arrow"
+      />
+      <div
+        className="tooltip-inner"
+      >
+        25
+      </div>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should render with tooltip label 1`] = `
+<span
+  className="react-bootstrap-range-slider__wrap"
+>
+  <input
+    className="react-bootstrap-range-slider"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 25,
+      }
+    }
+    type="range"
+    value={25}
+  />
+  <div
+    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--bottom react-bootstrap-range-slider__tooltip--auto"
+    style={
+      Object {
+        "left": "calc(25% + 4px)",
+      }
+    }
+  >
+    <div
+      className="show tooltip bs-tooltip-bottom"
+      id="react-bootstrap-range-slider__tooltip--2"
+      role="tooltip"
+      x-placement="bottom"
+    >
+      <div
+        className="arrow"
+      />
+      <div
+        className="tooltip-inner"
+      >
+        25 km
+      </div>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should render with tooltip placement = top 1`] = `
+<span
+  className="react-bootstrap-range-slider__wrap"
+>
+  <input
+    className="react-bootstrap-range-slider"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 25,
+      }
+    }
+    type="range"
+    value={25}
+  />
+  <div
+    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--top react-bootstrap-range-slider__tooltip--auto"
+    style={
+      Object {
+        "left": "calc(25% + 4px)",
+      }
+    }
+  >
+    <div
+      className="show tooltip bs-tooltip-top"
+      id="react-bootstrap-range-slider__tooltip--3"
+      role="tooltip"
+      x-placement="top"
+    >
+      <div
+        className="arrow"
+      />
+      <div
+        className="tooltip-inner"
+      >
+        25
+      </div>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should render with tooltipId 1`] = `
+<span
+  className="react-bootstrap-range-slider__wrap"
+>
+  <input
+    className="react-bootstrap-range-slider"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 25,
+      }
+    }
+    type="range"
+    value={25}
+  />
+  <div
+    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--bottom react-bootstrap-range-slider__tooltip--auto"
+    style={
+      Object {
+        "left": "calc(25% + 4px)",
+      }
+    }
+  >
+    <div
+      className="show tooltip bs-tooltip-bottom"
+      id="a-tooltip-id"
+      role="tooltip"
+      x-placement="bottom"
+    >
+      <div
+        className="arrow"
+      />
+      <div
+        className="tooltip-inner"
+      >
+        25
+      </div>
+    </div>
+  </div>
+</span>
+`;
