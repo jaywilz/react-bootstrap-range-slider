@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "prepublishOnly": "npm run release",
-    "release": "npm run build:dev && npm run build:prod",
+    "release": "npm run build:dev && npm run build",
     "build": "BABEL_ENV=build NODE_ENV=production rollup -c",
     "build:dev": "BABEL_ENV=build NODE_ENV=development rollup -c",
     "test": "cross-env BABEL_ENV=test NODE_ENV=test jest --no-cache"
