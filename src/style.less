@@ -22,94 +22,178 @@
  * SOFTWARE.
  */
 
-@color--disabled: #eff0f2;
-@color--focus: #007bff40;
+@color--bs-primary: #007bff;
+@color--bs-secondary: #6c757d;
+@color--bs-success: #6c757d;
+@color--bs-danger: #dc3545;
+@color--bs-warning: #ffc107;
+@color--bs-info: #17a2b8;
+@color--bs-light: #f8f9fa;
+@color--bs-dark: #343a40;
 
-input[type=range].react-bootstrap-range-slider {
+@color--track: #ddd;
+@color--disabled: #e9e9e9;
+@color--focus: #007bff40;
+@color--track--focus: rgba(173, 181, 189, 0.3);
+
+input[type=range].range-slider {
 
   -webkit-appearance: none;
+  display: block;
   width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem 0;
+  line-height: 1.5;
+  color: @color--track;
+  background-clip: padding-box;
   background: transparent;
-  height: calc(1.5em + .75rem + 2px); // 38px
   border: none;
   outline: none;
   box-shadow: none;
   position: relative;
-  display: block;
 
   &::-moz-focus-outer {
     outline: none;
     border: 0;
   }
 
-  &.react-bootstrap-range-slider--sm {
+  &::-ms-tooltip { display: none }
 
-    height: calc(1.5em + .5rem + 2px); // 31px
+  &.range-slider--sm {
+
+    height: calc(1.5em + .5rem + 2px);
+    padding: .25rem 0;
 
   }
 
-  .track {
+  .track() {
 
     -webkit-appearance: none;
     width: 100%;
     height: 6px;
     cursor: pointer;
-    background: rgba(173, 181, 189, 0.3);
+    background: @color--track;
     border-radius: 5px;
-    border: none;
 
   }
 
-  .track--disabled {
+  .track--disabled() {
 
     background: @color--disabled;
     cursor: not-allowed;
 
   }
 
-  .thumb {
+  .thumb() {
 
     -webkit-appearance: none;
     border: none;
     height: 16px;
     width: 16px;
-    border-radius: 8px;
-    background: #adb5bd;
+    border-radius: 50%;
+    background: var(--primary);
     cursor: pointer;
-    margin-top: -5px;
     transition: box-shadow 0.5s ease;
 
   }
 
-  .thumb--focus {
+  .thumb--primary() { background: var(--primary); }
+  .thumb--secondary() { background: var(--secondary); }
+  .thumb--success() { background: var(--success); }
+  .thumb--danger() { background: var(--danger); }
+  .thumb--warning() { background: var(--warning); }
+  .thumb--info() { background: var(--info); }
+  .thumb--light() { background: var(--light); }
+  .thumb--dark() { background: var(--dark); }
+
+  .thumb--focus() {
 
     box-shadow: 0 0 0 0.2rem @color--focus;
 
   }
 
-  .thumb--active {
+  .thumb--active() {
 
     box-shadow: 0 0 0 0.35rem @color--focus;
 
   }
 
-  .thumb--disabled {
+  .thumb--disabled() {
 
     background: @color--disabled;
     cursor: not-allowed;
 
   }
 
-  &::-webkit-slider-runnable-track { .track(); }
-  &::-moz-range-track { .track(); }
+  &::-webkit-slider-runnable-track {
+    .track();
+    border: none;
+  }
 
-  &::-webkit-slider-thumb { .thumb(); }
-  &::-moz-range-thumb { .thumb(); }
+  &::-moz-range-track {
+    .track();
+    border: none;
+  }
+
+  &::-ms-track {
+    .track();
+    background: transparent;
+    border-color: transparent;
+    color: transparent; // remove tick marks
+  }
+
+  &::-ms-fill-lower, &::-ms-fill-upper {
+    background: @color--track;
+    border-radius: 5px;
+  }
+
+  &::-webkit-slider-thumb {
+    .thumb();
+    margin-top: -5px;
+  }
+
+  &::-moz-range-thumb {
+    .thumb();
+    margin-top: -5px;
+  }
+
+  &::-ms-thumb {
+    .thumb();
+    border: none;
+  }
+
+  &.range-slider--primary { &::-webkit-slider-thumb { .thumb--primary(); } }
+  &.range-slider--secondary { &::-webkit-slider-thumb { .thumb--secondary(); } }
+  &.range-slider--success { &::-webkit-slider-thumb { .thumb--success(); } }
+  &.range-slider--danger { &::-webkit-slider-thumb { .thumb--danger(); } }
+  &.range-slider--warning { &::-webkit-slider-thumb { .thumb--warning(); } }
+  &.range-slider--info { &::-webkit-slider-thumb { .thumb--info(); } }
+  &.range-slider--light { &::-webkit-slider-thumb { .thumb--light(); } }
+  &.range-slider--dark { &::-webkit-slider-thumb { .thumb--dark(); } }
+
+  &.range-slider--primary { &::-moz-range-thumb { .thumb--primary(); } }
+  &.range-slider--secondary { &::-moz-range-thumb { .thumb--secondary(); } }
+  &.range-slider--success { &::-moz-range-thumb { .thumb--success(); } }
+  &.range-slider--danger { &::-moz-range-thumb { .thumb--danger(); } }
+  &.range-slider--warning { &::-moz-range-thumb { .thumb--warning(); } }
+  &.range-slider--info { &::-moz-range-thumb { .thumb--info(); } }
+  &.range-slider--light { &::-moz-range-thumb { .thumb--light(); } }
+  &.range-slider--dark { &::-moz-range-thumb { .thumb--dark(); } }
+
+  &.range-slider--primary { &::-ms-thumb { background: @color--bs-primary; } }
+  &.range-slider--secondary { &::-ms-thumb { background: @color--bs-secondary; } }
+  &.range-slider--success { &::-ms-thumb { background: @color--bs-success } }
+  &.range-slider--danger { &::-ms-thumb { background: @color--bs-danger; } }
+  &.range-slider--warning { &::-ms-thumb { background: @color--bs-warning } }
+  &.range-slider--info { &::-ms-thumb { background: @color--bs-info } }
+  &.range-slider--light { &::-ms-thumb { background: @color--bs-light; } }
+  &.range-slider--dark { &::-ms-thumb { background: @color--bs-dark; } }
 
   &:focus {
 
     &::-webkit-slider-thumb { .thumb--focus(); }
     &::-moz-range-thumb { .thumb--focus(); }
+    &::-ms-thumb { .thumb--focus(); }
 
   }
 
@@ -117,6 +201,7 @@ input[type=range].react-bootstrap-range-slider {
 
     &::-webkit-slider-thumb { .thumb--active(); }
     &::-moz-range-thumb { .thumb--active(); }
+    &::-ms-thumb { .thumb--active(); }
 
   }
 
@@ -127,24 +212,25 @@ input[type=range].react-bootstrap-range-slider {
 
     &::-webkit-slider-thumb { .thumb--disabled(); }
     &::-moz-range-thumb { .thumb--disabled(); }
+    &::-ms-thumb { .thumb--disabled(); }
 
   }
 
 }
 
-.react-bootstrap-range-slider__wrap {
+.range-slider__wrap {
 
   position: relative;
   display: block;
   height: calc(1.5em + .75rem + 2px); // 38px
 
-  &.react-bootstrap-range-slider__wrap-sm {
+  &.range-slider__wrap-sm {
 
     height: calc(1.5em + .5rem + 2px); // 31px
 
   }
 
-  .react-bootstrap-range-slider__tooltip {
+  .range-slider__tooltip {
 
     display: block;
     position: absolute;
@@ -157,14 +243,14 @@ input[type=range].react-bootstrap-range-slider {
     opacity: 0;
     transition: opacity 0.15s linear;
 
-    &.react-bootstrap-range-slider__tooltip--top {
+    &.range-slider__tooltip--top {
 
       top: -30px;
       bottom: auto;
 
     }
 
-    &.react-bootstrap-range-slider__tooltip--on {
+    &.range-slider__tooltip--on {
 
       opacity: 1;
   
@@ -206,7 +292,7 @@ input[type=range].react-bootstrap-range-slider {
 
   &:hover {
 
-    .react-bootstrap-range-slider__tooltip:not(.react-bootstrap-range-slider__tooltip--on) {
+    .range-slider__tooltip:not(.range-slider__tooltip--on) {
 
       opacity: 1;
 

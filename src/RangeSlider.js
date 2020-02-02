@@ -28,44 +28,44 @@ import { useBootstrapPrefix } from 'react-bootstrap/ThemeProvider';
 import { Tooltip } from 'react-bootstrap';
 import classNames from 'classnames';
 
-const CLASS_PREFIX = 'react-bootstrap-range-slider';
+const DEFAULT_CLASS_PREFIX = 'range-slider';
 
 let idIndex = 0;
 
 const RangeSlider = React.forwardRef(({
-  bsPrefix,
   size,
-  className,
-  id,
   disabled = false,
   value,
   onChange,
   min = 0,
   max = 100,
   step,
-  tooltip,
-  tooltipPlacement = 'bottom',
-  tooltipDisplay = 'auto',
-  tooltipLabel,
-  tooltipId,
-  tooltipProps,
+  variant = 'primary',
   inputProps = {},
+  tooltip = 'auto',
+  tooltipPlacement = 'bottom',
+  tooltipLabel,
+  tooltipProps = {},
+  bsPrefix,
+  className,
 }, ref) => {
 
-  const prefix = useBootstrapPrefix(bsPrefix, CLASS_PREFIX);
+  const prefix = useBootstrapPrefix(bsPrefix, DEFAULT_CLASS_PREFIX);
+
+  const isTooltip = tooltip === 'auto' || tooltip === 'on';
 
   const classes = classNames(
     className,
     prefix,
     size && `${prefix}--${size}`,
     disabled && 'disabled',
+    variant && `${prefix}--${variant}`,
   );
 
   const inputEl = (
     <input
       type="range"
       className={classes}
-      id={id}
       value={value}
       min={min}
       max={max}
@@ -80,7 +80,7 @@ const RangeSlider = React.forwardRef(({
     />
   );
 
-  if (tooltip) {
+  if (isTooltip) {
 
     const wrapClasses = classNames(
       `${prefix}__wrap`,
@@ -89,11 +89,11 @@ const RangeSlider = React.forwardRef(({
 
     const tooltipClasses = classNames(
       `${prefix}__tooltip`,
+      isTooltip && `${prefix}__tooltip--${tooltip}`,
       tooltipPlacement && `${prefix}__tooltip--${tooltipPlacement}`,
-      tooltipDisplay && `${prefix}__tooltip--${tooltipDisplay}`,
     );
 
-    const ttId = tooltipId || (id ? `${id}__tooltip` : `${CLASS_PREFIX}__tooltip--${++idIndex}`);
+    const tooltipId = `${DEFAULT_CLASS_PREFIX}__tooltip--${++idIndex}`;
  
     const fract = value / (max - min);
     const percentLeft = fract * 100;
@@ -101,7 +101,9 @@ const RangeSlider = React.forwardRef(({
     const adjustment = fractFromCentre * -8; // Half thumb width
 
     return (
-      <span className={wrapClasses}>
+      <span
+        className={wrapClasses}
+      >
 
         {inputEl}
 
@@ -113,7 +115,7 @@ const RangeSlider = React.forwardRef(({
         >
 
           <Tooltip
-            id={ttId}
+            id={tooltipId}
             placement={tooltipPlacement}
             className='show'
             {...tooltipProps}
@@ -137,20 +139,25 @@ const RangeSlider = React.forwardRef(({
 });
 
 RangeSlider.propTypes = {
-  bsPrefix: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'lg']),
-  className: PropTypes.string,
-  id: PropTypes.string,
-  disabled: PropTypes.bool,
   value: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,
-  onChange: PropTypes.func.isRequired,
-  tooltip: PropTypes.bool,
+  disabled: PropTypes.bool,
+  size: PropTypes.oneOf(['sm', 'lg']),
+  variant: PropTypes.oneOf([ 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light' ]),
+  inputProps: PropTypes.object,
+  tooltip: PropTypes.oneOf(['auto', 'on', 'off']),
   tooltipPlacement: PropTypes.oneOf(['top', 'bottom']),
-  tooltipDisplay: PropTypes.oneOf(['auto', 'on']),
   tooltipLabel: PropTypes.func,
+  tooltipProps: PropTypes.object,
+  className: PropTypes.string,
+  ref: PropTypes.oneOfType([
+    PropTypes.func, 
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]),
+  bsPrefix: PropTypes.string,
 };
 
 export default RangeSlider;

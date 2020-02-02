@@ -1,7 +1,7 @@
 {
   "name": "react-bootstrap-range-slider",
   "version": "0.1.0",
-  "description": "Range slider for React Bootstrap",
+  "description": "A range slider component for React Bootstrap (Bootstrap 4) that extends the native HTML input (type=range) element.",
   "main": "dist/index.js",
   "repository": "git@github.com:jaywilz/react-bootstrap-range-slider.git",
   "author": "Jason Wilson <jasoncwilson@gmail.com>",
@@ -28,9 +28,6 @@
     "jest": "^25.1.0",
     "less": "^3.10.3",
     "react": "^16.12.0",
-    "react-bootstrap": "^1.0.0-beta.16",
-    "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.12.0",
     "rollup": "^1.29.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",

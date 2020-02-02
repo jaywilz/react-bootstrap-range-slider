@@ -50,13 +50,10 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-var CLASS_PREFIX = 'react-bootstrap-range-slider';
+var DEFAULT_CLASS_PREFIX = 'range-slider';
 var idIndex = 0;
 var RangeSlider = React.forwardRef(function (_ref, ref) {
-  var bsPrefix = _ref.bsPrefix,
-      size = _ref.size,
-      className = _ref.className,
-      id = _ref.id,
+  var size = _ref.size,
       _ref$disabled = _ref.disabled,
       disabled = _ref$disabled === void 0 ? false : _ref$disabled,
       value = _ref.value,
@@ -66,22 +63,25 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
       _ref$max = _ref.max,
       max = _ref$max === void 0 ? 100 : _ref$max,
       step = _ref.step,
-      tooltip = _ref.tooltip,
+      _ref$variant = _ref.variant,
+      variant = _ref$variant === void 0 ? 'primary' : _ref$variant,
+      _ref$inputProps = _ref.inputProps,
+      inputProps = _ref$inputProps === void 0 ? {} : _ref$inputProps,
+      _ref$tooltip = _ref.tooltip,
+      tooltip = _ref$tooltip === void 0 ? 'auto' : _ref$tooltip,
       _ref$tooltipPlacement = _ref.tooltipPlacement,
       tooltipPlacement = _ref$tooltipPlacement === void 0 ? 'bottom' : _ref$tooltipPlacement,
-      _ref$tooltipDisplay = _ref.tooltipDisplay,
-      tooltipDisplay = _ref$tooltipDisplay === void 0 ? 'auto' : _ref$tooltipDisplay,
       tooltipLabel = _ref.tooltipLabel,
-      tooltipId = _ref.tooltipId,
-      tooltipProps = _ref.tooltipProps,
-      _ref$inputProps = _ref.inputProps,
-      inputProps = _ref$inputProps === void 0 ? {} : _ref$inputProps;
-  var prefix = ThemeProvider.useBootstrapPrefix(bsPrefix, CLASS_PREFIX);
-  var classes = classNames(className, prefix, size && "".concat(prefix, "--").concat(size), disabled && 'disabled');
+      _ref$tooltipProps = _ref.tooltipProps,
+      tooltipProps = _ref$tooltipProps === void 0 ? {} : _ref$tooltipProps,
+      bsPrefix = _ref.bsPrefix,
+      className = _ref.className;
+  var prefix = ThemeProvider.useBootstrapPrefix(bsPrefix, DEFAULT_CLASS_PREFIX);
+  var isTooltip = tooltip === 'auto' || tooltip === 'on';
+  var classes = classNames(className, prefix, size && "".concat(prefix, "--").concat(size), disabled && 'disabled', variant && "".concat(prefix, "--").concat(variant));
   var inputEl = React.createElement("input", _extends({
     type: "range",
     className: classes,
-    id: id,
     value: value,
     min: min,
     max: max,
@@ -94,10 +94,10 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
     }
   }, inputProps));
 
-  if (tooltip) {
+  if (isTooltip) {
     var wrapClasses = classNames("".concat(prefix, "__wrap"), size && "".concat(prefix, "__wrap-").concat(size));
-    var tooltipClasses = classNames("".concat(prefix, "__tooltip"), tooltipPlacement && "".concat(prefix, "__tooltip--").concat(tooltipPlacement), tooltipDisplay && "".concat(prefix, "__tooltip--").concat(tooltipDisplay));
-    var ttId = tooltipId || (id ? "".concat(id, "__tooltip") : "".concat(CLASS_PREFIX, "__tooltip--").concat(++idIndex));
+    var tooltipClasses = classNames("".concat(prefix, "__tooltip"), isTooltip && "".concat(prefix, "__tooltip--").concat(tooltip), tooltipPlacement && "".concat(prefix, "__tooltip--").concat(tooltipPlacement));
+    var tooltipId = "".concat(DEFAULT_CLASS_PREFIX, "__tooltip--").concat(++idIndex);
     var fract = value / (max - min);
     var percentLeft = fract * 100;
     var fractFromCentre = (fract - 0.5) * 2;
@@ -111,7 +111,7 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
         left: "calc(".concat(percentLeft, "% + ").concat(adjustment, "px)")
       }
     }, React.createElement(reactBootstrap.Tooltip, _extends({
-      id: ttId,
+      id: tooltipId,
       placement: tooltipPlacement,
       className: "show"
     }, tooltipProps), tooltipLabel ? tooltipLabel(value) : value)));
@@ -120,20 +120,24 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
   }
 });
 RangeSlider.propTypes = {
-  bsPrefix: PropTypes.string,
-  size: PropTypes.oneOf(['sm', 'lg']),
-  className: PropTypes.string,
-  id: PropTypes.string,
-  disabled: PropTypes.bool,
   value: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,
-  onChange: PropTypes.func.isRequired,
-  tooltip: PropTypes.bool,
+  disabled: PropTypes.bool,
+  size: PropTypes.oneOf(['sm', 'lg']),
+  variant: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light']),
+  inputProps: PropTypes.object,
+  tooltip: PropTypes.oneOf(['auto', 'on', 'off']),
   tooltipPlacement: PropTypes.oneOf(['top', 'bottom']),
-  tooltipDisplay: PropTypes.oneOf(['auto', 'on']),
-  tooltipLabel: PropTypes.func
+  tooltipLabel: PropTypes.func,
+  tooltipProps: PropTypes.object,
+  className: PropTypes.string,
+  ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
+    current: PropTypes.instanceOf(Element)
+  })]),
+  bsPrefix: PropTypes.string
 };
 
 /**
