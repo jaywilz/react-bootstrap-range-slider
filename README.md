@@ -2,6 +2,8 @@
 
 A range slider component for React Bootstrap (Bootstrap 4) that extends the native HTML `<input type="range">` element.
 
+![React Bootstrap Range Slider screenshot showing rendered slider component with various options applied, including label placement and different variants](./screenshots/react-bootstrap-range-slider-screenshot.png?raw=true)
+
 ## Installation
 
     npm install react-bootstrap-range-slider
