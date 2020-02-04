@@ -6,19 +6,23 @@ A range slider component for React Bootstrap (Bootstrap 4) that extends the nati
 
     npm install react-bootstrap-range-slider
 
+### Prerequisites
+
+React Bootstrap and Bootstrap must be installed and the CSS from Bootstrap imported.
+
 ## Usage
 
 ```JavaScript
 import React, { useState } from 'react';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
-import ReactBootstrapRangeSlider from 'react-bootstrap-range-slider';
+import RangeSlider from 'react-bootstrap-range-slider';
 
 const MyComponent = () => {
 
   const [ value, setValue ] = useState(0); 
 
   return (
-    <ReactBootstrapRangeSlider
+    <RangeSlider
       value={value}
       onChange={changeEvent => setValue(changeEvent.target.value)}
     />
@@ -27,7 +31,7 @@ const MyComponent = () => {
 };
 ```
 
-## Props (options)
+## Options (as React props)
 
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
