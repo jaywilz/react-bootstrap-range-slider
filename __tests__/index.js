@@ -29,7 +29,7 @@ import RangeSlider from '../src/index';
 
 describe('RangeSlider', () => {
 
-  it('should render', () => {
+  it('should render correctly when only required props provided', () => {
 
     const tree = renderer
       .create(
@@ -44,14 +44,14 @@ describe('RangeSlider', () => {
 
   });
 
-  it('should render with tooltip', () => {
+  it('should render correctly when tooltip = off', () => {
 
     const tree = renderer
       .create(
         <RangeSlider
           value={25}
           onChange={() => {}}
-          tooltip
+          tooltip='off'
         />
       )
       .toJSON();
@@ -60,15 +60,15 @@ describe('RangeSlider', () => {
 
   });
 
-  it('should render with tooltip label', () => {
+  it('should render correctly when size=sm provided', () => {
 
     const tree = renderer
       .create(
         <RangeSlider
           value={25}
           onChange={() => {}}
-          tooltip
-          tooltipLabel={value => `${value} km`}
+          tooltip='off'
+          size='sm'
         />
       )
       .toJSON();
@@ -77,14 +77,199 @@ describe('RangeSlider', () => {
 
   });
 
-  it('should render with tooltip placement = top', () => {
+  it('should render correctly when size=lg provided', () => {
 
     const tree = renderer
       .create(
         <RangeSlider
           value={25}
           onChange={() => {}}
-          tooltip
+          tooltip='off'
+          size='lg'
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly when disabled', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='off'
+          disabled
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly when +ve min provided', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='off'
+          min={10}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly when -ve min provided', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='off'
+          min={-10}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly when max provided', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='off'
+          max={20}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly when min and max provided', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='off'
+          min={10}
+          max={20}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly when step provided', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='off'
+          step={25}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly when variant provided', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='off'
+          variant='secondary'
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should pass inputProps to input', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='off'
+          inputProps={{'data-a-prop':'test'}}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly when tooltip = auto', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='auto'
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly when tooltip explicitly = auto', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='auto'
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly when tooltipPlacement = top', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
           tooltipPlacement='top'
         />
       )
@@ -94,15 +279,14 @@ describe('RangeSlider', () => {
 
   });
 
-  it('should render with tooltipId', () => {
+  it('should render correctly when tooltipPlacement explicitly = bottom', () => {
 
     const tree = renderer
       .create(
         <RangeSlider
           value={25}
           onChange={() => {}}
-          tooltip
-          tooltipId='a-tooltip-id'
+          tooltipPlacement='bottom'
         />
       )
       .toJSON();
@@ -111,15 +295,14 @@ describe('RangeSlider', () => {
 
   });
 
-  it('should render with id', () => {
+  it('should render correctly with tooltip label', () => {
 
     const tree = renderer
       .create(
         <RangeSlider
           value={25}
           onChange={() => {}}
-          id='a-slider-id'
-          tooltip
+          tooltipLabel={value => `${value} km`}
         />
       )
       .toJSON();
@@ -128,15 +311,108 @@ describe('RangeSlider', () => {
 
   });
 
-  it('should render with size = sm', () => {
+  it('should pass tooltipProps to tooltip div', () => {
 
     const tree = renderer
       .create(
         <RangeSlider
           value={25}
+          onChange={() => {}}
+          tooltipProps={{'data-a-tooltip-prop':'test'}}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should pass tooltipStyle to tooltip div', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltipStyle={{'background':'blue'}}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should render correctly with bsPrefix', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={25}
+          onChange={() => {}}
+          tooltip='off'
+          bsPrefix='a-prefix'
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should correcly calculate tooltip left position at 0', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={0}
+          onChange={() => {}}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should correcly calculate tooltip left position at 50%', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={50}
+          onChange={() => {}}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should correcly calculate tooltip left position at 100%', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={100}
+          onChange={() => {}}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should correcly calculate tooltip left position at 0 when size = sm', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={0}
           onChange={() => {}}
           size='sm'
-          tooltip
         />
       )
       .toJSON();
@@ -145,15 +421,14 @@ describe('RangeSlider', () => {
 
   });
 
-  it('should render with bsPrefix', () => {
+  it('should correcly calculate tooltip left position at 50% when size = sm', () => {
 
     const tree = renderer
       .create(
         <RangeSlider
-          value={25}
+          value={50}
           onChange={() => {}}
-          bsPrefix='a-prefix'
-          size='sm'  
+          size='sm'
         />
       )
       .toJSON();
@@ -162,14 +437,113 @@ describe('RangeSlider', () => {
 
   });
 
-  it('should render when disabled', () => {
+  it('should correcly calculate tooltip left position at 100% when size = sm', () => {
 
     const tree = renderer
       .create(
         <RangeSlider
-          value={25}
+          value={100}
           onChange={() => {}}
-          disabled
+          size='sm'
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should correcly calculate tooltip left position at 0 when size = lg', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={0}
+          onChange={() => {}}
+          size='lg'
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should correcly calculate tooltip left position at 50% when size = lg', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={50}
+          onChange={() => {}}
+          size='lg'
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should correcly calculate tooltip left position at 100% when size = lg', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={100}
+          onChange={() => {}}
+          size='lg'
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should correcly calculate tooltip left position at 0 when min and max provided', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={10}
+          onChange={() => {}}
+          min={10}
+          max={20}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should correcly calculate tooltip left position at 50% when min and max provided', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={15}
+          onChange={() => {}}
+          min={10}
+          max={20}
+        />
+      )
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+
+  });
+
+  it('should correcly calculate tooltip left position at 100% when min and max provided', () => {
+
+    const tree = renderer
+      .create(
+        <RangeSlider
+          value={20}
+          onChange={() => {}}
+          min={10}
+          max={20}
         />
       )
       .toJSON();

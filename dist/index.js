@@ -29,8 +29,22 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var React = _interopDefault(require('react'));
 var PropTypes = _interopDefault(require('prop-types'));
 var ThemeProvider = require('react-bootstrap/ThemeProvider');
-var reactBootstrap = require('react-bootstrap');
 var classNames = _interopDefault(require('classnames'));
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -50,8 +64,41 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
 var DEFAULT_CLASS_PREFIX = 'range-slider';
-var idIndex = 0;
 var RangeSlider = React.forwardRef(function (_ref, ref) {
   var size = _ref.size,
       _ref$disabled = _ref.disabled,
@@ -72,6 +119,8 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
       _ref$tooltipPlacement = _ref.tooltipPlacement,
       tooltipPlacement = _ref$tooltipPlacement === void 0 ? 'bottom' : _ref$tooltipPlacement,
       tooltipLabel = _ref.tooltipLabel,
+      _ref$tooltipStyle = _ref.tooltipStyle,
+      tooltipStyle = _ref$tooltipStyle === void 0 ? {} : _ref$tooltipStyle,
       _ref$tooltipProps = _ref.tooltipProps,
       tooltipProps = _ref$tooltipProps === void 0 ? {} : _ref$tooltipProps,
       bsPrefix = _ref.bsPrefix,
@@ -95,26 +144,26 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
   }, inputProps));
 
   if (isTooltip) {
-    var wrapClasses = classNames("".concat(prefix, "__wrap"), size && "".concat(prefix, "__wrap-").concat(size));
-    var tooltipClasses = classNames("".concat(prefix, "__tooltip"), isTooltip && "".concat(prefix, "__tooltip--").concat(tooltip), tooltipPlacement && "".concat(prefix, "__tooltip--").concat(tooltipPlacement));
-    var tooltipId = "".concat(DEFAULT_CLASS_PREFIX, "__tooltip--").concat(++idIndex);
-    var fract = value / (max - min);
+    var wrapClasses = classNames("".concat(prefix, "__wrap"), size && "".concat(prefix, "__wrap--").concat(size));
+    var tooltipClasses = classNames("".concat(prefix, "__tooltip"), isTooltip && "".concat(prefix, "__tooltip--").concat(tooltip), tooltipPlacement && "".concat(prefix, "__tooltip--").concat(tooltipPlacement), disabled && "".concat(prefix, "__tooltip--disabled"));
+    var thumbRadius = size === 'sm' ? 8 : size === 'lg' ? 12 : 10;
+    var fract = (value - min) / (max - min);
     var percentLeft = fract * 100;
     var fractFromCentre = (fract - 0.5) * 2;
-    var adjustment = fractFromCentre * -8; // Half thumb width
+    var adjustment = fractFromCentre * -thumbRadius; // Half thumb width
 
     return React.createElement("span", {
       className: wrapClasses
-    }, inputEl, React.createElement("div", {
+    }, inputEl, React.createElement("div", _extends({
       className: tooltipClasses,
-      style: {
+      style: _objectSpread2({}, tooltipStyle || {}, {
         left: "calc(".concat(percentLeft, "% + ").concat(adjustment, "px)")
-      }
-    }, React.createElement(reactBootstrap.Tooltip, _extends({
-      id: tooltipId,
-      placement: tooltipPlacement,
-      className: "show"
-    }, tooltipProps), tooltipLabel ? tooltipLabel(value) : value)));
+      })
+    }, tooltipProps), React.createElement("div", {
+      className: "".concat(prefix, "__tooltip__label")
+    }, tooltipLabel ? tooltipLabel(value) : value), React.createElement("div", {
+      className: "".concat(prefix, "__tooltip__arrow")
+    })));
   } else {
     return inputEl;
   }
@@ -132,6 +181,7 @@ RangeSlider.propTypes = {
   tooltip: PropTypes.oneOf(['auto', 'on', 'off']),
   tooltipPlacement: PropTypes.oneOf(['top', 'bottom']),
   tooltipLabel: PropTypes.func,
+  tooltipStyle: PropTypes.object,
   tooltipProps: PropTypes.object,
   className: PropTypes.string,
   ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
@@ -139,29 +189,5 @@ RangeSlider.propTypes = {
   })]),
   bsPrefix: PropTypes.string
 };
-
-/**
- * MIT License
- *
- * Copyright (c) 2020 Jason Wilson
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
 
 module.exports = RangeSlider;

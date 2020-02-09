@@ -25,12 +25,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useBootstrapPrefix } from 'react-bootstrap/ThemeProvider';
-import { Tooltip } from 'react-bootstrap';
 import classNames from 'classnames';
 
 const DEFAULT_CLASS_PREFIX = 'range-slider';
-
-let idIndex = 0;
 
 const RangeSlider = React.forwardRef(({
   size,
@@ -45,6 +42,7 @@ const RangeSlider = React.forwardRef(({
   tooltip = 'auto',
   tooltipPlacement = 'bottom',
   tooltipLabel,
+  tooltipStyle = {},
   tooltipProps = {},
   bsPrefix,
   className,
@@ -84,21 +82,21 @@ const RangeSlider = React.forwardRef(({
 
     const wrapClasses = classNames(
       `${prefix}__wrap`,
-      size && `${prefix}__wrap-${size}`,
+      size && `${prefix}__wrap--${size}`,
     );
 
     const tooltipClasses = classNames(
       `${prefix}__tooltip`,
       isTooltip && `${prefix}__tooltip--${tooltip}`,
       tooltipPlacement && `${prefix}__tooltip--${tooltipPlacement}`,
+      disabled && `${prefix}__tooltip--disabled`,
     );
 
-    const tooltipId = `${DEFAULT_CLASS_PREFIX}__tooltip--${++idIndex}`;
- 
-    const fract = value / (max - min);
+    const thumbRadius = size === 'sm' ? 8 : (size === 'lg' ? 12 : 10);
+    const fract = (value - min) / (max - min);
     const percentLeft = fract * 100;
     const fractFromCentre = (fract - 0.5) * 2;
-    const adjustment = fractFromCentre * -8; // Half thumb width
+    const adjustment = fractFromCentre * -thumbRadius; // Half thumb width
 
     return (
       <span
@@ -110,23 +108,22 @@ const RangeSlider = React.forwardRef(({
         <div
           className={tooltipClasses}
           style={{
+            ...(tooltipStyle || {}),
             left: `calc(${percentLeft}% + ${adjustment}px)`,
           }}
+          {...tooltipProps}
         >
 
-          <Tooltip
-            id={tooltipId}
-            placement={tooltipPlacement}
-            className='show'
-            {...tooltipProps}
-          >
+          <div className={`${prefix}__tooltip__label`}>
 
             {tooltipLabel ? tooltipLabel(value) : value}
 
-          </Tooltip>
+          </div>
+
+          <div className={`${prefix}__tooltip__arrow`}/>
 
         </div>
-
+        
       </span>
     );
 
@@ -145,12 +142,13 @@ RangeSlider.propTypes = {
   max: PropTypes.number,
   step: PropTypes.number,
   disabled: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'lg']),
+  size: PropTypes.oneOf([ 'sm', 'lg' ]),
   variant: PropTypes.oneOf([ 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light' ]),
   inputProps: PropTypes.object,
-  tooltip: PropTypes.oneOf(['auto', 'on', 'off']),
-  tooltipPlacement: PropTypes.oneOf(['top', 'bottom']),
+  tooltip: PropTypes.oneOf([ 'auto', 'on', 'off' ]),
+  tooltipPlacement: PropTypes.oneOf([ 'top', 'bottom' ]),
   tooltipLabel: PropTypes.func,
+  tooltipStyle: PropTypes.object,
   tooltipProps: PropTypes.object,
   className: PropTypes.string,
   ref: PropTypes.oneOfType([

@@ -1,8 +1,465 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RangeSlider should render 1`] = `
+exports[`RangeSlider should correcly calculate tooltip left position at 0 1`] = `
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 0,
+      }
+    }
+    type="range"
+    value={0}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(0% + 10px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      0
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 0 when min and max provided 1`] = `
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={20}
+    min={10}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 10,
+      }
+    }
+    type="range"
+    value={10}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(0% + 10px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      10
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 0 when size = lg 1`] = `
+<span
+  className="range-slider__wrap range-slider__wrap--lg"
+>
+  <input
+    className="range-slider range-slider--lg range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 0,
+      }
+    }
+    type="range"
+    value={0}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(0% + 12px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      0
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 0 when size = sm 1`] = `
+<span
+  className="range-slider__wrap range-slider__wrap--sm"
+>
+  <input
+    className="range-slider range-slider--sm range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 0,
+      }
+    }
+    type="range"
+    value={0}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(0% + 8px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      0
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 50% 1`] = `
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 50,
+      }
+    }
+    type="range"
+    value={50}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(50% + 0px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      50
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 50% when min and max provided 1`] = `
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={20}
+    min={10}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 15,
+      }
+    }
+    type="range"
+    value={15}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(50% + 0px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      15
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 50% when size = lg 1`] = `
+<span
+  className="range-slider__wrap range-slider__wrap--lg"
+>
+  <input
+    className="range-slider range-slider--lg range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 50,
+      }
+    }
+    type="range"
+    value={50}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(50% + 0px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      50
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 50% when size = sm 1`] = `
+<span
+  className="range-slider__wrap range-slider__wrap--sm"
+>
+  <input
+    className="range-slider range-slider--sm range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 50,
+      }
+    }
+    type="range"
+    value={50}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(50% + 0px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      50
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 100% 1`] = `
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 100,
+      }
+    }
+    type="range"
+    value={100}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(100% + -10px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      100
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 100% when min and max provided 1`] = `
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={20}
+    min={10}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 20,
+      }
+    }
+    type="range"
+    value={20}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(100% + -10px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      20
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 100% when size = lg 1`] = `
+<span
+  className="range-slider__wrap range-slider__wrap--lg"
+>
+  <input
+    className="range-slider range-slider--lg range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 100,
+      }
+    }
+    type="range"
+    value={100}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(100% + -12px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      100
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should correcly calculate tooltip left position at 100% when size = sm 1`] = `
+<span
+  className="range-slider__wrap range-slider__wrap--sm"
+>
+  <input
+    className="range-slider range-slider--sm range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 100,
+      }
+    }
+    type="range"
+    value={100}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(100% + -8px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      100
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should pass inputProps to input 1`] = `
 <input
-  className="react-bootstrap-range-slider"
+  className="range-slider range-slider--primary"
+  data-a-prop="test"
   disabled={false}
   max={100}
   min={0}
@@ -17,9 +474,121 @@ exports[`RangeSlider should render 1`] = `
 />
 `;
 
-exports[`RangeSlider should render when disabled 1`] = `
+exports[`RangeSlider should pass tooltipProps to tooltip div 1`] = `
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 25,
+      }
+    }
+    type="range"
+    value={25}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    data-a-tooltip-prop="test"
+    style={
+      Object {
+        "left": "calc(25% + 5px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      25
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should pass tooltipStyle to tooltip div 1`] = `
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 25,
+      }
+    }
+    type="range"
+    value={25}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "background": "blue",
+        "left": "calc(25% + 5px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      25
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should render correctly when +ve min provided 1`] = `
 <input
-  className="react-bootstrap-range-slider disabled"
+  className="range-slider range-slider--primary"
+  disabled={false}
+  max={100}
+  min={10}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render correctly when -ve min provided 1`] = `
+<input
+  className="range-slider range-slider--primary"
+  disabled={false}
+  max={100}
+  min={-10}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render correctly when disabled 1`] = `
+<input
+  className="range-slider disabled range-slider--primary"
   disabled={true}
   max={100}
   min={0}
@@ -34,9 +603,81 @@ exports[`RangeSlider should render when disabled 1`] = `
 />
 `;
 
-exports[`RangeSlider should render with bsPrefix 1`] = `
+exports[`RangeSlider should render correctly when max provided 1`] = `
 <input
-  className="a-prefix a-prefix--sm"
+  className="range-slider range-slider--primary"
+  disabled={false}
+  max={20}
+  min={0}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render correctly when min and max provided 1`] = `
+<input
+  className="range-slider range-slider--primary"
+  disabled={false}
+  max={20}
+  min={10}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render correctly when only required props provided 1`] = `
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    style={
+      Object {
+        "--value": 25,
+      }
+    }
+    type="range"
+    value={25}
+  />
+  <div
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
+    style={
+      Object {
+        "left": "calc(25% + 5px)",
+      }
+    }
+  >
+    <div
+      className="range-slider__tooltip__label"
+    >
+      25
+    </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
+  </div>
+</span>
+`;
+
+exports[`RangeSlider should render correctly when size=lg provided 1`] = `
+<input
+  className="range-slider range-slider--lg range-slider--primary"
   disabled={false}
   max={100}
   min={0}
@@ -51,14 +692,48 @@ exports[`RangeSlider should render with bsPrefix 1`] = `
 />
 `;
 
-exports[`RangeSlider should render with id 1`] = `
+exports[`RangeSlider should render correctly when size=sm provided 1`] = `
+<input
+  className="range-slider range-slider--sm range-slider--primary"
+  disabled={false}
+  max={100}
+  min={0}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render correctly when step provided 1`] = `
+<input
+  className="range-slider range-slider--primary"
+  disabled={false}
+  max={100}
+  min={0}
+  onChange={[Function]}
+  step={25}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render correctly when tooltip = auto 1`] = `
 <span
-  className="react-bootstrap-range-slider__wrap"
+  className="range-slider__wrap"
 >
   <input
-    className="react-bootstrap-range-slider"
+    className="range-slider range-slider--primary"
     disabled={false}
-    id="a-slider-id"
     max={100}
     min={0}
     onChange={[Function]}
@@ -71,38 +746,48 @@ exports[`RangeSlider should render with id 1`] = `
     value={25}
   />
   <div
-    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--bottom react-bootstrap-range-slider__tooltip--auto"
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
     style={
       Object {
-        "left": "calc(25% + 4px)",
+        "left": "calc(25% + 5px)",
       }
     }
   >
     <div
-      className="show tooltip bs-tooltip-bottom"
-      id="a-slider-id__tooltip"
-      role="tooltip"
-      x-placement="bottom"
+      className="range-slider__tooltip__label"
     >
-      <div
-        className="arrow"
-      />
-      <div
-        className="tooltip-inner"
-      >
-        25
-      </div>
+      25
     </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
   </div>
 </span>
 `;
 
-exports[`RangeSlider should render with size = sm 1`] = `
+exports[`RangeSlider should render correctly when tooltip = off 1`] = `
+<input
+  className="range-slider range-slider--primary"
+  disabled={false}
+  max={100}
+  min={0}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render correctly when tooltip explicitly = auto 1`] = `
 <span
-  className="react-bootstrap-range-slider__wrap react-bootstrap-range-slider__wrap-sm"
+  className="range-slider__wrap"
 >
   <input
-    className="react-bootstrap-range-slider react-bootstrap-range-slider--sm"
+    className="range-slider range-slider--primary"
     disabled={false}
     max={100}
     min={0}
@@ -116,38 +801,31 @@ exports[`RangeSlider should render with size = sm 1`] = `
     value={25}
   />
   <div
-    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--bottom react-bootstrap-range-slider__tooltip--auto"
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
     style={
       Object {
-        "left": "calc(25% + 4px)",
+        "left": "calc(25% + 5px)",
       }
     }
   >
     <div
-      className="show tooltip bs-tooltip-bottom"
-      id="react-bootstrap-range-slider__tooltip--4"
-      role="tooltip"
-      x-placement="bottom"
+      className="range-slider__tooltip__label"
     >
-      <div
-        className="arrow"
-      />
-      <div
-        className="tooltip-inner"
-      >
-        25
-      </div>
+      25
     </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
   </div>
 </span>
 `;
 
-exports[`RangeSlider should render with tooltip 1`] = `
+exports[`RangeSlider should render correctly when tooltipPlacement = top 1`] = `
 <span
-  className="react-bootstrap-range-slider__wrap"
+  className="range-slider__wrap"
 >
   <input
-    className="react-bootstrap-range-slider"
+    className="range-slider range-slider--primary"
     disabled={false}
     max={100}
     min={0}
@@ -161,38 +839,31 @@ exports[`RangeSlider should render with tooltip 1`] = `
     value={25}
   />
   <div
-    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--bottom react-bootstrap-range-slider__tooltip--auto"
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--top"
     style={
       Object {
-        "left": "calc(25% + 4px)",
+        "left": "calc(25% + 5px)",
       }
     }
   >
     <div
-      className="show tooltip bs-tooltip-bottom"
-      id="react-bootstrap-range-slider__tooltip--1"
-      role="tooltip"
-      x-placement="bottom"
+      className="range-slider__tooltip__label"
     >
-      <div
-        className="arrow"
-      />
-      <div
-        className="tooltip-inner"
-      >
-        25
-      </div>
+      25
     </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
   </div>
 </span>
 `;
 
-exports[`RangeSlider should render with tooltip label 1`] = `
+exports[`RangeSlider should render correctly when tooltipPlacement explicitly = bottom 1`] = `
 <span
-  className="react-bootstrap-range-slider__wrap"
+  className="range-slider__wrap"
 >
   <input
-    className="react-bootstrap-range-slider"
+    className="range-slider range-slider--primary"
     disabled={false}
     max={100}
     min={0}
@@ -206,83 +877,65 @@ exports[`RangeSlider should render with tooltip label 1`] = `
     value={25}
   />
   <div
-    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--bottom react-bootstrap-range-slider__tooltip--auto"
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
     style={
       Object {
-        "left": "calc(25% + 4px)",
+        "left": "calc(25% + 5px)",
       }
     }
   >
     <div
-      className="show tooltip bs-tooltip-bottom"
-      id="react-bootstrap-range-slider__tooltip--2"
-      role="tooltip"
-      x-placement="bottom"
+      className="range-slider__tooltip__label"
     >
-      <div
-        className="arrow"
-      />
-      <div
-        className="tooltip-inner"
-      >
-        25 km
-      </div>
+      25
     </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
   </div>
 </span>
 `;
 
-exports[`RangeSlider should render with tooltip placement = top 1`] = `
-<span
-  className="react-bootstrap-range-slider__wrap"
->
-  <input
-    className="react-bootstrap-range-slider"
-    disabled={false}
-    max={100}
-    min={0}
-    onChange={[Function]}
-    style={
-      Object {
-        "--value": 25,
-      }
+exports[`RangeSlider should render correctly when variant provided 1`] = `
+<input
+  className="range-slider range-slider--secondary"
+  disabled={false}
+  max={100}
+  min={0}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
     }
-    type="range"
-    value={25}
-  />
-  <div
-    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--top react-bootstrap-range-slider__tooltip--auto"
-    style={
-      Object {
-        "left": "calc(25% + 4px)",
-      }
-    }
-  >
-    <div
-      className="show tooltip bs-tooltip-top"
-      id="react-bootstrap-range-slider__tooltip--3"
-      role="tooltip"
-      x-placement="top"
-    >
-      <div
-        className="arrow"
-      />
-      <div
-        className="tooltip-inner"
-      >
-        25
-      </div>
-    </div>
-  </div>
-</span>
+  }
+  type="range"
+  value={25}
+/>
 `;
 
-exports[`RangeSlider should render with tooltipId 1`] = `
+exports[`RangeSlider should render correctly with bsPrefix 1`] = `
+<input
+  className="a-prefix a-prefix--primary"
+  disabled={false}
+  max={100}
+  min={0}
+  onChange={[Function]}
+  style={
+    Object {
+      "--value": 25,
+    }
+  }
+  type="range"
+  value={25}
+/>
+`;
+
+exports[`RangeSlider should render correctly with tooltip label 1`] = `
 <span
-  className="react-bootstrap-range-slider__wrap"
+  className="range-slider__wrap"
 >
   <input
-    className="react-bootstrap-range-slider"
+    className="range-slider range-slider--primary"
     disabled={false}
     max={100}
     min={0}
@@ -296,28 +949,21 @@ exports[`RangeSlider should render with tooltipId 1`] = `
     value={25}
   />
   <div
-    className="react-bootstrap-range-slider__tooltip react-bootstrap-range-slider__tooltip--bottom react-bootstrap-range-slider__tooltip--auto"
+    className="range-slider__tooltip range-slider__tooltip--auto range-slider__tooltip--bottom"
     style={
       Object {
-        "left": "calc(25% + 4px)",
+        "left": "calc(25% + 5px)",
       }
     }
   >
     <div
-      className="show tooltip bs-tooltip-bottom"
-      id="a-tooltip-id"
-      role="tooltip"
-      x-placement="bottom"
+      className="range-slider__tooltip__label"
     >
-      <div
-        className="arrow"
-      />
-      <div
-        className="tooltip-inner"
-      >
-        25
-      </div>
+      25 km
     </div>
+    <div
+      className="range-slider__tooltip__arrow"
+    />
   </div>
 </span>
 `;
