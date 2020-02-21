@@ -33,6 +33,16 @@ const MyComponent = () => {
 };
 ```
 
+## Features
+
+ - Compatible with React Bootstrap v1.0.0-beta and Bootstrap 4;
+ - Implemented using native HTML `<input type="range">` element;
+ - Aligns horizontally with Bootstrap form controls;
+ - Bootstrap small (`sm`) and large (`lg`) sizes are supported;
+ - Bootstrap button color variants such as 'primary' and 'secondary' are supported;
+ - A tooltip can be configured to automatically display on hover or be constantly visible;
+ - A custom tooltip formatter function can be provided;
+
 ## Options (as React props)
 
 | Property | Type | Default | Description |
@@ -58,7 +68,7 @@ const MyComponent = () => {
 
 React Bootstrap Range Slider works in most modern web browsers and in Internet Explorer 10+ (with [polyfills](https://create-react-app.dev/docs/supported-browsers-features/#supported-browsers) required for React to work).
 
-| Browser | Supported
+| Browser | Supported |
 | --- | --- |
 | Chrome | Yes |
 | Edge | Yes |
