@@ -1,6 +1,6 @@
 # React Bootstrap Range Slider
 
-A range slider component for React Bootstrap (Bootstrap 4) that extends the native HTML `<input type="range">` element.
+A slider component for React Bootstrap v1.0.0-beta / Bootstrap 4 that extends the native HTML `<input type="range">` element.
 
 <img src="./screenshots/react-bootstrap-range-slider-screenshot.png?raw=true" alt="React Bootstrap Range Slider screenshot showing rendered slider component with various options applied, including label placement and different variants" width="452">
 
@@ -41,7 +41,7 @@ const MyComponent = () => {
  - Bootstrap small (`sm`) and large (`lg`) sizes are supported;
  - Bootstrap button color variants such as 'primary' and 'secondary' are supported;
  - A tooltip can be configured to automatically display on hover or be constantly visible;
- - A custom tooltip formatter function can be provided;
+ - A custom tooltip formatter function can be provided.
 
 ## Options (as React props)
 
