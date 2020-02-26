@@ -4,6 +4,8 @@ A slider component for React Bootstrap v1.0.0-beta / Bootstrap 4 that extends th
 
 <img src="./screenshots/react-bootstrap-range-slider-screenshot.png?raw=true" alt="React Bootstrap Range Slider screenshot showing rendered slider component with various options applied, including label placement and different variants" width="452">
 
+Check out the [Examples Page](https://jaywilz.github.io/react-bootstrap-range-slider/) for live demos of all main slider features.
+
 ## Installation
 
     npm install react-bootstrap-range-slider
