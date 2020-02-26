@@ -21,6 +21,8 @@
     "release": "npm run build:dev && npm run build",
     "build": "BABEL_ENV=build NODE_ENV=production rollup -c",
     "build:dev": "BABEL_ENV=build NODE_ENV=development rollup -c",
+    "build:examples-umd": "BABEL_ENV=build NODE_ENV=examples rollup -c",
+    "build:pages": "node_modules/@babel/cli/bin/babel.js docs/js/examples.src.js --out-file docs/js/examples.js --presets=@babel/preset-env,@babel/preset-react",
     "test": "cross-env BABEL_ENV=test NODE_ENV=test jest --no-cache"
   },
   "jest": {
@@ -29,10 +31,12 @@
     }
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
+    "@rollup/plugin-node-resolve": "^7.1.1",
     "cross-env": "^7.0.0",
     "jest": "^25.1.0",
     "less": "^3.10.3",

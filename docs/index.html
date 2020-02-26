@@ -1,72 +1,517 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Examples - React Bootstrap Range Slider</title>
+  <meta name="description" content="React Bootstrap slider examples using react-bootstrap-range-slider">
+  <meta name="keywords" content="React Bootstrap slider, React slider, slider, React slider component, range slider">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism.css"> -->
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/react-bootstrap-range-slider.css">
+  <link rel="stylesheet" href="css/code.css">
+  <link rel="stylesheet" href="css/main.css">
 
-        <!--[if lt IE 9]>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
-        <![endif]-->
-    </head>
-    <body>
+</head>
+<body>
 
-        <div class="header-container">
-            <header class="wrapper clearfix">
-                <h1 class="title">h1.title</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
-                        <li><a href="#">nav ul li a</a></li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
+  <nav id="external-links">
 
-        <div class="main-container">
-            <div class="main wrapper clearfix">
+    <a class="icon-link" href="https://github.com/jaywilz/react-bootstrap-range-slider" id="link--github">
 
-                <article>
-                    <header>
-                        <h1>article header h1</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
-                    </header>
-                    <section>
-                        <h2>article section h2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
-                    </section>
-                    <section>
-                        <h2>article section h2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
-                    </section>
-                    <footer>
-                        <h3>article footer h3</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
-                    </footer>
-                </article>
+      <img src="img/github-1.svg" alt="GitHub">
 
-                <aside>
-                    <h3>aside</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
-                </aside>
+    </a>
 
-            </div> <!-- #main -->
-        </div> <!-- #main-container -->
+    <!-- <a class="icon-link" href="https://www.npmjs.com/package/react-bootstrap-range-slider" id="link--npm">
 
-        <div class="footer-container">
-            <footer class="wrapper">
-                <h3>footer</h3>
-            </footer>
-        </div>
+      <img src="img/npm-logo-red.svg" alt="NPM">
 
-        <script src="js/main.js"></script>
-    </body>
+    </a> -->
+
+  </nav>
+
+  <article>
+
+    <header>
+
+      <h1>React Bootstrap Range Slider<br/>Usage Examples</h1>
+
+      <p></p>
+
+    </header>
+
+    <section>
+      <h2>Simple Slider</h2>
+      <p>This is the simplest usage example, where only the required <em>value</em> and <em>onChange</em> props are provided.
+        By default <span class="no-wrap"><em>min</em> = 0</span> and <span class="no-wrap"><em>max</em> = 100<span>.</p>
+      <div class="example w1" id="simple-usage"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const SimpleSlider = () => {
+
+  const [ value, setValue ] = React.useState(50);
+
+  return (
+    &lt;RangeSlider
+      value={value}
+      onChange={e => setValue(Number(e.target.value))}
+    /&gt;
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Slider with Label</h2>
+      <p>The React Bootstrap label component can be used with the slider just as it can with any form control component.</p>
+      <div class="example w1" id="with-label"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const SliderWithLabel = () => {
+
+  const [ value, setValue ] = React.useState(50);
+
+  return ( 
+    &lt;Form> 
+      &lt;Form.Group>
+        &lt;Form.Label>
+          My Label
+        &lt;/Form.Label>
+        &lt;RangeSlider
+          value={value}
+          onChange={e => setValue(Number(e.target.value))}
+        /&gt;
+      &lt;/Form.Group>   
+    &lt;/Form>
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Slider with Column Layout Label </h2>
+      <p>React Bootstrap's Col can be used for a horizontally aligned label.</p>
+      <div class="example w15" id="with-column-layout-label"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const SliderWithColumnLayoutLabel = () => {
+
+  const [ value, setValue ] = React.useState(50);
+
+  return ( 
+    &lt;Form> 
+      &lt;Form.Group as={Row}>
+        &lt;Form.Label column sm="4">
+          My Other Label
+        &lt;/Form.Label>
+        &lt;Col sm="8">
+          &lt;RangeSlider
+            value={value}
+            onChange={e => setValue(Number(e.target.value))}
+          /&gt;
+        &lt;/Col>
+      &lt;/Form.Group>
+    &lt;/Form>
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Slider with a Text Input</h2>
+      <p>The slider is arranged in a row with a Form.Control component.</p>
+      <div class="example w1" id="with-form-control"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const SliderWithInputFormControl = () => {
+
+  const [ value, setValue ] = React.useState(25);
+
+  return (
+    &lt;Form>
+      &lt;Form.Group as={Row}>
+        &lt;Col xs="9">
+          &lt;RangeSlider
+            value={value}
+            onChange={e => setValue(Number(e.target.value))}
+          /&gt;        
+        &lt;/Col>
+        &lt;Col xs="3">
+          &lt;Form.Control value={value}/>
+        &lt;/Col>
+      &lt;/Form.Group>
+    &lt;/Form>
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Sliders with size prop specified</h2>
+      <p>Set the size prop to control the size of the slider. This is useful so that the slider vertically aligned with other form controls.</p>
+      <div class="example w15" id="sizes"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const Sizes = () => {
+
+  const [ value1, setValue1 ] = React.useState(20);
+  const [ value2, setValue2 ] = React.useState(50);
+  const [ value3, setValue3 ] = React.useState(80);
+
+  return (
+    &lt;Form>
+      &lt;Form.Group as={Row}>
+        &lt;Col xs="4">
+          &lt;Form.Control value={value1} size='sm'/>
+        &lt;/Col>
+        &lt;Col xs="8">
+          &lt;RangeSlider
+            value={value1}
+            onChange={e => setValue1(Number(e.target.value))}
+            size='sm'
+          /&gt;        
+        &lt;/Col>
+      &lt;/Form.Group>
+      &lt;Form.Group as={Row}>
+        &lt;Col xs="4">
+          &lt;Form.Control value={value2}/>
+        &lt;/Col>
+        &lt;Col xs="8">
+          &lt;RangeSlider
+            value={value2}
+            onChange={e => setValue2(Number(e.target.value))}
+          /&gt;        
+        &lt;/Col>
+      &lt;/Form.Group>
+      &lt;Form.Group as={Row}>
+        &lt;Col xs="4">
+          &lt;Form.Control value={value3} size='lg'/>
+        &lt;/Col>
+        &lt;Col xs="8">
+          &lt;RangeSlider
+            value={value3}
+            onChange={e => setValue3(Number(e.target.value))}
+            size='lg'
+          /&gt;        
+        &lt;/Col>
+      &lt;/Form.Group>
+      &lt;/Form>
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Color variants</h2>
+      <p>Eight color variants are supported, which are the same as the Bootstrap Button variants.</p>
+      <div class="example mb2" id="variants"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const Variants = () => {
+
+  const [ value1, setValue1 ] = React.useState(30);
+  const [ value2, setValue2 ] = React.useState(30);
+  const [ value3, setValue3 ] = React.useState(30);
+  const [ value4, setValue4 ] = React.useState(30);
+  const [ value5, setValue5 ] = React.useState(70);
+  const [ value6, setValue6 ] = React.useState(70);
+  const [ value7, setValue7 ] = React.useState(70);
+  const [ value8, setValue8 ] = React.useState(70);
+
+  return (
+    &lt;Form>
+      &lt;Form.Group as={Row}>
+        &lt;Col xs="3">
+          &lt;RangeSlider
+            value={value1}
+            onChange={e => setValue1(Number(e.target.value))}
+            variant='primary'
+          /&gt;        
+        &lt;/Col>
+        &lt;Col xs="3">
+          &lt;RangeSlider
+            value={value2}
+            onChange={e => setValue2(Number(e.target.value))}
+            variant='secondary'
+          /&gt;    
+        &lt;/Col>
+        &lt;Col xs="3">
+          &lt;RangeSlider
+            value={value3}
+            onChange={e => setValue3(Number(e.target.value))}
+            variant='success'
+          /&gt;        
+        &lt;/Col>
+        &lt;Col xs="3">
+          &lt;RangeSlider
+            value={value4}
+            onChange={e => setValue4(Number(e.target.value))}
+            variant='danger'
+          /&gt;    
+        &lt;/Col>
+      &lt;/Form.Group>
+      &lt;Form.Group as={Row}>
+        &lt;Col xs="3">
+          &lt;RangeSlider
+            value={value5}
+            onChange={e => setValue5(Number(e.target.value))}
+            variant='warning'
+          /&gt;        
+        &lt;/Col>
+        &lt;Col xs="3">
+          &lt;RangeSlider
+            value={value6}
+            onChange={e => setValue6(Number(e.target.value))}
+            variant='info'
+          /&gt;    
+        &lt;/Col>
+        &lt;Col xs="3">
+          &lt;RangeSlider
+            value={value7}
+            onChange={e => setValue7(Number(e.target.value))}
+            variant='dark'
+          /&gt;        
+        &lt;/Col>
+        &lt;Col xs="3">
+          &lt;RangeSlider
+            value={value8}
+            onChange={e => setValue8(Number(e.target.value))}
+            variant='light'
+          /&gt;    
+        &lt;/Col>
+      &lt;/Form.Group>
+    </Form>
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tooltip behaviour: auto, on or off</h2>
+      <p>When the tooltip prop is set to 'auto' the tooltip will be visible only when the slider is hovered.
+        When set to on, the tooltip will always be visible and when set to off will not be rendered.</p>
+      <div class="example w2" id="tooltip-behaviour"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const TooltipBehaviour = () => {
+
+  const [ value1, setValue1 ] = React.useState(20);
+  const [ value2, setValue2 ] = React.useState(50);
+  const [ value3, setValue3 ] = React.useState(80);
+
+  return (
+    &lt;Form>
+      &lt;Form.Group as={Row}>
+        &lt;Col xs="4">
+          &lt;RangeSlider
+            value={value1}
+            onChange={e => setValue1(Number(e.target.value))}
+            tooltip='auto'
+          /&gt;        
+        &lt;/Col>
+        &lt;Col xs="4">
+          &lt;RangeSlider
+            value={value2}
+            onChange={e => setValue2(Number(e.target.value))}
+            tooltip='on'
+          /&gt;        
+        &lt;/Col>
+        &lt;Col xs="4">
+          &lt;RangeSlider
+            value={value3}
+            onChange={e => setValue3(Number(e.target.value))}
+            tooltip='off'
+          /&gt;        
+        &lt;/Col>
+      &lt;/Form.Group>
+    &lt;/Form>
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tooltip placement</h2>
+      <p>The tooltip placement can be either be above the slider thumb or below, which is the default.</p>
+      <div class="example w15 mt1" id="tooltip-placement"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const TooltipPlacement = () => {
+
+  const [ value1, setValue1 ] = React.useState(25);
+  const [ value2, setValue2 ] = React.useState(75);
+
+  return (
+    &lt;Form>
+      &lt;Form.Group as={Row}>
+        &lt;Col xs="6">
+          &lt;RangeSlider
+            value={value1}
+            onChange={e => setValue1(Number(e.target.value))}
+            tooltipPlacement='top'
+          /&gt;        
+        &lt;/Col>
+        &lt;Col xs="6">
+          &lt;RangeSlider
+            value={value2}
+            onChange={e => setValue2(Number(e.target.value))}
+            tooltipPlacement='bottom'
+          /&gt;     
+        &lt;/Col>
+      &lt;/Form.Group>
+    &lt;/Form>
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tooltip label formatter</h2>
+      <p>A formatter function returns a string which is rendered as the tooltip label text.</p>
+      <div class="example w1" id="tooltip-label"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const TooltipLabel = () => {
+
+  const [ value, setValue ] = React.useState(25);
+
+  return (
+    &lt;RangeSlider
+      value={value}
+      onChange={e => setValue(Number(e.target.value))}
+      tooltipLabel={currentValue => `${currentValue}%`}
+    /&gt;        
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Disabled</h2>
+      <p>The disabled prop is used to disable the slider.</p>
+      <div class="example w1" id="disabled"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const Disabled = () => {
+
+  const [ value, setValue ] = React.useState(50);
+
+  return (
+    &lt;RangeSlider
+      value={value}
+      onChange={e => setValue(Number(e.target.value))}
+      disabled
+    /&gt;        
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Min, max</h2>
+      <p>The min and max props can be used to specify the range of possible slider values.</p>
+      <div class="example w15" id="min-max"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const MinMax = () => {
+
+  const [ value1, setValue1 ] = React.useState(2);
+  const [ value2, setValue2 ] = React.useState(0);
+
+  return (
+    &lt;Form>
+      &lt;Form.Group as={Row}>
+        &lt;Col xs="6">
+          &lt;RangeSlider
+            value={value1}
+            onChange={e => setValue1(Number(e.target.value))}
+            min={1}
+            max={5}
+          /&gt;        
+        &lt;/Col>
+        &lt;Col xs="6">
+          &lt;RangeSlider
+            value={value2}
+            onChange={e => setValue2(Number(e.target.value))}
+            min={-20}
+            max={50}
+          /&gt;     
+        &lt;/Col>
+      &lt;/Form.Group>
+    &lt;/Form>
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Step</h2>
+      <p>When the step prop is defined the slider thumb will snap to values in accordance with the step size.</p>
+      <div class="example w1" id="step"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const Step = () => {
+
+  const [ value, setValue ] = React.useState(50);
+
+  return (
+    &lt;RangeSlider
+      value={value}
+      onChange={e => setValue(Number(e.target.value))}
+      step={10}
+    /&gt;         
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <footer>
+
+      <nav>
+
+        <span class="copyright">© 2020 Jason Wilson</span>
+
+        |
+
+        <a class="icon-link" href="https://github.com/jaywilz/react-bootstrap-range-slider">GitHub repository</a>
+
+        |
+
+        <a class="icon-link" href="https://www.npmjs.com/package/react-bootstrap-range-slider">NPM page</a>
+
+      </nav>
+
+    </footer>
+
+  </article>
+
+  <script src="https://unpkg.com/jquery/dist/jquery.slim.min.js"></script>
+  <script src="https://unpkg.com/prismjs/prism.js"></script>
+  <script src="https://unpkg.com/prismjs/components/prism-jsx.js"></script>
+  <script src="https://unpkg.com/prismjs/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://unpkg.com/react/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+  <script src="https://unpkg.com/react-bootstrap/dist/react-bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/examples-umd.js"></script>
+  <script src="js/examples.js"></script>
+
+</body>
 </html>
