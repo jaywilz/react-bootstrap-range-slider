@@ -308,10 +308,7 @@ input[type=range].range-slider::-ms-tooltip {
 .range-slider__wrap .range-slider__tooltip.range-slider__tooltip--on {
   opacity: 0.9;
 }
-.range-slider__wrap .range-slider__tooltip:not(.range-slider__tooltip--on):not(.range-slider__tooltip--disabled) {
-  opacity: 1;
-}
-.range-slider__wrap .range-slider__tooltip.range-slider__tooltip--disabled {
+.range-slider__wrap .range-slider__tooltip.range-slider__tooltip--on.range-slider__tooltip--disabled {
   opacity: 0.25;
 }
 .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__label {
@@ -348,7 +345,7 @@ input[type=range].range-slider::-ms-tooltip {
   bottom: -0.4rem;
 }
 .range-slider__wrap .range-slider__tooltip.range-slider__tooltip--top .range-slider__tooltip__arrow::before {
-  top: -0.5px;
+  top: 0;
   border-width: 0.4rem 0.4rem 0;
   border-top-color: black;
 }
@@ -356,7 +353,7 @@ input[type=range].range-slider::-ms-tooltip {
   top: -0.4rem;
 }
 .range-slider__wrap .range-slider__tooltip.range-slider__tooltip--bottom .range-slider__tooltip__arrow::before {
-  bottom: -0.5px;
+  bottom: 0;
   border-width: 0 0.4rem 0.4rem;
   border-bottom-color: black;
 }
@@ -379,4 +376,10 @@ input[type=range].range-slider::-ms-tooltip {
 }
 .range-slider__wrap.range-slider__wrap--lg .range-slider__tooltip--bottom {
   top: calc(0.75em + 0.5rem + 1px + 0.4rem + 12px + 3px);
+}
+.range-slider__wrap:hover .range-slider__tooltip:not(.range-slider__tooltip--off):not(.range-slider__tooltip--disabled) {
+  opacity: 0.9;
+}
+.range-slider__wrap:hover .range-slider__tooltip--disabled:not(.range-slider__tooltip--off) {
+  opacity: 0.25;
 }
