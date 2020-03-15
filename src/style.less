@@ -221,6 +221,19 @@ input[type=range].range-slider {
   display: block;
   height: calc(1.5em + 0.75rem + 2px);
 
+  // Vertical
+
+  &.range-slider__wrap--vertical {
+    transform: rotate(-90deg);
+
+    .range-slider__tooltip .range-slider__tooltip__label {
+      transform: translateX(-50%) rotate(90deg);
+      padding: 0 1px 0 0;
+      margin-top: 3px;
+      min-width: 32px;
+    }
+  }
+
   // Tooltip
 
   .range-slider__tooltip {
