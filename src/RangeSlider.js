@@ -37,6 +37,7 @@ const RangeSlider = React.forwardRef(({
   min = 0,
   max = 100,
   step,
+  vertical = false,
   variant = 'primary',
   inputProps = {},
   tooltip = 'auto',
@@ -78,11 +79,12 @@ const RangeSlider = React.forwardRef(({
     />
   );
 
-  if (isTooltip) {
+  if (isTooltip || vertical) {
 
     const wrapClasses = classNames(
       `${prefix}__wrap`,
       size && `${prefix}__wrap--${size}`,
+      { 'range-slider__wrap--vertical': vertical }
     );
 
     const tooltipClasses = classNames(
@@ -105,24 +107,26 @@ const RangeSlider = React.forwardRef(({
 
         {inputEl}
 
-        <div
-          className={tooltipClasses}
-          style={{
-            ...(tooltipStyle || {}),
-            left: `calc(${percentLeft}% + ${adjustment}px)`,
-          }}
-          {...tooltipProps}
-        >
+        { !!isTooltip &&
+          <div
+            className={tooltipClasses}
+            style={{
+              ...(tooltipStyle || {}),
+              left: `calc(${percentLeft}% + ${adjustment}px)`,
+            }}
+            {...tooltipProps}
+          >
 
-          <div className={`${prefix}__tooltip__label`}>
+            <div className={`${prefix}__tooltip__label`}>
 
-            {tooltipLabel ? tooltipLabel(value) : value}
+              {tooltipLabel ? tooltipLabel(value) : value}
+
+            </div>
+
+            <div className={`${prefix}__tooltip__arrow`}/>
 
           </div>
-
-          <div className={`${prefix}__tooltip__arrow`}/>
-
-        </div>
+        }
         
       </span>
     );
@@ -143,6 +147,7 @@ RangeSlider.propTypes = {
   step: PropTypes.number,
   disabled: PropTypes.bool,
   size: PropTypes.oneOf([ 'sm', 'lg' ]),
+  vertical: PropTypes.bool,
   variant: PropTypes.oneOf([ 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light' ]),
   inputProps: PropTypes.object,
   tooltip: PropTypes.oneOf([ 'auto', 'on', 'off' ]),
