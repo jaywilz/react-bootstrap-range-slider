@@ -94,7 +94,7 @@ const RangeSlider = React.forwardRef(({
       disabled && `${prefix}__tooltip--disabled`,
     );
 
-    const thumbRadius = size === 'sm' ? 8 : (size === 'lg' ? 12 : 10);
+    const thumbRadius = size === 'sm' ? 8 : (size === 'xs' ? 5 : (size === 'lg' ? 12 : 10));
     const fract = (value - min) / (max - min);
     const percentLeft = fract * 100;
     const fractFromCentre = (fract - 0.5) * 2;
@@ -146,7 +146,7 @@ RangeSlider.propTypes = {
   max: PropTypes.number,
   step: PropTypes.number,
   disabled: PropTypes.bool,
-  size: PropTypes.oneOf([ 'sm', 'lg' ]),
+  size: PropTypes.oneOf([ 'xs', 'sm', 'lg' ]),
   vertical: PropTypes.bool,
   variant: PropTypes.oneOf([ 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light' ]),
   inputProps: PropTypes.object,
