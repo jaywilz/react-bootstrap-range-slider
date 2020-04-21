@@ -135,6 +135,9 @@ const RangeSlider = React.forwardRef(({
 
 });
 
+// Fix: https://github.com/jaywilz/react-bootstrap-range-slider/issues/3
+const Element = typeof Element === 'undefined' ? function() {} : Element;
+
 RangeSlider.propTypes = {
   value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,

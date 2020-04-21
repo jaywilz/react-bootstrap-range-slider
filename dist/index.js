@@ -128,7 +128,7 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
   var prefix = ThemeProvider.useBootstrapPrefix(bsPrefix, DEFAULT_CLASS_PREFIX);
   var isTooltip = tooltip === 'auto' || tooltip === 'on';
   var classes = classNames(className, prefix, size && "".concat(prefix, "--").concat(size), disabled && 'disabled', variant && "".concat(prefix, "--").concat(variant));
-  var inputEl = React.createElement("input", _extends({
+  var inputEl = /*#__PURE__*/React.createElement("input", _extends({
     type: "range",
     className: classes,
     value: value,
@@ -152,22 +152,24 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
     var fractFromCentre = (fract - 0.5) * 2;
     var adjustment = fractFromCentre * -thumbRadius; // Half thumb width
 
-    return React.createElement("span", {
+    return /*#__PURE__*/React.createElement("span", {
       className: wrapClasses
-    }, inputEl, React.createElement("div", _extends({
+    }, inputEl, /*#__PURE__*/React.createElement("div", _extends({
       className: tooltipClasses,
       style: _objectSpread2({}, tooltipStyle || {}, {
         left: "calc(".concat(percentLeft, "% + ").concat(adjustment, "px)")
       })
-    }, tooltipProps), React.createElement("div", {
+    }, tooltipProps), /*#__PURE__*/React.createElement("div", {
       className: "".concat(prefix, "__tooltip__label")
-    }, tooltipLabel ? tooltipLabel(value) : value), React.createElement("div", {
+    }, tooltipLabel ? tooltipLabel(value) : value), /*#__PURE__*/React.createElement("div", {
       className: "".concat(prefix, "__tooltip__arrow")
     })));
   } else {
     return inputEl;
   }
-});
+}); // Fix: https://github.com/jaywilz/react-bootstrap-range-slider/issues/3
+
+var Element = typeof Element === 'undefined' ? function () {} : Element;
 RangeSlider.propTypes = {
   value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
