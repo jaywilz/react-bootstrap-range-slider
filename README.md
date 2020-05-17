@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/react-bootstrap-range-slider.svg)](https://badge.fury.io/js/react-bootstrap-range-slider)
+
 # React Bootstrap Range Slider
 
 A slider component for React Bootstrap v1.0.0-beta / Bootstrap 4 that extends the native HTML `<input type="range">` element.
