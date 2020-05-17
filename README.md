@@ -1,4 +1,5 @@
-[![npm version](https://badge.fury.io/js/react-bootstrap-range-slider.svg)](https://badge.fury.io/js/react-bootstrap-range-slider)
+[![npm version](https://badge.fury.io/js/react-bootstrap-range-slider.svg)](https://badge.fury.io/js/react-bootstrap-range-slider) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 # React Bootstrap Range Slider
 
