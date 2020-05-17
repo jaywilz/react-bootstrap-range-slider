@@ -9,6 +9,10 @@ Check out the [Examples Page](https://jaywilz.github.io/react-bootstrap-range-sl
 
 ## Installation
 
+    yarn add react-bootstrap-range-slider
+
+or
+
     npm install react-bootstrap-range-slider
 
 ### Prerequisites
