@@ -24,7 +24,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useBootstrapPrefix } from 'react-bootstrap/ThemeProvider';
 import classNames from 'classnames';
 
 const DEFAULT_CLASS_PREFIX = 'range-slider';
@@ -48,7 +47,7 @@ const RangeSlider = React.forwardRef(({
   className,
 }, ref) => {
 
-  const prefix = useBootstrapPrefix(bsPrefix, DEFAULT_CLASS_PREFIX);
+  const prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
 
   const isTooltip = tooltip === 'auto' || tooltip === 'on';
 

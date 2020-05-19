@@ -3,7 +3,7 @@
 
 # React Bootstrap Range Slider
 
-A slider component for React Bootstrap v1.0.0-beta / Bootstrap 4 that extends the native HTML `<input type="range">` element.
+A slider component for React Bootstrap v1.0.0+ / Bootstrap 4 that extends the native HTML `<input type="range">` element.
 
 Check out the [Examples Page](https://jaywilz.github.io/react-bootstrap-range-slider/) for live demos of all main slider features.
 
@@ -20,13 +20,21 @@ or
 
 ### Prerequisites
 
-[React Bootstrap](https://github.com/react-bootstrap/react-bootstrap) and [Bootstrap](https://github.com/twbs/bootstrap) must be installed and the [CSS](https://react-bootstrap.netlify.com/getting-started/introduction#stylesheets) from Bootstrap imported.
+[React Bootstrap](https://github.com/react-bootstrap/react-bootstrap) must be installed and the [Bootstrap CSS](https://react-bootstrap.netlify.com/getting-started/introduction#stylesheets) imported.
 
 ## Usage
 
+In your `index.js` or similar:
+
+```JavaScript
+import 'bootstrap/dist/css/bootstrap.css'; 
+import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
+```
+
+Your component:
+
 ```JavaScript
 import React, { useState } from 'react';
-import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 import RangeSlider from 'react-bootstrap-range-slider';
 
 const MyComponent = () => {
@@ -36,7 +44,7 @@ const MyComponent = () => {
   return (
     <RangeSlider
       value={value}
-      onChange={changeEvent => setValue(changeEvent.target.value)}
+      onChange={changeEvent => setValue(Number(changeEvent.target.value))}
     />
   );
 
@@ -45,7 +53,7 @@ const MyComponent = () => {
 
 ## Features
 
- - Compatible with React Bootstrap v1.0.0-beta and Bootstrap 4;
+ - Compatible with React Bootstrap v1.0.0+ and Bootstrap 4;
  - Implemented using native HTML `<input type="range">` element;
  - Aligns horizontally with Bootstrap form controls;
  - Bootstrap small (`sm`) and large (`lg`) sizes are supported;

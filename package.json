@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-range-slider",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "A range slider component for React Bootstrap (Bootstrap 4) that extends the native HTML input (type=range) element.",
   "keywords": [
     "react",
@@ -24,16 +24,12 @@
     "build:examples-umd": "BABEL_ENV=build NODE_ENV=examples rollup -c",
     "build:pages": "node_modules/@babel/cli/bin/babel.js docs/js/examples.src.js --out-file docs/js/examples.js --presets=@babel/preset-env,@babel/preset-react",
     "test": "cross-env BABEL_ENV=test NODE_ENV=test jest --no-cache",
-    "test:coverage": "npm test -- --coverage",
-    "test:badges": "npm run test:coverage && jest-coverage-badges"
+    "test:coverage": "npm test -- --coverage"
   },
   "jest": {
     "moduleNameMapper": {
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
-    },
-    "coverageReporters": [
-      "json-summary"
-    ]
+    }
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -58,7 +54,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "jest-coverage-badges": "^1.1.2",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
