@@ -12,27 +12,25 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+ - What you entered on the command line (if applicable)
+ - How you interacted with the component in the browser (if applicable)
+
+**Output/Result**
+ - Command line output (if applicable)
+ - Console log output/errors (if applicable) 
+ - Development Tools output/screenshot (if applicable)
+ - Screenshot or video of component showing the issue (if applicable) 
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Your Setup (if you think this information will be useful)**
+ - Node.js version [e.g. v13.2.0]
+ - NPM or Yarn version [e.g. 6.13.1]
+ - OS [e.g. macOS Mohave, Ubuntu 18.04, Windows 10]
+ - Browser version (if applicable) [e.g. Chrome Version 81]
+ - package.json
+ - package-lock.json or yarn.lock
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
+**Additional context (optional)**
 Add any other context about the problem here.
