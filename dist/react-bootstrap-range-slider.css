@@ -114,52 +114,52 @@ input[type=range].range-slider.disabled::-ms-track {
   cursor: not-allowed;
 }
 input[type=range].range-slider.range-slider--primary::-webkit-slider-thumb {
-  background: var(--primary);
+  background: #007bff;
 }
 input[type=range].range-slider.range-slider--secondary::-webkit-slider-thumb {
-  background: var(--secondary);
+  background: #6c757d;
 }
 input[type=range].range-slider.range-slider--success::-webkit-slider-thumb {
-  background: var(--success);
+  background: #6c757d;
 }
 input[type=range].range-slider.range-slider--danger::-webkit-slider-thumb {
-  background: var(--danger);
+  background: #dc3545;
 }
 input[type=range].range-slider.range-slider--warning::-webkit-slider-thumb {
-  background: var(--warning);
+  background: #ffc107;
 }
 input[type=range].range-slider.range-slider--info::-webkit-slider-thumb {
-  background: var(--info);
+  background: #17a2b8;
 }
 input[type=range].range-slider.range-slider--light::-webkit-slider-thumb {
-  background: var(--light);
+  background: #f8f9fa;
 }
 input[type=range].range-slider.range-slider--dark::-webkit-slider-thumb {
-  background: var(--dark);
+  background: #343a40;
 }
 input[type=range].range-slider.range-slider--primary::-moz-range-thumb {
-  background: var(--primary);
+  background: #007bff;
 }
 input[type=range].range-slider.range-slider--secondary::-moz-range-thumb {
-  background: var(--secondary);
+  background: #6c757d;
 }
 input[type=range].range-slider.range-slider--success::-moz-range-thumb {
-  background: var(--success);
+  background: #6c757d;
 }
 input[type=range].range-slider.range-slider--danger::-moz-range-thumb {
-  background: var(--danger);
+  background: #dc3545;
 }
 input[type=range].range-slider.range-slider--warning::-moz-range-thumb {
-  background: var(--warning);
+  background: #ffc107;
 }
 input[type=range].range-slider.range-slider--info::-moz-range-thumb {
-  background: var(--info);
+  background: #17a2b8;
 }
 input[type=range].range-slider.range-slider--light::-moz-range-thumb {
-  background: var(--light);
+  background: #f8f9fa;
 }
 input[type=range].range-slider.range-slider--dark::-moz-range-thumb {
-  background: var(--dark);
+  background: #343a40;
 }
 input[type=range].range-slider.range-slider--primary::-ms-thumb {
   background: #007bff;

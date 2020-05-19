@@ -28,7 +28,6 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = _interopDefault(require('react'));
 var PropTypes = _interopDefault(require('prop-types'));
-var ThemeProvider = require('react-bootstrap/ThemeProvider');
 var classNames = _interopDefault(require('classnames'));
 
 function _defineProperty(obj, key, value) {
@@ -125,7 +124,7 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
       tooltipProps = _ref$tooltipProps === void 0 ? {} : _ref$tooltipProps,
       bsPrefix = _ref.bsPrefix,
       className = _ref.className;
-  var prefix = ThemeProvider.useBootstrapPrefix(bsPrefix, DEFAULT_CLASS_PREFIX);
+  var prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
   var isTooltip = tooltip === 'auto' || tooltip === 'on';
   var classes = classNames(className, prefix, size && "".concat(prefix, "--").concat(size), disabled && 'disabled', variant && "".concat(prefix, "--").concat(variant));
   var inputEl = /*#__PURE__*/React.createElement("input", _extends({
@@ -137,10 +136,7 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
     step: step,
     onChange: onChange,
     disabled: disabled,
-    ref: ref,
-    style: {
-      '--value': value
-    }
+    ref: ref
   }, inputProps));
 
   if (isTooltip) {

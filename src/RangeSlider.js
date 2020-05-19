@@ -70,9 +70,6 @@ const RangeSlider = React.forwardRef(({
       onChange={onChange}
       disabled={disabled}
       ref={ref}
-      style={{
-        '--value': value,
-      }}
       {...inputProps}
     />
   );
