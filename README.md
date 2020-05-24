@@ -1,14 +1,15 @@
-[![npm version](https://badge.fury.io/js/react-bootstrap-range-slider.svg)](https://badge.fury.io/js/react-bootstrap-range-slider) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/github/license/jaywilz/react-bootstrap-range-slider)](https://github.com/jaywilz/react-bootstrap-range-slider/blob/master/LICENSE) [![NPM version](https://img.shields.io/npm/v/react-bootstrap-range-slider)](https://www.npmjs.com/package/react-bootstrap-range-slider) [![NPM downloads](https://img.shields.io/npm/dw/react-bootstrap-range-slider)](https://www.npmjs.com/package/react-bootstrap-range-slider) [![Required react version](https://img.shields.io/npm/dependency-version/react-bootstrap-range-slider/peer/react)](https://github.com/jaywilz/react-bootstrap-range-slider/blob/master/package.json) [![Issues](https://img.shields.io/github/issues/jaywilz/react-bootstrap-range-slider)](https://github.com/jaywilz/react-bootstrap-range-slider/issues)
 
 
 # React Bootstrap Range Slider
 
-A slider component for React Bootstrap v1.0.0+ / Bootstrap 4 that extends the native HTML `<input type="range">` element.
+A range slider with tooltips for React Bootstrap v1.0.0+ / Bootstrap 4 that extends the native HTML `<input type="range">` element.
 
 Check out the [Examples Page](https://jaywilz.github.io/react-bootstrap-range-slider/) for live demos of all main slider features.
 
-<img src="./screenshots/react-bootstrap-range-slider-screenshot.png?raw=true" alt="React Bootstrap Range Slider screenshot showing rendered slider component with various options applied, including label placement and different variants" width="452">
-
+<a href="https://jaywilz.github.io/react-bootstrap-range-slider/">
+<img src="./screenshots/react-bootstrap-range-slider-screenshot.png?raw=true" alt="React Bootstrap Range Slider screenshot showing rendered slider component with various options applied, including tooltips and color variants" width="452">
+</a>
 
 ## Installation
 

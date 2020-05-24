@@ -1,6 +1,6 @@
 # Contributing
 
-First of all, thank you for considering contributing! 
+First of all, thank you for considering contributing!
 
 ## Objective
 
