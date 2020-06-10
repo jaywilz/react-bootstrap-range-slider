@@ -21,14 +21,14 @@ or
 
 ### Prerequisites
 
-[React Bootstrap](https://github.com/react-bootstrap/react-bootstrap) must be installed and the [Bootstrap CSS](https://react-bootstrap.netlify.com/getting-started/introduction#stylesheets) imported.
+[React Bootstrap](https://github.com/react-bootstrap/react-bootstrap) must be installed and the [Bootstrap CSS](https://react-bootstrap.netlify.com/getting-started/introduction#stylesheets) imported (or included).
 
 ## Usage
 
 In your `index.js` or similar:
 
 ```JavaScript
-import 'bootstrap/dist/css/bootstrap.css'; 
+import 'bootstrap/dist/css/bootstrap.css'; // or include from a CDN
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 ```
 
@@ -56,11 +56,11 @@ const MyComponent = () => {
 
  - Compatible with React Bootstrap v1.0.0+ and Bootstrap 4;
  - Implemented using native HTML `<input type="range">` element;
+ - A tooltip can be configured to automatically display on hover or be constantly visible;
+ - A custom tooltip formatter function can be provided.
  - Aligns horizontally with Bootstrap form controls;
  - Bootstrap small (`sm`) and large (`lg`) sizes are supported;
  - Bootstrap button color variants such as 'primary' and 'secondary' are supported;
- - A tooltip can be configured to automatically display on hover or be constantly visible;
- - A custom tooltip formatter function can be provided.
 
 ## Options (as React props)
 
