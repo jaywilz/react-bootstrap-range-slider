@@ -3,7 +3,7 @@
 
 # React Bootstrap Range Slider
 
-A range slider with tooltips for React Bootstrap v1.0.0+ / Bootstrap 4 that extends the native HTML `<input type="range">` element.
+A range slider with tooltips for React Bootstrap v1.0.0+ / Bootstrap 4 that extends the HTML `<input type="range">` element.
 
 Check out the [Examples Page](https://jaywilz.github.io/react-bootstrap-range-slider/) for live demos of all main slider features.
 
@@ -55,7 +55,7 @@ const MyComponent = () => {
 ## Features
 
  - Compatible with React Bootstrap v1.0.0+ and Bootstrap 4;
- - Implemented using native HTML `<input type="range">` element;
+ - Implemented using HTML5 `<input type="range">` element;
  - A tooltip can be configured to automatically display on hover or be constantly visible;
  - A custom tooltip formatter function can be provided.
  - Aligns horizontally with Bootstrap form controls;
