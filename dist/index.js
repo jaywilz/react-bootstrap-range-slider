@@ -103,7 +103,10 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
       _ref$disabled = _ref.disabled,
       disabled = _ref$disabled === void 0 ? false : _ref$disabled,
       value = _ref.value,
-      onChange = _ref.onChange,
+      _ref$onChange = _ref.onChange,
+      _onChange = _ref$onChange === void 0 ? function () {} : _ref$onChange,
+      _ref$onAfterChange = _ref.onAfterChange,
+      onAfterChange = _ref$onAfterChange === void 0 ? function () {} : _ref$onAfterChange,
       _ref$min = _ref.min,
       min = _ref$min === void 0 ? 0 : _ref$min,
       _ref$max = _ref.max,
@@ -124,6 +127,7 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
       tooltipProps = _ref$tooltipProps === void 0 ? {} : _ref$tooltipProps,
       bsPrefix = _ref.bsPrefix,
       className = _ref.className;
+
   var prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
   var isTooltip = tooltip === 'auto' || tooltip === 'on';
   var classes = classNames(className, prefix, size && "".concat(prefix, "--").concat(size), disabled && 'disabled', variant && "".concat(prefix, "--").concat(variant));
@@ -134,7 +138,12 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
     min: min,
     max: max,
     step: step,
-    onChange: onChange,
+    onChange: function onChange(ev) {
+      return _onChange(ev, ev.target.valueAsNumber);
+    },
+    onMouseUp: function onMouseUp(ev) {
+      return onAfterChange(ev, ev.target.valueAsNumber);
+    },
     disabled: disabled,
     ref: ref
   }, inputProps));
@@ -167,8 +176,9 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
 
 var Element = typeof Element === 'undefined' ? function () {} : Element;
 RangeSlider.propTypes = {
-  value: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  onChange: PropTypes.func,
+  onAfterChange: PropTypes.func,
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,

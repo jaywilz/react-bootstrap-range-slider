@@ -32,7 +32,8 @@ const RangeSlider = React.forwardRef(({
   size,
   disabled = false,
   value,
-  onChange,
+  onChange = () => {},
+  onAfterChange = () => {},
   min = 0,
   max = 100,
   step,
@@ -61,13 +62,14 @@ const RangeSlider = React.forwardRef(({
 
   const inputEl = (
     <input
-      type="range"
+      type='range'
       className={classes}
       value={value}
       min={min}
       max={max}
       step={step}
-      onChange={onChange}
+      onChange={ev => onChange(ev, ev.target.valueAsNumber)}
+      onMouseUp={ev => onAfterChange(ev, ev.target.valueAsNumber)}
       disabled={disabled}
       ref={ref}
       {...inputProps}
@@ -135,8 +137,9 @@ const RangeSlider = React.forwardRef(({
 const Element = typeof Element === 'undefined' ? function() {} : Element;
 
 RangeSlider.propTypes = {
-  value: PropTypes.number.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]),
+  onChange: PropTypes.func,
+  onAfterChange: PropTypes.func,
   min: PropTypes.number,
   max: PropTypes.number,
   step: PropTypes.number,

@@ -66,8 +66,9 @@ const MyComponent = () => {
 
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
-| `value` | `number` | | **Required.** The current value of the slider. |
-| `onChange` | `function` | |  **Required.** A callback fired when the value prop changes. |
+| `value` | `number` | | The current value of the slider. |
+| `onChange` | `function` | | A callback fired when the range slider's value changes. |
+| `onAfterChange` | `function` | | A callback fired after interaction with the slider. |
 | `min` | `number` | `0` | The minimum value of the slider. |
 | `max` | `number` | `100` | The maximum value of the slider. |
 | `step` | `number` | `1` | The granularity with which the slider can step through values. |
