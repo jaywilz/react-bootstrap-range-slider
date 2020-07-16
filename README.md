@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/github/license/jaywilz/react-bootstrap-range-slider)](https://github.com/jaywilz/react-bootstrap-range-slider/blob/master/LICENSE) [![NPM version](https://img.shields.io/npm/v/react-bootstrap-range-slider)](https://www.npmjs.com/package/react-bootstrap-range-slider) [![NPM downloads](https://img.shields.io/npm/dw/react-bootstrap-range-slider)](https://www.npmjs.com/package/react-bootstrap-range-slider) [![Required react version](https://img.shields.io/npm/dependency-version/react-bootstrap-range-slider/peer/react)](https://github.com/jaywilz/react-bootstrap-range-slider/blob/master/package.json) [![Issues](https://img.shields.io/github/issues/jaywilz/react-bootstrap-range-slider)](https://github.com/jaywilz/react-bootstrap-range-slider/issues)
 
 
-# React Bootstrap Range Slider
+# React Bootstrap Range Slider &nbsp; [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=React%20Bootstrap%20range%20slider%20with%20tooltips%20%28Bootstrap%204%29&url=https://github.com/jaywilz/react-bootstrap-range-slider&hashtags=react-bootstrap,bootstrap,range-slider,developers)
 
 A range slider with tooltips for React Bootstrap v1.0.0+ / Bootstrap 4 that extends the HTML `<input type="range">` element.
 
@@ -45,7 +45,7 @@ const MyComponent = () => {
   return (
     <RangeSlider
       value={value}
-      onChange={changeEvent => setValue(Number(changeEvent.target.value))}
+      onChange={changeEvent => setValue(changeEvent.target.value)}
     />
   );
 
@@ -68,7 +68,7 @@ const MyComponent = () => {
 | --- | --- | --- | --- |
 | `value` | `number` | | The current value of the slider. |
 | `onChange` | `function` | | A callback fired when the range slider's value changes. |
-| `onAfterChange` | `function` | | A callback fired after interaction with the slider. |
+| `onAfterChange` | `function` | | A callback fired after interaction with the slider has finished if the value has changed. |
 | `min` | `number` | `0` | The minimum value of the slider. |
 | `max` | `number` | `100` | The maximum value of the slider. |
 | `step` | `number` | `1` | The granularity with which the slider can step through values. |

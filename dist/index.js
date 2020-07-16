@@ -26,7 +26,8 @@
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var React = _interopDefault(require('react'));
+var React = require('react');
+var React__default = _interopDefault(React);
 var PropTypes = _interopDefault(require('prop-types'));
 var classNames = _interopDefault(require('classnames'));
 
@@ -97,8 +98,100 @@ function _objectSpread2(target) {
   return target;
 }
 
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
 var DEFAULT_CLASS_PREFIX = 'range-slider';
-var RangeSlider = React.forwardRef(function (_ref, ref) {
+var RangeSlider = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
   var size = _ref.size,
       _ref$disabled = _ref.disabled,
       disabled = _ref$disabled === void 0 ? false : _ref$disabled,
@@ -128,10 +221,19 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
       bsPrefix = _ref.bsPrefix,
       className = _ref.className;
 
+  var _useState = React.useState(),
+      _useState2 = _slicedToArray(_useState, 2),
+      prevValue = _useState2[0],
+      setPrevValue = _useState2[1];
+
   var prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
   var isTooltip = tooltip === 'auto' || tooltip === 'on';
   var classes = classNames(className, prefix, size && "".concat(prefix, "--").concat(size), disabled && 'disabled', variant && "".concat(prefix, "--").concat(variant));
-  var inputEl = /*#__PURE__*/React.createElement("input", _extends({
+
+  var inputPropsOnMouseUp = inputProps.inputPropsOnMouseUp,
+      restInputProps = _objectWithoutProperties(inputProps, ["inputPropsOnMouseUp"]);
+
+  var inputEl = /*#__PURE__*/React__default.createElement("input", _extends({
     type: "range",
     className: classes,
     value: value,
@@ -142,11 +244,13 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
       return _onChange(ev, ev.target.valueAsNumber);
     },
     onMouseUp: function onMouseUp(ev) {
-      return onAfterChange(ev, ev.target.valueAsNumber);
+      if (ev.target.value !== prevValue) onAfterChange(ev, ev.target.valueAsNumber);
+      setPrevValue(ev.target.value);
+      if (inputPropsOnMouseUp) inputPropsOnMouseUp(ev);
     },
     disabled: disabled,
     ref: ref
-  }, inputProps));
+  }, restInputProps));
 
   if (isTooltip) {
     var wrapClasses = classNames("".concat(prefix, "__wrap"), size && "".concat(prefix, "__wrap--").concat(size));
@@ -157,16 +261,16 @@ var RangeSlider = React.forwardRef(function (_ref, ref) {
     var fractFromCentre = (fract - 0.5) * 2;
     var adjustment = fractFromCentre * -thumbRadius; // Half thumb width
 
-    return /*#__PURE__*/React.createElement("span", {
+    return /*#__PURE__*/React__default.createElement("span", {
       className: wrapClasses
-    }, inputEl, /*#__PURE__*/React.createElement("div", _extends({
+    }, inputEl, /*#__PURE__*/React__default.createElement("div", _extends({
       className: tooltipClasses,
-      style: _objectSpread2({}, tooltipStyle || {}, {
+      style: _objectSpread2(_objectSpread2({}, tooltipStyle || {}), {}, {
         left: "calc(".concat(percentLeft, "% + ").concat(adjustment, "px)")
       })
-    }, tooltipProps), /*#__PURE__*/React.createElement("div", {
+    }, tooltipProps), /*#__PURE__*/React__default.createElement("div", {
       className: "".concat(prefix, "__tooltip__label")
-    }, tooltipLabel ? tooltipLabel(value) : value), /*#__PURE__*/React.createElement("div", {
+    }, tooltipLabel ? tooltipLabel(value) : value), /*#__PURE__*/React__default.createElement("div", {
       className: "".concat(prefix, "__tooltip__arrow")
     })));
   } else {

@@ -1,10 +1,14 @@
 "use strict";
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -20,10 +24,10 @@ var SimpleSlider = function SimpleSlider() {
       value = _React$useState2[0],
       setValue = _React$useState2[1];
 
-  return React.createElement(RangeSlider, {
+  return /*#__PURE__*/React.createElement(RangeSlider, {
     value: value,
     onChange: function onChange(e) {
-      return setValue(Number(e.target.value));
+      return setValue(e.target.value);
     }
   });
 };
@@ -34,10 +38,10 @@ var SliderWithLabel = function SliderWithLabel() {
       value = _React$useState4[0],
       setValue = _React$useState4[1];
 
-  return React.createElement(Form, null, React.createElement(Form.Group, null, React.createElement(Form.Label, null, "My Label"), React.createElement(RangeSlider, {
+  return /*#__PURE__*/React.createElement(Form, null, /*#__PURE__*/React.createElement(Form.Group, null, /*#__PURE__*/React.createElement(Form.Label, null, "My Label"), /*#__PURE__*/React.createElement(RangeSlider, {
     value: value,
     onChange: function onChange(e) {
-      return setValue(Number(e.target.value));
+      return setValue(e.target.value);
     }
   })));
 };
@@ -48,17 +52,17 @@ var SliderWithColumnLayoutLabel = function SliderWithColumnLayoutLabel() {
       value = _React$useState6[0],
       setValue = _React$useState6[1];
 
-  return React.createElement(Form, null, React.createElement(Form.Group, {
+  return /*#__PURE__*/React.createElement(Form, null, /*#__PURE__*/React.createElement(Form.Group, {
     as: Row
-  }, React.createElement(Form.Label, {
+  }, /*#__PURE__*/React.createElement(Form.Label, {
     column: true,
     sm: "4"
-  }, "My Other Label"), React.createElement(Col, {
+  }, "My Other Label"), /*#__PURE__*/React.createElement(Col, {
     sm: "8"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value,
     onChange: function onChange(e) {
-      return setValue(Number(e.target.value));
+      return setValue(e.target.value);
     }
   }))));
 };
@@ -69,19 +73,22 @@ var SliderWithInputFormControl = function SliderWithInputFormControl() {
       value = _React$useState8[0],
       setValue = _React$useState8[1];
 
-  return React.createElement(Form, null, React.createElement(Form.Group, {
+  return /*#__PURE__*/React.createElement(Form, null, /*#__PURE__*/React.createElement(Form.Group, {
     as: Row
-  }, React.createElement(Col, {
+  }, /*#__PURE__*/React.createElement(Col, {
     xs: "9"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value,
     onChange: function onChange(e) {
-      return setValue(Number(e.target.value));
+      return setValue(e.target.value);
     }
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "3"
-  }, React.createElement(Form.Control, {
-    value: value
+  }, /*#__PURE__*/React.createElement(Form.Control, {
+    value: value,
+    onChange: function onChange(e) {
+      return setValue(e.target.value);
+    }
   }))));
 };
 
@@ -101,47 +108,56 @@ var Sizes = function Sizes() {
       value3 = _React$useState14[0],
       setValue3 = _React$useState14[1];
 
-  return React.createElement(Form, null, React.createElement(Form.Group, {
+  return /*#__PURE__*/React.createElement(Form, null, /*#__PURE__*/React.createElement(Form.Group, {
     as: Row
-  }, React.createElement(Col, {
+  }, /*#__PURE__*/React.createElement(Col, {
     xs: "4"
-  }, React.createElement(Form.Control, {
+  }, /*#__PURE__*/React.createElement(Form.Control, {
     value: value1,
-    size: "sm"
-  })), React.createElement(Col, {
+    size: "sm",
+    onChange: function onChange(e) {
+      return setValue1(e.target.value);
+    }
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "8"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value1,
     onChange: function onChange(e) {
-      return setValue1(Number(e.target.value));
+      return setValue1(e.target.value);
     },
     size: "sm"
-  }))), React.createElement(Form.Group, {
+  }))), /*#__PURE__*/React.createElement(Form.Group, {
     as: Row
-  }, React.createElement(Col, {
+  }, /*#__PURE__*/React.createElement(Col, {
     xs: "4"
-  }, React.createElement(Form.Control, {
-    value: value2
-  })), React.createElement(Col, {
-    xs: "8"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(Form.Control, {
     value: value2,
     onChange: function onChange(e) {
-      return setValue2(Number(e.target.value));
+      return setValue2(e.target.value);
     }
-  }))), React.createElement(Form.Group, {
-    as: Row
-  }, React.createElement(Col, {
-    xs: "4"
-  }, React.createElement(Form.Control, {
-    value: value3,
-    size: "lg"
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "8"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
+    value: value2,
+    onChange: function onChange(e) {
+      return setValue2(e.target.value);
+    }
+  }))), /*#__PURE__*/React.createElement(Form.Group, {
+    as: Row
+  }, /*#__PURE__*/React.createElement(Col, {
+    xs: "4"
+  }, /*#__PURE__*/React.createElement(Form.Control, {
+    value: value3,
+    size: "lg",
+    onChange: function onChange(e) {
+      return setValue3(e.target.value);
+    }
+  })), /*#__PURE__*/React.createElement(Col, {
+    xs: "8"
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value3,
     onChange: function onChange(e) {
-      return setValue3(Number(e.target.value));
+      return setValue3(e.target.value);
     },
     size: "lg"
   }))));
@@ -188,72 +204,72 @@ var Variants = function Variants() {
       value8 = _React$useState30[0],
       setValue8 = _React$useState30[1];
 
-  return React.createElement(Form, null, React.createElement(Form.Group, {
+  return /*#__PURE__*/React.createElement(Form, null, /*#__PURE__*/React.createElement(Form.Group, {
     as: Row
-  }, React.createElement(Col, {
+  }, /*#__PURE__*/React.createElement(Col, {
     xs: "3"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value1,
     onChange: function onChange(e) {
-      return setValue1(Number(e.target.value));
+      return setValue1(e.target.value);
     },
     variant: "primary"
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "3"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value2,
     onChange: function onChange(e) {
-      return setValue2(Number(e.target.value));
+      return setValue2(e.target.value);
     },
     variant: "secondary"
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "3"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value3,
     onChange: function onChange(e) {
-      return setValue3(Number(e.target.value));
+      return setValue3(e.target.value);
     },
     variant: "success"
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "3"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value4,
     onChange: function onChange(e) {
-      return setValue4(Number(e.target.value));
+      return setValue4(e.target.value);
     },
     variant: "danger"
-  }))), React.createElement(Form.Group, {
+  }))), /*#__PURE__*/React.createElement(Form.Group, {
     as: Row
-  }, React.createElement(Col, {
+  }, /*#__PURE__*/React.createElement(Col, {
     xs: "3"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value5,
     onChange: function onChange(e) {
-      return setValue5(Number(e.target.value));
+      return setValue5(e.target.value);
     },
     variant: "warning"
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "3"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value6,
     onChange: function onChange(e) {
-      return setValue6(Number(e.target.value));
+      return setValue6(e.target.value);
     },
     variant: "info"
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "3"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value7,
     onChange: function onChange(e) {
-      return setValue7(Number(e.target.value));
+      return setValue7(e.target.value);
     },
     variant: "dark"
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "3"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value8,
     onChange: function onChange(e) {
-      return setValue8(Number(e.target.value));
+      return setValue8(e.target.value);
     },
     variant: "light"
   }))));
@@ -275,30 +291,30 @@ var TooltipBehaviour = function TooltipBehaviour() {
       value3 = _React$useState36[0],
       setValue3 = _React$useState36[1];
 
-  return React.createElement(Form, null, React.createElement(Form.Group, {
+  return /*#__PURE__*/React.createElement(Form, null, /*#__PURE__*/React.createElement(Form.Group, {
     as: Row
-  }, React.createElement(Col, {
+  }, /*#__PURE__*/React.createElement(Col, {
     xs: "4"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value1,
     onChange: function onChange(e) {
-      return setValue1(Number(e.target.value));
+      return setValue1(e.target.value);
     },
     tooltip: "auto"
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "4"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value2,
     onChange: function onChange(e) {
-      return setValue2(Number(e.target.value));
+      return setValue2(e.target.value);
     },
     tooltip: "on"
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "4"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value3,
     onChange: function onChange(e) {
-      return setValue3(Number(e.target.value));
+      return setValue3(e.target.value);
     },
     tooltip: "off"
   }))));
@@ -315,24 +331,26 @@ var TooltipPlacement = function TooltipPlacement() {
       value2 = _React$useState40[0],
       setValue2 = _React$useState40[1];
 
-  return React.createElement(Form, null, React.createElement(Form.Group, {
+  return /*#__PURE__*/React.createElement(Form, null, /*#__PURE__*/React.createElement(Form.Group, {
     as: Row
-  }, React.createElement(Col, {
+  }, /*#__PURE__*/React.createElement(Col, {
     xs: "6"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value1,
     onChange: function onChange(e) {
-      return setValue1(Number(e.target.value));
+      return setValue1(e.target.value);
     },
-    tooltipPlacement: "top"
-  })), React.createElement(Col, {
+    tooltipPlacement: "top",
+    tooltip: "on"
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "6"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value2,
     onChange: function onChange(e) {
-      return setValue2(Number(e.target.value));
+      return setValue2(e.target.value);
     },
-    tooltipPlacement: "bottom"
+    tooltipPlacement: "bottom",
+    tooltip: "on"
   }))));
 };
 
@@ -342,14 +360,15 @@ var TooltipLabel = function TooltipLabel() {
       value = _React$useState42[0],
       setValue = _React$useState42[1];
 
-  return React.createElement(RangeSlider, {
+  return /*#__PURE__*/React.createElement(RangeSlider, {
     value: value,
     onChange: function onChange(e) {
-      return setValue(Number(e.target.value));
+      return setValue(e.target.value);
     },
     tooltipLabel: function tooltipLabel(currentValue) {
       return "".concat(currentValue, "%");
-    }
+    },
+    tooltip: "on"
   });
 };
 
@@ -359,73 +378,73 @@ var Disabled = function Disabled() {
       value = _React$useState44[0],
       setValue = _React$useState44[1];
 
-  return React.createElement(RangeSlider, {
+  return /*#__PURE__*/React.createElement(RangeSlider, {
     value: value,
     onChange: function onChange(e) {
-      return setValue(Number(e.target.value));
+      return setValue(e.target.value);
     },
     disabled: true
   });
 };
 
-var MinMax = function MinMax() {
-  var _React$useState45 = React.useState(2),
+var Step = function Step() {
+  var _React$useState45 = React.useState(50),
       _React$useState46 = _slicedToArray(_React$useState45, 2),
-      value1 = _React$useState46[0],
-      setValue1 = _React$useState46[1];
+      value = _React$useState46[0],
+      setValue = _React$useState46[1];
 
-  var _React$useState47 = React.useState(0),
+  return /*#__PURE__*/React.createElement(RangeSlider, {
+    value: value,
+    onChange: function onChange(e) {
+      return setValue(e.target.value);
+    },
+    step: 10
+  });
+};
+
+var MinMax = function MinMax() {
+  var _React$useState47 = React.useState(2),
       _React$useState48 = _slicedToArray(_React$useState47, 2),
-      value2 = _React$useState48[0],
-      setValue2 = _React$useState48[1];
+      value1 = _React$useState48[0],
+      setValue1 = _React$useState48[1];
 
-  return React.createElement(Form, null, React.createElement(Form.Group, {
+  var _React$useState49 = React.useState(0),
+      _React$useState50 = _slicedToArray(_React$useState49, 2),
+      value2 = _React$useState50[0],
+      setValue2 = _React$useState50[1];
+
+  return /*#__PURE__*/React.createElement(Form, null, /*#__PURE__*/React.createElement(Form.Group, {
     as: Row
-  }, React.createElement(Col, {
+  }, /*#__PURE__*/React.createElement(Col, {
     xs: "6"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value1,
     onChange: function onChange(e) {
-      return setValue1(Number(e.target.value));
+      return setValue1(e.target.value);
     },
     min: 1,
     max: 5
-  })), React.createElement(Col, {
+  })), /*#__PURE__*/React.createElement(Col, {
     xs: "6"
-  }, React.createElement(RangeSlider, {
+  }, /*#__PURE__*/React.createElement(RangeSlider, {
     value: value2,
     onChange: function onChange(e) {
-      return setValue2(Number(e.target.value));
+      return setValue2(e.target.value);
     },
     min: -20,
     max: 50
   }))));
 };
 
-var Step = function Step() {
-  var _React$useState49 = React.useState(50),
-      _React$useState50 = _slicedToArray(_React$useState49, 2),
-      value = _React$useState50[0],
-      setValue = _React$useState50[1];
-
-  return React.createElement(RangeSlider, {
-    value: value,
-    onChange: function onChange(e) {
-      return setValue(Number(e.target.value));
-    },
-    step: 10
-  });
-};
-
-ReactDOM.render(React.createElement(SimpleSlider, null), document.getElementById('simple-usage'));
-ReactDOM.render(React.createElement(SliderWithLabel, null), document.getElementById('with-label'));
-ReactDOM.render(React.createElement(SliderWithColumnLayoutLabel, null), document.getElementById('with-column-layout-label'));
-ReactDOM.render(React.createElement(SliderWithInputFormControl, null), document.getElementById('with-form-control'));
-ReactDOM.render(React.createElement(Sizes, null), document.getElementById('sizes'));
-ReactDOM.render(React.createElement(Variants, null), document.getElementById('variants'));
-ReactDOM.render(React.createElement(TooltipBehaviour, null), document.getElementById('tooltip-behaviour'));
-ReactDOM.render(React.createElement(TooltipPlacement, null), document.getElementById('tooltip-placement'));
-ReactDOM.render(React.createElement(TooltipLabel, null), document.getElementById('tooltip-label'));
-ReactDOM.render(React.createElement(Disabled, null), document.getElementById('disabled'));
-ReactDOM.render(React.createElement(MinMax, null), document.getElementById('min-max'));
-ReactDOM.render(React.createElement(Step, null), document.getElementById('step'));
+ReactDOM.render( /*#__PURE__*/React.createElement(SimpleSlider, null), document.getElementById('simple-usage'));
+ReactDOM.render( /*#__PURE__*/React.createElement(SliderWithLabel, null), document.getElementById('with-label'));
+ReactDOM.render( /*#__PURE__*/React.createElement(SliderWithColumnLayoutLabel, null), document.getElementById('with-column-layout-label'));
+ReactDOM.render( /*#__PURE__*/React.createElement(SliderWithInputFormControl, null), document.getElementById('with-form-control'));
+ReactDOM.render( /*#__PURE__*/React.createElement(Sizes, null), document.getElementById('sizes'));
+ReactDOM.render( /*#__PURE__*/React.createElement(Variants, null), document.getElementById('variants'));
+ReactDOM.render( /*#__PURE__*/React.createElement(TooltipBehaviour, null), document.getElementById('tooltip-behaviour'));
+ReactDOM.render( /*#__PURE__*/React.createElement(TooltipPlacement, null), document.getElementById('tooltip-placement'));
+ReactDOM.render( /*#__PURE__*/React.createElement(TooltipLabel, null), document.getElementById('tooltip-label'));
+ReactDOM.render( /*#__PURE__*/React.createElement(Disabled, null), document.getElementById('disabled'));
+ReactDOM.render( /*#__PURE__*/React.createElement(Step, null), document.getElementById('step'));
+ReactDOM.render( /*#__PURE__*/React.createElement(MinMax, null), document.getElementById('min-max'));

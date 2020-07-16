@@ -11,9 +11,9 @@
     gtag('js', new Date());
     gtag('config', 'UA-34352389-11');
   </script>
-  <title>Examples - React Bootstrap Range Slider</title>
+  <title>Examples - React Bootstrap Range Slider - a range slider component with tooltips that extends the HTML range input</title>
   <meta name="description" content="React Bootstrap slider examples using react-bootstrap-range-slider">
-  <meta name="keywords" content="React Bootstrap slider, React slider, slider, React slider component, range slider">
+  <meta name="keywords" content="React Bootstrap slider, React slider, slider, React slider component, range slider, Bootstrap 4, React Bootstrap">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="p1WujmFx84LqS8CMAMh58Hhy-AFLKzUVXsdx_x42j-k" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -60,7 +60,7 @@
   return (
     &lt;RangeSlider
       value={value}
-      onChange={e => setValue(Number(e.target.value))}
+      onChange={e => setValue(e.target.value)}
     /&gt;
   );
 
@@ -86,7 +86,7 @@
         &lt;/Form.Label>
         &lt;RangeSlider
           value={value}
-          onChange={e => setValue(Number(e.target.value))}
+          onChange={e => setValue(e.target.value)}
         /&gt;
       &lt;/Form.Group>   
     &lt;/Form>
@@ -115,7 +115,7 @@
         &lt;Col sm="8">
           &lt;RangeSlider
             value={value}
-            onChange={e => setValue(Number(e.target.value))}
+            onChange={e => setValue(e.target.value)}
           /&gt;
         &lt;/Col>
       &lt;/Form.Group>
@@ -142,7 +142,7 @@
         &lt;Col xs="9">
           &lt;RangeSlider
             value={value}
-            onChange={e => setValue(Number(e.target.value))}
+            onChange={e => setValue(e.target.value)}
           /&gt;        
         &lt;/Col>
         &lt;Col xs="3">
@@ -177,7 +177,7 @@
         &lt;Col xs="8">
           &lt;RangeSlider
             value={value1}
-            onChange={e => setValue1(Number(e.target.value))}
+            onChange={e => setValue1(e.target.value)}
             size='sm'
           /&gt;        
         &lt;/Col>
@@ -189,7 +189,7 @@
         &lt;Col xs="8">
           &lt;RangeSlider
             value={value2}
-            onChange={e => setValue2(Number(e.target.value))}
+            onChange={e => setValue2(e.target.value)}
           /&gt;        
         &lt;/Col>
       &lt;/Form.Group>
@@ -200,7 +200,7 @@
         &lt;Col xs="8">
           &lt;RangeSlider
             value={value3}
-            onChange={e => setValue3(Number(e.target.value))}
+            onChange={e => setValue3(e.target.value)}
             size='lg'
           /&gt;        
         &lt;/Col>
@@ -235,28 +235,28 @@
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value1}
-            onChange={e => setValue1(Number(e.target.value))}
+            onChange={e => setValue1(e.target.value)}
             variant='primary'
           /&gt;        
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value2}
-            onChange={e => setValue2(Number(e.target.value))}
+            onChange={e => setValue2(e.target.value)}
             variant='secondary'
           /&gt;    
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value3}
-            onChange={e => setValue3(Number(e.target.value))}
+            onChange={e => setValue3(e.target.value)}
             variant='success'
           /&gt;        
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value4}
-            onChange={e => setValue4(Number(e.target.value))}
+            onChange={e => setValue4(e.target.value)}
             variant='danger'
           /&gt;    
         &lt;/Col>
@@ -265,28 +265,28 @@
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value5}
-            onChange={e => setValue5(Number(e.target.value))}
+            onChange={e => setValue5(e.target.value)}
             variant='warning'
           /&gt;        
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value6}
-            onChange={e => setValue6(Number(e.target.value))}
+            onChange={e => setValue6(e.target.value)}
             variant='info'
           /&gt;    
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value7}
-            onChange={e => setValue7(Number(e.target.value))}
+            onChange={e => setValue7(e.target.value)}
             variant='dark'
           /&gt;        
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value8}
-            onChange={e => setValue8(Number(e.target.value))}
+            onChange={e => setValue8(e.target.value)}
             variant='light'
           /&gt;    
         &lt;/Col>
@@ -317,21 +317,21 @@
         &lt;Col xs="4">
           &lt;RangeSlider
             value={value1}
-            onChange={e => setValue1(Number(e.target.value))}
+            onChange={e => setValue1(e.target.value)}
             tooltip='auto'
           /&gt;        
         &lt;/Col>
         &lt;Col xs="4">
           &lt;RangeSlider
             value={value2}
-            onChange={e => setValue2(Number(e.target.value))}
+            onChange={e => setValue2(e.target.value)}
             tooltip='on'
           /&gt;        
         &lt;/Col>
         &lt;Col xs="4">
           &lt;RangeSlider
             value={value3}
-            onChange={e => setValue3(Number(e.target.value))}
+            onChange={e => setValue3(e.target.value)}
             tooltip='off'
           /&gt;        
         &lt;/Col>
@@ -360,15 +360,17 @@
         &lt;Col xs="6">
           &lt;RangeSlider
             value={value1}
-            onChange={e => setValue1(Number(e.target.value))}
+            onChange={e => setValue1(e.target.value)}
             tooltipPlacement='top'
+            tooltip='on'
           /&gt;        
         &lt;/Col>
         &lt;Col xs="6">
           &lt;RangeSlider
             value={value2}
-            onChange={e => setValue2(Number(e.target.value))}
+            onChange={e => setValue2(e.target.value)}
             tooltipPlacement='bottom'
+            tooltip='on'
           /&gt;     
         &lt;/Col>
       &lt;/Form.Group>
@@ -392,8 +394,9 @@
   return (
     &lt;RangeSlider
       value={value}
-      onChange={e => setValue(Number(e.target.value))}
+      onChange={e => setValue(e.target.value)}
       tooltipLabel={currentValue => `${currentValue}%`}
+      tooltip='on'
     /&gt;        
   );
 
@@ -414,9 +417,31 @@
   return (
     &lt;RangeSlider
       value={value}
-      onChange={e => setValue(Number(e.target.value))}
+      onChange={e => setValue(e.target.value)}
       disabled
     /&gt;        
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Step</h2>
+      <p>When the step prop is defined the slider thumb will snap to values in accordance with the step size.</p>
+      <div class="example w1" id="step"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const Step = () => {
+
+  const [ value, setValue ] = React.useState(50);
+
+  return (
+    &lt;RangeSlider
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      step={10}
+    /&gt;         
   );
 
 };</code></pre>
@@ -440,7 +465,7 @@
         &lt;Col xs="6">
           &lt;RangeSlider
             value={value1}
-            onChange={e => setValue1(Number(e.target.value))}
+            onChange={e => setValue1(e.target.value)}
             min={1}
             max={5}
           /&gt;        
@@ -448,35 +473,13 @@
         &lt;Col xs="6">
           &lt;RangeSlider
             value={value2}
-            onChange={e => setValue2(Number(e.target.value))}
+            onChange={e => setValue2(e.target.value)}
             min={-20}
             max={50}
           /&gt;     
         &lt;/Col>
       &lt;/Form.Group>
     &lt;/Form>
-  );
-
-};</code></pre>
-      </div>
-    </section>
-
-    <section>
-      <h2>Step</h2>
-      <p>When the step prop is defined the slider thumb will snap to values in accordance with the step size.</p>
-      <div class="example w1" id="step"></div>
-      <div class="code">
-        <button class="toggle"><img src="img/code.svg"></button>
-        <pre><code class="language-jsx">const Step = () => {
-
-  const [ value, setValue ] = React.useState(50);
-
-  return (
-    &lt;RangeSlider
-      value={value}
-      onChange={e => setValue(Number(e.target.value))}
-      step={10}
-    /&gt;         
   );
 
 };</code></pre>

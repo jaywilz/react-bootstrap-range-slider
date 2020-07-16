@@ -97,8 +97,96 @@
     return target;
   }
 
-  function unwrapExports (x) {
-  	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+  function _objectWithoutPropertiesLoose(source, excluded) {
+    if (source == null) return {};
+    var target = {};
+    var sourceKeys = Object.keys(source);
+    var key, i;
+
+    for (i = 0; i < sourceKeys.length; i++) {
+      key = sourceKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      target[key] = source[key];
+    }
+
+    return target;
+  }
+
+  function _objectWithoutProperties(source, excluded) {
+    if (source == null) return {};
+
+    var target = _objectWithoutPropertiesLoose(source, excluded);
+
+    var key, i;
+
+    if (Object.getOwnPropertySymbols) {
+      var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+      for (i = 0; i < sourceSymbolKeys.length; i++) {
+        key = sourceSymbolKeys[i];
+        if (excluded.indexOf(key) >= 0) continue;
+        if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+        target[key] = source[key];
+      }
+    }
+
+    return target;
+  }
+
+  function _slicedToArray(arr, i) {
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+  }
+
+  function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+  }
+
+  function _iterableToArrayLimit(arr, i) {
+    if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+
+    try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"] != null) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+
+  function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
   function createCommonjsModule(fn, module) {
@@ -1102,49 +1190,6 @@
   }
   });
 
-  var forwardRef_1 = createCommonjsModule(function (module, exports) {
-
-  exports.__esModule = true;
-  exports.default = forwardRef;
-
-  var _react = _interopRequireDefault(React__default);
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  function forwardRef(renderFn, _temp) {
-    var _ref = _temp === void 0 ? {} : _temp,
-        propTypes = _ref.propTypes,
-        defaultProps = _ref.defaultProps,
-        _ref$allowFallback = _ref.allowFallback,
-        allowFallback = _ref$allowFallback === void 0 ? false : _ref$allowFallback,
-        _ref$displayName = _ref.displayName,
-        displayName = _ref$displayName === void 0 ? renderFn.name || renderFn.displayName : _ref$displayName;
-
-    var render = function render(props, ref) {
-      return renderFn(props, ref);
-    };
-
-    return Object.assign(_react.default.forwardRef || !allowFallback ? _react.default.forwardRef(render) : function (props) {
-      return render(props, null);
-    }, {
-      displayName: displayName,
-      propTypes: propTypes,
-      defaultProps: defaultProps
-    });
-  }
-  });
-
-  unwrapExports(forwardRef_1);
-
-  var ThemeContext = React__default.createContext({});
-  var Consumer = ThemeContext.Consumer,
-      Provider = ThemeContext.Provider;
-
-  function useBootstrapPrefix(prefix, defaultPrefix) {
-    var prefixes = React.useContext(ThemeContext);
-    return prefix || prefixes[defaultPrefix] || defaultPrefix;
-  }
-
   var classnames = createCommonjsModule(function (module) {
   /*!
     Copyright (c) 2017 Jed Watson.
@@ -1195,12 +1240,15 @@
   });
 
   var DEFAULT_CLASS_PREFIX = 'range-slider';
-  var RangeSlider = React__default.forwardRef(function (_ref, ref) {
+  var RangeSlider = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
     var size = _ref.size,
         _ref$disabled = _ref.disabled,
         disabled = _ref$disabled === void 0 ? false : _ref$disabled,
         value = _ref.value,
-        onChange = _ref.onChange,
+        _ref$onChange = _ref.onChange,
+        _onChange = _ref$onChange === void 0 ? function () {} : _ref$onChange,
+        _ref$onAfterChange = _ref.onAfterChange,
+        onAfterChange = _ref$onAfterChange === void 0 ? function () {} : _ref$onAfterChange,
         _ref$min = _ref.min,
         min = _ref$min === void 0 ? 0 : _ref$min,
         _ref$max = _ref.max,
@@ -1221,23 +1269,37 @@
         tooltipProps = _ref$tooltipProps === void 0 ? {} : _ref$tooltipProps,
         bsPrefix = _ref.bsPrefix,
         className = _ref.className;
-    var prefix = useBootstrapPrefix(bsPrefix, DEFAULT_CLASS_PREFIX);
+
+    var _useState = React.useState(),
+        _useState2 = _slicedToArray(_useState, 2),
+        prevValue = _useState2[0],
+        setPrevValue = _useState2[1];
+
+    var prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
     var isTooltip = tooltip === 'auto' || tooltip === 'on';
     var classes = classnames(className, prefix, size && "".concat(prefix, "--").concat(size), disabled && 'disabled', variant && "".concat(prefix, "--").concat(variant));
-    var inputEl = React__default.createElement("input", _extends({
+
+    var inputPropsOnMouseUp = inputProps.inputPropsOnMouseUp,
+        restInputProps = _objectWithoutProperties(inputProps, ["inputPropsOnMouseUp"]);
+
+    var inputEl = /*#__PURE__*/React__default.createElement("input", _extends({
       type: "range",
       className: classes,
       value: value,
       min: min,
       max: max,
       step: step,
-      onChange: onChange,
+      onChange: function onChange(ev) {
+        return _onChange(ev, ev.target.valueAsNumber);
+      },
+      onMouseUp: function onMouseUp(ev) {
+        if (ev.target.value !== prevValue) onAfterChange(ev, ev.target.valueAsNumber);
+        setPrevValue(ev.target.value);
+        if (inputPropsOnMouseUp) inputPropsOnMouseUp(ev);
+      },
       disabled: disabled,
-      ref: ref,
-      style: {
-        '--value': value
-      }
-    }, inputProps));
+      ref: ref
+    }, restInputProps));
 
     if (isTooltip) {
       var wrapClasses = classnames("".concat(prefix, "__wrap"), size && "".concat(prefix, "__wrap--").concat(size));
@@ -1248,25 +1310,28 @@
       var fractFromCentre = (fract - 0.5) * 2;
       var adjustment = fractFromCentre * -thumbRadius; // Half thumb width
 
-      return React__default.createElement("span", {
+      return /*#__PURE__*/React__default.createElement("span", {
         className: wrapClasses
-      }, inputEl, React__default.createElement("div", _extends({
+      }, inputEl, /*#__PURE__*/React__default.createElement("div", _extends({
         className: tooltipClasses,
-        style: _objectSpread2({}, tooltipStyle || {}, {
+        style: _objectSpread2(_objectSpread2({}, tooltipStyle || {}), {}, {
           left: "calc(".concat(percentLeft, "% + ").concat(adjustment, "px)")
         })
-      }, tooltipProps), React__default.createElement("div", {
+      }, tooltipProps), /*#__PURE__*/React__default.createElement("div", {
         className: "".concat(prefix, "__tooltip__label")
-      }, tooltipLabel ? tooltipLabel(value) : value), React__default.createElement("div", {
+      }, tooltipLabel ? tooltipLabel(value) : value), /*#__PURE__*/React__default.createElement("div", {
         className: "".concat(prefix, "__tooltip__arrow")
       })));
     } else {
       return inputEl;
     }
-  });
+  }); // Fix: https://github.com/jaywilz/react-bootstrap-range-slider/issues/3
+
+  var Element = typeof Element === 'undefined' ? function () {} : Element;
   RangeSlider.propTypes = {
-    value: propTypes.number.isRequired,
-    onChange: propTypes.func.isRequired,
+    value: propTypes.oneOfType([propTypes.number, propTypes.string]),
+    onChange: propTypes.func,
+    onAfterChange: propTypes.func,
     min: propTypes.number,
     max: propTypes.number,
     step: propTypes.number,

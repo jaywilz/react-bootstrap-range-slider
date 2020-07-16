@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -48,6 +48,8 @@ const RangeSlider = React.forwardRef(({
   className,
 }, ref) => {
 
+  const [ prevValue, setPrevValue ] = useState();
+
   const prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
 
   const isTooltip = tooltip === 'auto' || tooltip === 'on';
@@ -60,6 +62,8 @@ const RangeSlider = React.forwardRef(({
     variant && `${prefix}--${variant}`,
   );
 
+  const { inputPropsOnMouseUp, ...restInputProps } = inputProps;
+
   const inputEl = (
     <input
       type='range'
@@ -69,10 +73,17 @@ const RangeSlider = React.forwardRef(({
       max={max}
       step={step}
       onChange={ev => onChange(ev, ev.target.valueAsNumber)}
-      onMouseUp={ev => onAfterChange(ev, ev.target.valueAsNumber)}
+      onMouseUp={ev => {
+
+        if (ev.target.value !== prevValue) onAfterChange(ev, ev.target.valueAsNumber);
+        setPrevValue(ev.target.value);
+
+        if (inputPropsOnMouseUp) inputPropsOnMouseUp(ev);
+
+      }}
       disabled={disabled}
       ref={ref}
-      {...inputProps}
+      {...restInputProps}
     />
   );
 

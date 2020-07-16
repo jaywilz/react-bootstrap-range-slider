@@ -8,7 +8,7 @@ const SimpleSlider = () => {
   return (
     <RangeSlider
       value={value}
-      onChange={e => setValue(Number(e.target.value))}
+      onChange={e => setValue(e.target.value)}
     />
   );
 
@@ -26,7 +26,7 @@ const SliderWithLabel = () => {
         </Form.Label>
         <RangeSlider
           value={value}
-          onChange={e => setValue(Number(e.target.value))}
+          onChange={e => setValue(e.target.value)}
         />
       </Form.Group>   
     </Form>
@@ -47,7 +47,7 @@ const SliderWithColumnLayoutLabel = () => {
         <Col sm='8'>
           <RangeSlider
             value={value}
-            onChange={e => setValue(Number(e.target.value))}
+            onChange={e => setValue(e.target.value)}
           />
         </Col>
       </Form.Group>
@@ -66,11 +66,14 @@ const SliderWithInputFormControl = () => {
         <Col xs='9'>
           <RangeSlider
             value={value}
-            onChange={e => setValue(Number(e.target.value))}
+            onChange={e => setValue(e.target.value)}
           />        
         </Col>
         <Col xs='3'>
-          <Form.Control value={value}/>
+          <Form.Control
+            value={value}
+            onChange={e => setValue(e.target.value)}
+          />
         </Col>
       </Form.Group>
     </Form>
@@ -88,35 +91,46 @@ const Sizes = () => {
     <Form>
       <Form.Group as={Row}>
         <Col xs='4'>
-          <Form.Control value={value1} size='sm'/>
+          <Form.Control
+            value={value1}
+            size='sm'
+            onChange={e => setValue1(e.target.value)}
+          />
         </Col>
         <Col xs='8'>
           <RangeSlider
             value={value1}
-            onChange={e => setValue1(Number(e.target.value))}
+            onChange={e => setValue1(e.target.value)}
             size='sm'
           />        
         </Col>
       </Form.Group>
       <Form.Group as={Row}>
         <Col xs='4'>
-          <Form.Control value={value2}/>
+          <Form.Control
+            value={value2}
+            onChange={e => setValue2(e.target.value)}
+          />
         </Col>
         <Col xs='8'>
           <RangeSlider
             value={value2}
-            onChange={e => setValue2(Number(e.target.value))}
+            onChange={e => setValue2(e.target.value)}
           />        
         </Col>
       </Form.Group>
       <Form.Group as={Row}>
         <Col xs='4'>
-          <Form.Control value={value3} size='lg'/>
+          <Form.Control
+            value={value3}
+            size='lg'
+            onChange={e => setValue3(e.target.value)}
+          />
         </Col>
         <Col xs='8'>
           <RangeSlider
             value={value3}
-            onChange={e => setValue3(Number(e.target.value))}
+            onChange={e => setValue3(e.target.value)}
             size='lg'
           />        
         </Col>
@@ -143,28 +157,28 @@ const Variants = () => {
         <Col xs='3'>
           <RangeSlider
             value={value1}
-            onChange={e => setValue1(Number(e.target.value))}
+            onChange={e => setValue1(e.target.value)}
             variant='primary'
           />        
         </Col>
         <Col xs='3'>
           <RangeSlider
             value={value2}
-            onChange={e => setValue2(Number(e.target.value))}
+            onChange={e => setValue2(e.target.value)}
             variant='secondary'
           />    
         </Col>
         <Col xs='3'>
           <RangeSlider
             value={value3}
-            onChange={e => setValue3(Number(e.target.value))}
+            onChange={e => setValue3(e.target.value)}
             variant='success'
           />        
         </Col>
         <Col xs='3'>
           <RangeSlider
             value={value4}
-            onChange={e => setValue4(Number(e.target.value))}
+            onChange={e => setValue4(e.target.value)}
             variant='danger'
           />    
         </Col>
@@ -173,28 +187,28 @@ const Variants = () => {
         <Col xs='3'>
           <RangeSlider
             value={value5}
-            onChange={e => setValue5(Number(e.target.value))}
+            onChange={e => setValue5(e.target.value)}
             variant='warning'
           />        
         </Col>
         <Col xs='3'>
           <RangeSlider
             value={value6}
-            onChange={e => setValue6(Number(e.target.value))}
+            onChange={e => setValue6(e.target.value)}
             variant='info'
           />    
         </Col>
         <Col xs='3'>
           <RangeSlider
             value={value7}
-            onChange={e => setValue7(Number(e.target.value))}
+            onChange={e => setValue7(e.target.value)}
             variant='dark'
           />        
         </Col>
         <Col xs='3'>
           <RangeSlider
             value={value8}
-            onChange={e => setValue8(Number(e.target.value))}
+            onChange={e => setValue8(e.target.value)}
             variant='light'
           />    
         </Col>
@@ -216,21 +230,21 @@ const TooltipBehaviour = () => {
         <Col xs='4'>
           <RangeSlider
             value={value1}
-            onChange={e => setValue1(Number(e.target.value))}
+            onChange={e => setValue1(e.target.value)}
             tooltip='auto'
           />        
         </Col>
         <Col xs='4'>
           <RangeSlider
             value={value2}
-            onChange={e => setValue2(Number(e.target.value))}
+            onChange={e => setValue2(e.target.value)}
             tooltip='on'
           />        
         </Col>
         <Col xs='4'>
           <RangeSlider
             value={value3}
-            onChange={e => setValue3(Number(e.target.value))}
+            onChange={e => setValue3(e.target.value)}
             tooltip='off'
           />        
         </Col>
@@ -251,15 +265,17 @@ const TooltipPlacement = () => {
         <Col xs='6'>
           <RangeSlider
             value={value1}
-            onChange={e => setValue1(Number(e.target.value))}
+            onChange={e => setValue1(e.target.value)}
             tooltipPlacement='top'
+            tooltip='on'
           />        
         </Col>
         <Col xs='6'>
           <RangeSlider
             value={value2}
-            onChange={e => setValue2(Number(e.target.value))}
+            onChange={e => setValue2(e.target.value)}
             tooltipPlacement='bottom'
+            tooltip='on'
           />     
         </Col>
       </Form.Group>
@@ -275,8 +291,9 @@ const TooltipLabel = () => {
   return (
     <RangeSlider
       value={value}
-      onChange={e => setValue(Number(e.target.value))}
+      onChange={e => setValue(e.target.value)}
       tooltipLabel={currentValue => `${currentValue}%`}
+      tooltip='on'
     />        
   );
 
@@ -289,8 +306,22 @@ const Disabled = () => {
   return (
     <RangeSlider
       value={value}
-      onChange={e => setValue(Number(e.target.value))}
+      onChange={e => setValue(e.target.value)}
       disabled
+    />         
+  );
+
+};
+
+const Step = () => {
+
+  const [ value, setValue ] = React.useState(50);
+
+  return (
+    <RangeSlider
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      step={10}
     />         
   );
 
@@ -307,7 +338,7 @@ const MinMax = () => {
         <Col xs='6'>
           <RangeSlider
             value={value1}
-            onChange={e => setValue1(Number(e.target.value))}
+            onChange={e => setValue1(e.target.value)}
             min={1}
             max={5}
           />        
@@ -315,27 +346,13 @@ const MinMax = () => {
         <Col xs='6'>
           <RangeSlider
             value={value2}
-            onChange={e => setValue2(Number(e.target.value))}
+            onChange={e => setValue2(e.target.value)}
             min={-20}
             max={50}
           />     
         </Col>
       </Form.Group>
     </Form>
-  );
-
-};
-
-const Step = () => {
-
-  const [ value, setValue ] = React.useState(50);
-
-  return (
-    <RangeSlider
-      value={value}
-      onChange={e => setValue(Number(e.target.value))}
-      step={10}
-    />         
   );
 
 };
@@ -391,11 +408,11 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-  <MinMax/>,
-  document.getElementById('min-max'),
+  <Step/>,
+  document.getElementById('step'),
 );
 
 ReactDOM.render(
-  <Step/>,
-  document.getElementById('step'),
+  <MinMax/>,
+  document.getElementById('min-max'),
 );
