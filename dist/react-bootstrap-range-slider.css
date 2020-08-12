@@ -325,6 +325,7 @@ input[type=range].range-slider::-ms-tooltip {
   border-radius: 0.25rem;
   box-sizing: border-box;
   font-size: 0.875rem;
+  white-space: nowrap;
 }
 .range-slider__wrap .range-slider__tooltip .range-slider__tooltip__arrow {
   position: absolute;
