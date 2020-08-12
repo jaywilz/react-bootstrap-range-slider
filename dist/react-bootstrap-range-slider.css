@@ -120,7 +120,7 @@ input[type=range].range-slider.range-slider--secondary::-webkit-slider-thumb {
   background: #6c757d;
 }
 input[type=range].range-slider.range-slider--success::-webkit-slider-thumb {
-  background: #6c757d;
+  background: #28a745;
 }
 input[type=range].range-slider.range-slider--danger::-webkit-slider-thumb {
   background: #dc3545;
@@ -144,7 +144,7 @@ input[type=range].range-slider.range-slider--secondary::-moz-range-thumb {
   background: #6c757d;
 }
 input[type=range].range-slider.range-slider--success::-moz-range-thumb {
-  background: #6c757d;
+  background: #28a745;
 }
 input[type=range].range-slider.range-slider--danger::-moz-range-thumb {
   background: #dc3545;
@@ -168,7 +168,7 @@ input[type=range].range-slider.range-slider--secondary::-ms-thumb {
   background: #6c757d;
 }
 input[type=range].range-slider.range-slider--success::-ms-thumb {
-  background: #6c757d;
+  background: #28a745;
 }
 input[type=range].range-slider.range-slider--danger::-ms-thumb {
   background: #dc3545;
