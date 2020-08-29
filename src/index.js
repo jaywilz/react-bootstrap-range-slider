@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import './style.less';
+import './style.scss';
 
 import RangeSlider from './RangeSlider';
 

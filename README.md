@@ -83,6 +83,25 @@ const MyComponent = () => {
 | `ref` | `ReactRef` | | If provided, ref will be forwarded to the underlying `<input>` element. |
 | `bsPrefix` | `string` | `'range-slider'` | Change the underlying component CSS base class name and modifier class names prefix. **This is an escape hatch** for working with heavily customized bootstrap css. |
 
+## Sass / Customizing Bootstrap
+
+If you have set custom theme colors using `$theme-colors` as described in the [React Bootstrap documentation](https://react-bootstrap.netlify.app/getting-started/introduction#customize-bootstrap) and would like them to apply to the range slider, include the React Bootstrap Range Slider's Sass/SCSS like so:
+
+```css
+/* The following block can be included in a custom.scss */
+
+/* make the customizations */
+$theme-colors: (
+    "info": tomato,
+    "danger": teal
+);
+
+@import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.scss";
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";
+```
+
 ## Browser Compatibility
 
 React Bootstrap Range Slider works in most modern web browsers and in Internet Explorer 10+ (with [polyfills](https://create-react-app.dev/docs/supported-browsers-features/#supported-browsers) required for React to work).

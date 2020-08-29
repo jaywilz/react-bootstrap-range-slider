@@ -1,7 +1,8 @@
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import replace from 'rollup-plugin-replace';
-import less from 'rollup-plugin-less';
+import sass from 'rollup-plugin-sass';
+import copy from 'rollup-plugin-copy';
 import path from 'path';
 import license from 'rollup-plugin-license';
 import resolve from '@rollup/plugin-node-resolve';
@@ -25,8 +26,13 @@ export default {
     }),
     commonjs(),
     ...(NODE_ENV === 'examples' ? [ resolve() ] : []),
-    less({
+    sass({
       output: './dist/react-bootstrap-range-slider.css',
+    }),
+    copy({
+      targets: [
+        { src: 'src/style.scss', dest: 'dist', rename: 'react-bootstrap-range-slider.scss' },
+      ],
     }),
     license({
       sourcemap: true,
