@@ -3,3 +3,9 @@ screenshots
 __mocks__
 __tests__
 src
+coverage
+.babelrc
+rollup.config.js
+yarn-error.log
+.github
+CONTRIBUTING.md 
