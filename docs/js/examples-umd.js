@@ -1279,8 +1279,14 @@
     var isTooltip = tooltip === 'auto' || tooltip === 'on';
     var classes = classnames(className, prefix, size && "".concat(prefix, "--").concat(size), disabled && 'disabled', variant && "".concat(prefix, "--").concat(variant));
 
-    var inputPropsOnMouseUp = inputProps.inputPropsOnMouseUp,
-        restInputProps = _objectWithoutProperties(inputProps, ["inputPropsOnMouseUp"]);
+    var _onMouseUp = inputProps.onMouseUp,
+        _onTouchEnd = inputProps.onTouchEnd,
+        restInputProps = _objectWithoutProperties(inputProps, ["onMouseUp", "onTouchEnd"]);
+
+    var onMouseUpOrTouchEnd = function onMouseUpOrTouchEnd(ev) {
+      if (ev.target.value !== prevValue) onAfterChange(ev, ev.target.valueAsNumber);
+      setPrevValue(ev.target.value);
+    };
 
     var inputEl = /*#__PURE__*/React__default.createElement("input", _extends({
       type: "range",
@@ -1293,9 +1299,12 @@
         return _onChange(ev, ev.target.valueAsNumber);
       },
       onMouseUp: function onMouseUp(ev) {
-        if (ev.target.value !== prevValue) onAfterChange(ev, ev.target.valueAsNumber);
-        setPrevValue(ev.target.value);
-        if (inputPropsOnMouseUp) inputPropsOnMouseUp(ev);
+        onMouseUpOrTouchEnd(ev);
+        if (_onMouseUp) _onMouseUp(ev);
+      },
+      onTouchEnd: function onTouchEnd(ev) {
+        onMouseUpOrTouchEnd(ev);
+        if (_onTouchEnd) _onTouchEnd(ev);
       },
       disabled: disabled,
       ref: ref

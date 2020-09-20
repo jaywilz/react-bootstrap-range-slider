@@ -62,7 +62,14 @@ const RangeSlider = React.forwardRef(({
     variant && `${prefix}--${variant}`,
   );
 
-  const { inputPropsOnMouseUp, ...restInputProps } = inputProps;
+  const { onMouseUp, onTouchEnd, ...restInputProps } = inputProps;
+
+  const onMouseUpOrTouchEnd = ev => {
+
+    if (ev.target.value !== prevValue) onAfterChange(ev, ev.target.valueAsNumber);
+    setPrevValue(ev.target.value);
+
+  };
 
   const inputEl = (
     <input
@@ -74,12 +81,12 @@ const RangeSlider = React.forwardRef(({
       step={step}
       onChange={ev => onChange(ev, ev.target.valueAsNumber)}
       onMouseUp={ev => {
-
-        if (ev.target.value !== prevValue) onAfterChange(ev, ev.target.valueAsNumber);
-        setPrevValue(ev.target.value);
-
-        if (inputPropsOnMouseUp) inputPropsOnMouseUp(ev);
-
+        onMouseUpOrTouchEnd(ev);
+        if (onMouseUp) onMouseUp(ev);
+      }}
+      onTouchEnd={ev => {
+        onMouseUpOrTouchEnd(ev);
+        if (onTouchEnd) onTouchEnd(ev);
       }}
       disabled={disabled}
       ref={ref}

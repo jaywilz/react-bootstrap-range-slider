@@ -436,6 +436,29 @@ var MinMax = function MinMax() {
   }))));
 };
 
+var AfterChange = function AfterChange() {
+  var _React$useState51 = React.useState(50),
+      _React$useState52 = _slicedToArray(_React$useState51, 2),
+      value = _React$useState52[0],
+      setValue = _React$useState52[1];
+
+  var _React$useState53 = React.useState(null),
+      _React$useState54 = _slicedToArray(_React$useState53, 2),
+      finalValue = _React$useState54[0],
+      setFinalValue = _React$useState54[1];
+
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(RangeSlider, {
+    value: value,
+    onChange: function onChange(e) {
+      return setValue(e.target.value);
+    },
+    onAfterChange: function onAfterChange(e) {
+      return setFinalValue(e.target.value);
+    },
+    tooltipPlacement: "top"
+  }), /*#__PURE__*/React.createElement("div", null, "Final value: ", finalValue));
+};
+
 ReactDOM.render( /*#__PURE__*/React.createElement(SimpleSlider, null), document.getElementById('simple-usage'));
 ReactDOM.render( /*#__PURE__*/React.createElement(SliderWithLabel, null), document.getElementById('with-label'));
 ReactDOM.render( /*#__PURE__*/React.createElement(SliderWithColumnLayoutLabel, null), document.getElementById('with-column-layout-label'));
@@ -448,3 +471,4 @@ ReactDOM.render( /*#__PURE__*/React.createElement(TooltipLabel, null), document.
 ReactDOM.render( /*#__PURE__*/React.createElement(Disabled, null), document.getElementById('disabled'));
 ReactDOM.render( /*#__PURE__*/React.createElement(Step, null), document.getElementById('step'));
 ReactDOM.render( /*#__PURE__*/React.createElement(MinMax, null), document.getElementById('min-max'));
+ReactDOM.render( /*#__PURE__*/React.createElement(AfterChange, null), document.getElementById('after-change'));

@@ -486,6 +486,30 @@
       </div>
     </section>
 
+    <section>
+      <h2>onAfterChange</h2>
+      <p>The onAfterChange callback is invoked after interaction with the slider has finished, if the value has changed.</p>
+      <div class="example w1" id="after-change"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const AfterChange = () => {
+
+  const [ value, setValue ] = React.useState(50);
+  const [ finalValue, setFinalValue ] = React.useState(null);
+
+  return (
+    &lt;RangeSlider
+      value={value}
+      onChange={e => setValue(e.target.value)}
+      onAfterChange={e => setFinalValue(e.target.value)}
+    /&gt;
+    &lt;div&gt;Final value: {finalValue}&lt;/div&gt;   
+  );
+
+};</code></pre>
+      </div>
+    </section>
+
     <footer>
 
       <nav>

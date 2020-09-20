@@ -357,6 +357,25 @@ const MinMax = () => {
 
 };
 
+const AfterChange = () => {
+
+  const [ value, setValue ] = React.useState(50);
+  const [ finalValue, setFinalValue ] = React.useState(null);
+
+  return (
+    <>
+      <RangeSlider
+        value={value}
+        onChange={e => setValue(e.target.value)}
+        onAfterChange={e => setFinalValue(e.target.value)}
+        tooltipPlacement='top'
+      />
+      <div>Final value: {finalValue}</div>
+    </> 
+  );
+
+};
+
 ReactDOM.render(
   <SimpleSlider/>,
   document.getElementById('simple-usage')
@@ -415,4 +434,9 @@ ReactDOM.render(
 ReactDOM.render(
   <MinMax/>,
   document.getElementById('min-max'),
+);
+
+ReactDOM.render(
+  <AfterChange/>,
+  document.getElementById('after-change'),
 );
