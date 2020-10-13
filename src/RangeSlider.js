@@ -22,11 +22,47 @@
  * SOFTWARE.
  */
 
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const DEFAULT_CLASS_PREFIX = 'range-slider';
+
+const noop = () => {};
+
+const Input = ({
+  classes,
+  onChange,
+  onMouseUpOrTouchEnd,
+  onTouchEnd,
+  onMouseUp,
+  ...rest
+  }) => (
+    <input
+      type="range"
+      onChange={(ev) => onChange(ev, ev.target.valueAsNumber)}
+      onMouseUp={(ev) => {
+        onMouseUpOrTouchEnd(ev);
+        if (onMouseUp) onMouseUp(ev);
+      }}
+      onTouchEnd={(ev) => {
+        onMouseUpOrTouchEnd(ev);
+        if (onTouchEnd) onTouchEnd(ev);
+      }}
+      className={classes}
+      {...rest}
+    />
+  );
+
+Input.propTypes = {
+  classes: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onMouseUpOrTouchEnd: PropTypes.func.isRequired,
+  onTouchEnd: PropTypes.func,
+  onMouseUp: PropTypes.func
+};
+
+const InputMemo = React.memo(Input);
 
 const RangeSlider = React.forwardRef(({
   size,
@@ -48,7 +84,7 @@ const RangeSlider = React.forwardRef(({
   className,
 }, ref) => {
 
-  const [ prevValue, setPrevValue ] = useState();
+  const [, setPrevValue ] = useState();
 
   const prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
 
@@ -64,63 +100,59 @@ const RangeSlider = React.forwardRef(({
 
   const { onMouseUp, onTouchEnd, ...restInputProps } = inputProps;
 
-  const onMouseUpOrTouchEnd = ev => {
+  const onMouseUpOrTouchEnd = useCallback(ev => {
+    setPrevValue(prevValue => {
+      if (prevValue !== ev.target.value) onAfterChange(ev, ev.target.valueAsNumber);
 
-    if (ev.target.value !== prevValue) onAfterChange(ev, ev.target.valueAsNumber);
-    setPrevValue(ev.target.value);
-
-  };
+      return ev.target.value;
+    });
+  }, [ setPrevValue, onAfterChange ]);
 
   const inputEl = (
-    <input
-      type='range'
-      className={classes}
-      value={value}
-      min={min}
-      max={max}
-      step={step}
-      onChange={ev => onChange(ev, ev.target.valueAsNumber)}
-      onMouseUp={ev => {
-        onMouseUpOrTouchEnd(ev);
-        if (onMouseUp) onMouseUp(ev);
+    <InputMemo
+      {...{
+        disabled,
+        value,
+        min,
+        max,
+        ref,
+        step,
+        classes,
+        onMouseUpOrTouchEnd,
+        onTouchEnd,
+        onMouseUp,
+        onChange,
+        ...restInputProps,
       }}
-      onTouchEnd={ev => {
-        onMouseUpOrTouchEnd(ev);
-        if (onTouchEnd) onTouchEnd(ev);
-      }}
-      disabled={disabled}
-      ref={ref}
-      {...restInputProps}
     />
   );
 
-  if (isTooltip) {
+  const wrapClasses = classNames(
+    `${prefix}__wrap`,
+    size && `${prefix}__wrap--${size}`,
+  );
 
-    const wrapClasses = classNames(
-      `${prefix}__wrap`,
-      size && `${prefix}__wrap--${size}`,
-    );
+  const tooltipClasses = classNames(
+    `${prefix}__tooltip`,
+    isTooltip && `${prefix}__tooltip--${tooltip}`,
+    tooltipPlacement && `${prefix}__tooltip--${tooltipPlacement}`,
+    disabled && `${prefix}__tooltip--disabled`,
+  );
 
-    const tooltipClasses = classNames(
-      `${prefix}__tooltip`,
-      isTooltip && `${prefix}__tooltip--${tooltip}`,
-      tooltipPlacement && `${prefix}__tooltip--${tooltipPlacement}`,
-      disabled && `${prefix}__tooltip--disabled`,
-    );
+  const thumbRadius = size === 'sm' ? 8 : (size === 'lg' ? 12 : 10);
+  const fract = (value - min) / (max - min);
+  const percentLeft = fract * 100;
+  const fractFromCentre = (fract - 0.5) * 2;
+  const adjustment = fractFromCentre * -thumbRadius; // Half thumb width
 
-    const thumbRadius = size === 'sm' ? 8 : (size === 'lg' ? 12 : 10);
-    const fract = (value - min) / (max - min);
-    const percentLeft = fract * 100;
-    const fractFromCentre = (fract - 0.5) * 2;
-    const adjustment = fractFromCentre * -thumbRadius; // Half thumb width
+  return (
+    <span
+      className={wrapClasses}
+    >
 
-    return (
-      <span
-        className={wrapClasses}
-      >
+      {inputEl}
 
-        {inputEl}
-
+      {isTooltip && (
         <div
           className={tooltipClasses}
           style={{
@@ -139,15 +171,10 @@ const RangeSlider = React.forwardRef(({
           <div className={`${prefix}__tooltip__arrow`}/>
 
         </div>
-        
-      </span>
-    );
+      )}
 
-  } else {
-
-    return inputEl;
-
-  }
+    </span>
+  );
 
 });
 
@@ -172,7 +199,7 @@ RangeSlider.propTypes = {
   tooltipProps: PropTypes.object,
   className: PropTypes.string,
   ref: PropTypes.oneOfType([
-    PropTypes.func, 
+    PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
   bsPrefix: PropTypes.string,
