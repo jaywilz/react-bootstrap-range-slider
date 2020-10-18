@@ -459,6 +459,33 @@ var AfterChange = function AfterChange() {
   }), /*#__PURE__*/React.createElement("div", null, "Final value: ", finalValue));
 };
 
+var EphemeralTooltip = function EphemeralTooltip() {
+  var _React$useState55 = React.useState(0),
+      _React$useState56 = _slicedToArray(_React$useState55, 2),
+      value = _React$useState56[0],
+      setValue = _React$useState56[1];
+
+  var _React$useState57 = React.useState(false),
+      _React$useState58 = _slicedToArray(_React$useState57, 2),
+      touched = _React$useState58[0],
+      setTouched = _React$useState58[1];
+
+  return /*#__PURE__*/React.createElement(RangeSlider, {
+    value: value,
+    onChange: function onChange(e) {
+      setValue(e.target.value);
+      setTouched(true);
+    },
+    onAfterChange: function onAfterChange(e) {
+      setTouched(false);
+    },
+    tooltip: touched ? 'off' : 'on',
+    tooltipLabel: function tooltipLabel() {
+      return 'Choose your amount';
+    }
+  });
+};
+
 ReactDOM.render( /*#__PURE__*/React.createElement(SimpleSlider, null), document.getElementById('simple-usage'));
 ReactDOM.render( /*#__PURE__*/React.createElement(SliderWithLabel, null), document.getElementById('with-label'));
 ReactDOM.render( /*#__PURE__*/React.createElement(SliderWithColumnLayoutLabel, null), document.getElementById('with-column-layout-label'));
@@ -472,3 +499,4 @@ ReactDOM.render( /*#__PURE__*/React.createElement(Disabled, null), document.getE
 ReactDOM.render( /*#__PURE__*/React.createElement(Step, null), document.getElementById('step'));
 ReactDOM.render( /*#__PURE__*/React.createElement(MinMax, null), document.getElementById('min-max'));
 ReactDOM.render( /*#__PURE__*/React.createElement(AfterChange, null), document.getElementById('after-change'));
+ReactDOM.render( /*#__PURE__*/React.createElement(EphemeralTooltip, null), document.getElementById('ephemeral-tooltip'));

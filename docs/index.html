@@ -78,8 +78,8 @@
 
   const [ value, setValue ] = React.useState(50);
 
-  return ( 
-    &lt;Form> 
+  return (
+    &lt;Form>
       &lt;Form.Group>
         &lt;Form.Label>
           My Label
@@ -88,7 +88,7 @@
           value={value}
           onChange={e => setValue(e.target.value)}
         /&gt;
-      &lt;/Form.Group>   
+      &lt;/Form.Group>
     &lt;/Form>
   );
 
@@ -106,8 +106,8 @@
 
   const [ value, setValue ] = React.useState(50);
 
-  return ( 
-    &lt;Form> 
+  return (
+    &lt;Form>
       &lt;Form.Group as={Row}>
         &lt;Form.Label column sm="4">
           My Other Label
@@ -143,7 +143,7 @@
           &lt;RangeSlider
             value={value}
             onChange={e => setValue(e.target.value)}
-          /&gt;        
+          /&gt;
         &lt;/Col>
         &lt;Col xs="3">
           &lt;Form.Control value={value}/>
@@ -179,7 +179,7 @@
             value={value1}
             onChange={e => setValue1(e.target.value)}
             size='sm'
-          /&gt;        
+          /&gt;
         &lt;/Col>
       &lt;/Form.Group>
       &lt;Form.Group as={Row}>
@@ -190,7 +190,7 @@
           &lt;RangeSlider
             value={value2}
             onChange={e => setValue2(e.target.value)}
-          /&gt;        
+          /&gt;
         &lt;/Col>
       &lt;/Form.Group>
       &lt;Form.Group as={Row}>
@@ -202,7 +202,7 @@
             value={value3}
             onChange={e => setValue3(e.target.value)}
             size='lg'
-          /&gt;        
+          /&gt;
         &lt;/Col>
       &lt;/Form.Group>
       &lt;/Form>
@@ -237,28 +237,28 @@
             value={value1}
             onChange={e => setValue1(e.target.value)}
             variant='primary'
-          /&gt;        
+          /&gt;
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value2}
             onChange={e => setValue2(e.target.value)}
             variant='secondary'
-          /&gt;    
+          /&gt;
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value3}
             onChange={e => setValue3(e.target.value)}
             variant='success'
-          /&gt;        
+          /&gt;
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value4}
             onChange={e => setValue4(e.target.value)}
             variant='danger'
-          /&gt;    
+          /&gt;
         &lt;/Col>
       &lt;/Form.Group>
       &lt;Form.Group as={Row}>
@@ -267,28 +267,28 @@
             value={value5}
             onChange={e => setValue5(e.target.value)}
             variant='warning'
-          /&gt;        
+          /&gt;
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value6}
             onChange={e => setValue6(e.target.value)}
             variant='info'
-          /&gt;    
+          /&gt;
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value7}
             onChange={e => setValue7(e.target.value)}
             variant='dark'
-          /&gt;        
+          /&gt;
         &lt;/Col>
         &lt;Col xs="3">
           &lt;RangeSlider
             value={value8}
             onChange={e => setValue8(e.target.value)}
             variant='light'
-          /&gt;    
+          /&gt;
         &lt;/Col>
       &lt;/Form.Group>
     </Form>
@@ -319,21 +319,21 @@
             value={value1}
             onChange={e => setValue1(e.target.value)}
             tooltip='auto'
-          /&gt;        
+          /&gt;
         &lt;/Col>
         &lt;Col xs="4">
           &lt;RangeSlider
             value={value2}
             onChange={e => setValue2(e.target.value)}
             tooltip='on'
-          /&gt;        
+          /&gt;
         &lt;/Col>
         &lt;Col xs="4">
           &lt;RangeSlider
             value={value3}
             onChange={e => setValue3(e.target.value)}
             tooltip='off'
-          /&gt;        
+          /&gt;
         &lt;/Col>
       &lt;/Form.Group>
     &lt;/Form>
@@ -363,7 +363,7 @@
             onChange={e => setValue1(e.target.value)}
             tooltipPlacement='top'
             tooltip='on'
-          /&gt;        
+          /&gt;
         &lt;/Col>
         &lt;Col xs="6">
           &lt;RangeSlider
@@ -371,7 +371,7 @@
             onChange={e => setValue2(e.target.value)}
             tooltipPlacement='bottom'
             tooltip='on'
-          /&gt;     
+          /&gt;
         &lt;/Col>
       &lt;/Form.Group>
     &lt;/Form>
@@ -397,7 +397,7 @@
       onChange={e => setValue(e.target.value)}
       tooltipLabel={currentValue => `${currentValue}%`}
       tooltip='on'
-    /&gt;        
+    /&gt;
   );
 
 };</code></pre>
@@ -419,7 +419,7 @@
       value={value}
       onChange={e => setValue(e.target.value)}
       disabled
-    /&gt;        
+    /&gt;
   );
 
 };</code></pre>
@@ -441,7 +441,7 @@
       value={value}
       onChange={e => setValue(e.target.value)}
       step={10}
-    /&gt;         
+    /&gt;
   );
 
 };</code></pre>
@@ -468,7 +468,7 @@
             onChange={e => setValue1(e.target.value)}
             min={1}
             max={5}
-          /&gt;        
+          /&gt;
         &lt;/Col>
         &lt;Col xs="6">
           &lt;RangeSlider
@@ -476,7 +476,7 @@
             onChange={e => setValue2(e.target.value)}
             min={-20}
             max={50}
-          /&gt;     
+          /&gt;
         &lt;/Col>
       &lt;/Form.Group>
     &lt;/Form>
@@ -503,9 +503,37 @@
       onChange={e => setValue(e.target.value)}
       onAfterChange={e => setFinalValue(e.target.value)}
     /&gt;
-    &lt;div&gt;Final value: {finalValue}&lt;/div&gt;   
+    &lt;div&gt;Final value: {finalValue}&lt;/div&gt;
   );
 
+};</code></pre>
+      </div>
+    </section>
+    <section>
+      <h2>Changing tooltip visibility during user interaction</h2>
+      <p>This example shows that the tooltip visibility can be changed as the user interacts with the slider.</p>
+      <div class="example w1" id="ephemeral-tooltip"></div>
+      <div class="code">
+        <button class="toggle"><img src="img/code.svg"></button>
+        <pre><code class="language-jsx">const EphemeralTooltip = () => {
+
+  const [ value, setValue ] = React.useState(0);
+  const [ touched, setTouched ] = React.useState(false);
+
+  return (
+    &lt;RangeSlider
+      value={value}
+      onChange={e => {
+        setValue(e.target.value);
+        setTouched(true);
+      }}
+      onAfterChange={e => {
+        setTouched(false);
+      }}
+      tooltip={touched ? 'off' : 'on'}
+      tooltipLabel={() => 'Choose your amount'}
+    /&gt;
+  );
 };</code></pre>
       </div>
     </section>

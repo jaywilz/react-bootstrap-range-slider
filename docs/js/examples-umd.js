@@ -1240,61 +1240,17 @@
   });
 
   var DEFAULT_CLASS_PREFIX = 'range-slider';
-  var RangeSlider = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
-    var size = _ref.size,
-        _ref$disabled = _ref.disabled,
-        disabled = _ref$disabled === void 0 ? false : _ref$disabled,
-        value = _ref.value,
-        _ref$onChange = _ref.onChange,
-        _onChange = _ref$onChange === void 0 ? function () {} : _ref$onChange,
-        _ref$onAfterChange = _ref.onAfterChange,
-        onAfterChange = _ref$onAfterChange === void 0 ? function () {} : _ref$onAfterChange,
-        _ref$min = _ref.min,
-        min = _ref$min === void 0 ? 0 : _ref$min,
-        _ref$max = _ref.max,
-        max = _ref$max === void 0 ? 100 : _ref$max,
-        step = _ref.step,
-        _ref$variant = _ref.variant,
-        variant = _ref$variant === void 0 ? 'primary' : _ref$variant,
-        _ref$inputProps = _ref.inputProps,
-        inputProps = _ref$inputProps === void 0 ? {} : _ref$inputProps,
-        _ref$tooltip = _ref.tooltip,
-        tooltip = _ref$tooltip === void 0 ? 'auto' : _ref$tooltip,
-        _ref$tooltipPlacement = _ref.tooltipPlacement,
-        tooltipPlacement = _ref$tooltipPlacement === void 0 ? 'bottom' : _ref$tooltipPlacement,
-        tooltipLabel = _ref.tooltipLabel,
-        _ref$tooltipStyle = _ref.tooltipStyle,
-        tooltipStyle = _ref$tooltipStyle === void 0 ? {} : _ref$tooltipStyle,
-        _ref$tooltipProps = _ref.tooltipProps,
-        tooltipProps = _ref$tooltipProps === void 0 ? {} : _ref$tooltipProps,
-        bsPrefix = _ref.bsPrefix,
-        className = _ref.className;
 
-    var _useState = React.useState(),
-        _useState2 = _slicedToArray(_useState, 2),
-        prevValue = _useState2[0],
-        setPrevValue = _useState2[1];
+  var Input = function Input(_ref) {
+    var classes = _ref.classes,
+        _onChange = _ref.onChange,
+        onMouseUpOrTouchEnd = _ref.onMouseUpOrTouchEnd,
+        _onTouchEnd = _ref.onTouchEnd,
+        _onMouseUp = _ref.onMouseUp,
+        rest = _objectWithoutProperties(_ref, ["classes", "onChange", "onMouseUpOrTouchEnd", "onTouchEnd", "onMouseUp"]);
 
-    var prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
-    var isTooltip = tooltip === 'auto' || tooltip === 'on';
-    var classes = classnames(className, prefix, size && "".concat(prefix, "--").concat(size), disabled && 'disabled', variant && "".concat(prefix, "--").concat(variant));
-
-    var _onMouseUp = inputProps.onMouseUp,
-        _onTouchEnd = inputProps.onTouchEnd,
-        restInputProps = _objectWithoutProperties(inputProps, ["onMouseUp", "onTouchEnd"]);
-
-    var onMouseUpOrTouchEnd = function onMouseUpOrTouchEnd(ev) {
-      if (ev.target.value !== prevValue) onAfterChange(ev, ev.target.valueAsNumber);
-      setPrevValue(ev.target.value);
-    };
-
-    var inputEl = /*#__PURE__*/React__default.createElement("input", _extends({
+    return /*#__PURE__*/React__default.createElement("input", _extends({
       type: "range",
-      className: classes,
-      value: value,
-      min: min,
-      max: max,
-      step: step,
       onChange: function onChange(ev) {
         return _onChange(ev, ev.target.valueAsNumber);
       },
@@ -1306,34 +1262,99 @@
         onMouseUpOrTouchEnd(ev);
         if (_onTouchEnd) _onTouchEnd(ev);
       },
+      className: classes
+    }, rest));
+  };
+
+  Input.propTypes = {
+    classes: propTypes.string.isRequired,
+    onChange: propTypes.func.isRequired,
+    onMouseUpOrTouchEnd: propTypes.func.isRequired,
+    onTouchEnd: propTypes.func,
+    onMouseUp: propTypes.func
+  };
+  var InputMemo = /*#__PURE__*/React__default.memo(Input);
+  var RangeSlider = /*#__PURE__*/React__default.forwardRef(function (_ref2, ref) {
+    var size = _ref2.size,
+        _ref2$disabled = _ref2.disabled,
+        disabled = _ref2$disabled === void 0 ? false : _ref2$disabled,
+        value = _ref2.value,
+        _ref2$onChange = _ref2.onChange,
+        onChange = _ref2$onChange === void 0 ? function () {} : _ref2$onChange,
+        _ref2$onAfterChange = _ref2.onAfterChange,
+        onAfterChange = _ref2$onAfterChange === void 0 ? function () {} : _ref2$onAfterChange,
+        _ref2$min = _ref2.min,
+        min = _ref2$min === void 0 ? 0 : _ref2$min,
+        _ref2$max = _ref2.max,
+        max = _ref2$max === void 0 ? 100 : _ref2$max,
+        step = _ref2.step,
+        _ref2$variant = _ref2.variant,
+        variant = _ref2$variant === void 0 ? 'primary' : _ref2$variant,
+        _ref2$inputProps = _ref2.inputProps,
+        inputProps = _ref2$inputProps === void 0 ? {} : _ref2$inputProps,
+        _ref2$tooltip = _ref2.tooltip,
+        tooltip = _ref2$tooltip === void 0 ? 'auto' : _ref2$tooltip,
+        _ref2$tooltipPlacemen = _ref2.tooltipPlacement,
+        tooltipPlacement = _ref2$tooltipPlacemen === void 0 ? 'bottom' : _ref2$tooltipPlacemen,
+        tooltipLabel = _ref2.tooltipLabel,
+        _ref2$tooltipStyle = _ref2.tooltipStyle,
+        tooltipStyle = _ref2$tooltipStyle === void 0 ? {} : _ref2$tooltipStyle,
+        _ref2$tooltipProps = _ref2.tooltipProps,
+        tooltipProps = _ref2$tooltipProps === void 0 ? {} : _ref2$tooltipProps,
+        bsPrefix = _ref2.bsPrefix,
+        className = _ref2.className;
+
+    var _useState = React.useState(),
+        _useState2 = _slicedToArray(_useState, 2),
+        setPrevValue = _useState2[1];
+
+    var prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
+    var isTooltip = tooltip === 'auto' || tooltip === 'on';
+    var classes = classnames(className, prefix, size && "".concat(prefix, "--").concat(size), disabled && 'disabled', variant && "".concat(prefix, "--").concat(variant));
+
+    var onMouseUp = inputProps.onMouseUp,
+        onTouchEnd = inputProps.onTouchEnd,
+        restInputProps = _objectWithoutProperties(inputProps, ["onMouseUp", "onTouchEnd"]);
+
+    var onMouseUpOrTouchEnd = React.useCallback(function (ev) {
+      setPrevValue(function (prevValue) {
+        if (prevValue !== ev.target.value) onAfterChange(ev, ev.target.valueAsNumber);
+        return ev.target.value;
+      });
+    }, [setPrevValue, onAfterChange]);
+    var inputEl = /*#__PURE__*/React__default.createElement(InputMemo, _objectSpread2({
       disabled: disabled,
-      ref: ref
+      value: value,
+      min: min,
+      max: max,
+      ref: ref,
+      step: step,
+      classes: classes,
+      onMouseUpOrTouchEnd: onMouseUpOrTouchEnd,
+      onTouchEnd: onTouchEnd,
+      onMouseUp: onMouseUp,
+      onChange: onChange
     }, restInputProps));
+    var wrapClasses = classnames("".concat(prefix, "__wrap"), size && "".concat(prefix, "__wrap--").concat(size));
+    var tooltipClasses = classnames("".concat(prefix, "__tooltip"), isTooltip && "".concat(prefix, "__tooltip--").concat(tooltip), tooltipPlacement && "".concat(prefix, "__tooltip--").concat(tooltipPlacement), disabled && "".concat(prefix, "__tooltip--disabled"));
+    var thumbRadius = size === 'sm' ? 8 : size === 'lg' ? 12 : 10;
+    var fract = (value - min) / (max - min);
+    var percentLeft = fract * 100;
+    var fractFromCentre = (fract - 0.5) * 2;
+    var adjustment = fractFromCentre * -thumbRadius; // Half thumb width
 
-    if (isTooltip) {
-      var wrapClasses = classnames("".concat(prefix, "__wrap"), size && "".concat(prefix, "__wrap--").concat(size));
-      var tooltipClasses = classnames("".concat(prefix, "__tooltip"), isTooltip && "".concat(prefix, "__tooltip--").concat(tooltip), tooltipPlacement && "".concat(prefix, "__tooltip--").concat(tooltipPlacement), disabled && "".concat(prefix, "__tooltip--disabled"));
-      var thumbRadius = size === 'sm' ? 8 : size === 'lg' ? 12 : 10;
-      var fract = (value - min) / (max - min);
-      var percentLeft = fract * 100;
-      var fractFromCentre = (fract - 0.5) * 2;
-      var adjustment = fractFromCentre * -thumbRadius; // Half thumb width
-
-      return /*#__PURE__*/React__default.createElement("span", {
-        className: wrapClasses
-      }, inputEl, /*#__PURE__*/React__default.createElement("div", _extends({
-        className: tooltipClasses,
-        style: _objectSpread2(_objectSpread2({}, tooltipStyle || {}), {}, {
-          left: "calc(".concat(percentLeft, "% + ").concat(adjustment, "px)")
-        })
-      }, tooltipProps), /*#__PURE__*/React__default.createElement("div", {
-        className: "".concat(prefix, "__tooltip__label")
-      }, tooltipLabel ? tooltipLabel(value) : value), /*#__PURE__*/React__default.createElement("div", {
-        className: "".concat(prefix, "__tooltip__arrow")
-      })));
-    } else {
-      return inputEl;
-    }
+    return /*#__PURE__*/React__default.createElement("span", {
+      className: wrapClasses
+    }, inputEl, isTooltip && /*#__PURE__*/React__default.createElement("div", _extends({
+      className: tooltipClasses,
+      style: _objectSpread2(_objectSpread2({}, tooltipStyle || {}), {}, {
+        left: "calc(".concat(percentLeft, "% + ").concat(adjustment, "px)")
+      })
+    }, tooltipProps), /*#__PURE__*/React__default.createElement("div", {
+      className: "".concat(prefix, "__tooltip__label")
+    }, tooltipLabel ? tooltipLabel(value) : value), /*#__PURE__*/React__default.createElement("div", {
+      className: "".concat(prefix, "__tooltip__arrow")
+    })));
   }); // Fix: https://github.com/jaywilz/react-bootstrap-range-slider/issues/3
 
   var Element = typeof Element === 'undefined' ? function () {} : Element;
