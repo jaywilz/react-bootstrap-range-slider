@@ -10,11 +10,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 0 1`] = 
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 0,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={0}
   />
@@ -48,11 +45,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 0 when m
     max={20}
     min={10}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 10,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={10}
   />
@@ -86,11 +80,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 0 when s
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 0,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={0}
   />
@@ -124,11 +115,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 0 when s
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 0,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={0}
   />
@@ -162,11 +150,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 50% 1`] 
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 50,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={50}
   />
@@ -200,11 +185,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 50% when
     max={20}
     min={10}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 15,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={15}
   />
@@ -238,11 +220,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 50% when
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 50,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={50}
   />
@@ -276,11 +255,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 50% when
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 50,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={50}
   />
@@ -314,11 +290,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 100% 1`]
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 100,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={100}
   />
@@ -352,11 +325,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 100% whe
     max={20}
     min={10}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 20,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={20}
   />
@@ -390,11 +360,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 100% whe
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 100,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={100}
   />
@@ -428,11 +395,8 @@ exports[`RangeSlider should correcly calculate tooltip left position at 100% whe
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 100,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={100}
   />
@@ -457,21 +421,22 @@ exports[`RangeSlider should correcly calculate tooltip left position at 100% whe
 `;
 
 exports[`RangeSlider should pass inputProps to input 1`] = `
-<input
-  className="range-slider range-slider--primary"
-  data-a-prop="test"
-  disabled={false}
-  max={100}
-  min={0}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    data-a-prop="test"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should pass tooltipProps to tooltip div 1`] = `
@@ -484,11 +449,8 @@ exports[`RangeSlider should pass tooltipProps to tooltip div 1`] = `
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 25,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={25}
   />
@@ -523,11 +485,8 @@ exports[`RangeSlider should pass tooltipStyle to tooltip div 1`] = `
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 25,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={25}
   />
@@ -553,88 +512,93 @@ exports[`RangeSlider should pass tooltipStyle to tooltip div 1`] = `
 `;
 
 exports[`RangeSlider should render correctly when +ve min provided 1`] = `
-<input
-  className="range-slider range-slider--primary"
-  disabled={false}
-  max={100}
-  min={10}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={100}
+    min={10}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly when -ve min provided 1`] = `
-<input
-  className="range-slider range-slider--primary"
-  disabled={false}
-  max={100}
-  min={-10}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={100}
+    min={-10}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly when disabled 1`] = `
-<input
-  className="range-slider disabled range-slider--primary"
-  disabled={true}
-  max={100}
-  min={0}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider disabled range-slider--primary"
+    disabled={true}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly when max provided 1`] = `
-<input
-  className="range-slider range-slider--primary"
-  disabled={false}
-  max={20}
-  min={0}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={20}
+    min={0}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly when min and max provided 1`] = `
-<input
-  className="range-slider range-slider--primary"
-  disabled={false}
-  max={20}
-  min={10}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={20}
+    min={10}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly when only required props provided 1`] = `
@@ -647,11 +611,8 @@ exports[`RangeSlider should render correctly when only required props provided 1
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 25,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={25}
   />
@@ -676,55 +637,58 @@ exports[`RangeSlider should render correctly when only required props provided 1
 `;
 
 exports[`RangeSlider should render correctly when size=lg provided 1`] = `
-<input
-  className="range-slider range-slider--lg range-slider--primary"
-  disabled={false}
-  max={100}
-  min={0}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap range-slider__wrap--lg"
+>
+  <input
+    className="range-slider range-slider--lg range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly when size=sm provided 1`] = `
-<input
-  className="range-slider range-slider--sm range-slider--primary"
-  disabled={false}
-  max={100}
-  min={0}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap range-slider__wrap--sm"
+>
+  <input
+    className="range-slider range-slider--sm range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly when step provided 1`] = `
-<input
-  className="range-slider range-slider--primary"
-  disabled={false}
-  max={100}
-  min={0}
-  onChange={[Function]}
-  step={25}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    step={25}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly when tooltip = auto 1`] = `
@@ -737,11 +701,8 @@ exports[`RangeSlider should render correctly when tooltip = auto 1`] = `
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 25,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={25}
   />
@@ -766,20 +727,21 @@ exports[`RangeSlider should render correctly when tooltip = auto 1`] = `
 `;
 
 exports[`RangeSlider should render correctly when tooltip = off 1`] = `
-<input
-  className="range-slider range-slider--primary"
-  disabled={false}
-  max={100}
-  min={0}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly when tooltip explicitly = auto 1`] = `
@@ -792,11 +754,8 @@ exports[`RangeSlider should render correctly when tooltip explicitly = auto 1`] 
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 25,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={25}
   />
@@ -830,11 +789,8 @@ exports[`RangeSlider should render correctly when tooltipPlacement = top 1`] = `
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 25,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={25}
   />
@@ -868,11 +824,8 @@ exports[`RangeSlider should render correctly when tooltipPlacement explicitly = 
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 25,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={25}
   />
@@ -897,37 +850,39 @@ exports[`RangeSlider should render correctly when tooltipPlacement explicitly = 
 `;
 
 exports[`RangeSlider should render correctly when variant provided 1`] = `
-<input
-  className="range-slider range-slider--secondary"
-  disabled={false}
-  max={100}
-  min={0}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="range-slider__wrap"
+>
+  <input
+    className="range-slider range-slider--secondary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly with bsPrefix 1`] = `
-<input
-  className="a-prefix a-prefix--primary"
-  disabled={false}
-  max={100}
-  min={0}
-  onChange={[Function]}
-  style={
-    Object {
-      "--value": 25,
-    }
-  }
-  type="range"
-  value={25}
-/>
+<span
+  className="a-prefix__wrap"
+>
+  <input
+    className="a-prefix a-prefix--primary"
+    disabled={false}
+    max={100}
+    min={0}
+    onChange={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    type="range"
+    value={25}
+  />
+</span>
 `;
 
 exports[`RangeSlider should render correctly with tooltip label 1`] = `
@@ -940,11 +895,8 @@ exports[`RangeSlider should render correctly with tooltip label 1`] = `
     max={100}
     min={0}
     onChange={[Function]}
-    style={
-      Object {
-        "--value": 25,
-      }
-    }
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
     type="range"
     value={25}
   />
