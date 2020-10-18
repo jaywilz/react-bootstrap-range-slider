@@ -7,8 +7,8 @@ import path from 'path';
 import license from 'rollup-plugin-license';
 import resolve from '@rollup/plugin-node-resolve';
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const outputFile = NODE_ENV === 'examples' ? './docs/js/examples-umd.js' : (NODE_ENV === 'production' ? './dist/index.js' : './dist/dev.js');
+const NODE_ENV = process.env.NODE_ENV || 'production';
+const outputFile = NODE_ENV === 'examples' ? './docs/js/examples-umd.js' : './dist/index.js';
 
 export default {
   input: './src/index.js',

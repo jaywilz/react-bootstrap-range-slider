@@ -257,6 +257,7 @@ var RangeSlider = /*#__PURE__*/React__default.forwardRef(function (_ref2, ref) {
 
   var _useState = React.useState(),
       _useState2 = _slicedToArray(_useState, 2),
+      prevValue = _useState2[0],
       setPrevValue = _useState2[1];
 
   var prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
@@ -268,11 +269,9 @@ var RangeSlider = /*#__PURE__*/React__default.forwardRef(function (_ref2, ref) {
       restInputProps = _objectWithoutProperties(inputProps, ["onMouseUp", "onTouchEnd"]);
 
   var onMouseUpOrTouchEnd = React.useCallback(function (ev) {
-    setPrevValue(function (prevValue) {
-      if (prevValue !== ev.target.value) onAfterChange(ev, ev.target.valueAsNumber);
-      return ev.target.value;
-    });
-  }, [setPrevValue, onAfterChange]);
+    if (prevValue !== ev.target.value) onAfterChange(ev, ev.target.valueAsNumber);
+    setPrevValue(ev.target.value);
+  }, [prevValue, onAfterChange]);
   var inputEl = /*#__PURE__*/React__default.createElement(InputMemo, _objectSpread2({
     disabled: disabled,
     value: value,

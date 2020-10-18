@@ -28,8 +28,6 @@ import classNames from 'classnames';
 
 const DEFAULT_CLASS_PREFIX = 'range-slider';
 
-const noop = () => {};
-
 const Input = ({
   classes,
   onChange,
@@ -84,7 +82,7 @@ const RangeSlider = React.forwardRef(({
   className,
 }, ref) => {
 
-  const [, setPrevValue ] = useState();
+  const [ prevValue, setPrevValue ] = useState();
 
   const prefix = bsPrefix || DEFAULT_CLASS_PREFIX;
 
@@ -101,12 +99,12 @@ const RangeSlider = React.forwardRef(({
   const { onMouseUp, onTouchEnd, ...restInputProps } = inputProps;
 
   const onMouseUpOrTouchEnd = useCallback(ev => {
-    setPrevValue(prevValue => {
-      if (prevValue !== ev.target.value) onAfterChange(ev, ev.target.valueAsNumber);
 
-      return ev.target.value;
-    });
-  }, [ setPrevValue, onAfterChange ]);
+    if (prevValue !== ev.target.value) onAfterChange(ev, ev.target.valueAsNumber);
+
+    setPrevValue(ev.target.value);
+
+  }, [ prevValue, onAfterChange ]);
 
   const inputEl = (
     <InputMemo
