@@ -53,7 +53,7 @@ const MyComponent = () => {
 
 ## Features
 
- - Compatible with React Bootstrap v1.0.0+ and Bootstrap 4;
+ - Compatible with React Bootstrap v1.0.0+ and Bootstrap 4+;
  - Implemented using HTML5 `<input type="range">` element;
  - A tooltip can be configured to automatically display on hover or be constantly visible;
  - A custom tooltip formatter function can be provided.
@@ -66,8 +66,8 @@ const MyComponent = () => {
 | Property | Type | Default | Description |
 | --- | --- | --- | --- |
 | `value` | `number` | | The current value of the slider. |
-| `onChange` | `function` | | A callback fired when the range slider's value changes. |
-| `onAfterChange` | `function` | | A callback fired after interaction with the slider has finished if the value has changed. |
+| `onChange` | `function` | | A callback fired when the range slider's value changes. The callback's first argument is a `React.ChangeEvent`. The second argument is the slider's new value as a `number`. |
+| `onAfterChange` | `function` | | A callback fired after interaction with the slider has finished if the value has changed. The callback function's signature is the same as for `onChange`. |
 | `min` | `number` | `0` | The minimum value of the slider. |
 | `max` | `number` | `100` | The maximum value of the slider. |
 | `step` | `number` | `1` | The granularity with which the slider can step through values. |
@@ -79,8 +79,8 @@ const MyComponent = () => {
 | `tooltipLabel` | `function` | | A function that returns the tooltip's content (either a string or element). The function's first argument is the current slider value. |
 | `tooltipStyle` | `object` | | Style to be applied to tooltip div. |
 | `tooltipProps` | `object` | | Properties applied to the tooltip's `<div>` element. |
-| `inputProps` | `object` | | Properties applied to the `<input>` element. |
-| `ref` | `ReactRef` | | If provided, ref will be forwarded to the underlying `<input>` element. |
+| `inputProps` | `object` | | Properties applied to the `<input>` element. DEPRECATED: additional props added to the RangeSlider component's props will be passed to the underlying `<input>` element. |
+| `ref` | `React.Ref<HTMLInputElement>` | | If provided, ref will be forwarded to the underlying `<input>` element. |
 | `bsPrefix` | `string` | `'range-slider'` | Change the underlying component CSS base class name and modifier class names prefix. **This is an escape hatch** for working with heavily customized bootstrap css. |
 
 ## Sass / Customizing Bootstrap

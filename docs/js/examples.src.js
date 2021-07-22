@@ -370,31 +370,31 @@ const AfterChange = () => {
         onAfterChange={e => setFinalValue(e.target.value)}
         tooltipPlacement='top'
       />
-      <div>Final value: {finalValue}</div>
+      <div>Value after interaction: {finalValue}</div>
     </>
   );
 
 };
 
-const EphemeralTooltip = () => {
-  const [ value, setValue ] = React.useState(0);
-  const [ touched, setTouched ] = React.useState(false);
+// const EphemeralTooltip = () => {
+//   const [ value, setValue ] = React.useState(0);
+//   const [ touched, setTouched ] = React.useState(false);
 
-  return (
-    <RangeSlider
-      value={value}
-      onChange={e => {
-        setValue(e.target.value);
-        setTouched(true);
-      }}
-      onAfterChange={e => {
-          setTouched(false);
-      }}
-      tooltip={touched ? 'off' : 'on'}
-      tooltipLabel={() => 'Choose your amount'}
-    />
-  );
-};
+//   return (
+//     <RangeSlider
+//       value={value}
+//       onChange={e => {
+//         setValue(e.target.value);
+//         setTouched(true);
+//       }}
+//       onAfterChange={e => {
+//           setTouched(false);
+//       }}
+//       tooltip={touched ? 'off' : 'on'}
+//       tooltipLabel={() => 'Choose your amount'}
+//     />
+//   );
+// };
 
 ReactDOM.render(
   <SimpleSlider/>,
@@ -461,7 +461,7 @@ ReactDOM.render(
   document.getElementById('after-change'),
 );
 
-ReactDOM.render(
-  <EphemeralTooltip />,
-  document.getElementById('ephemeral-tooltip')
-);
+// ReactDOM.render(
+//   <EphemeralTooltip />,
+//   document.getElementById('ephemeral-tooltip')
+// );

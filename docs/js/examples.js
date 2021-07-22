@@ -8,7 +8,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -456,35 +456,26 @@ var AfterChange = function AfterChange() {
       return setFinalValue(e.target.value);
     },
     tooltipPlacement: "top"
-  }), /*#__PURE__*/React.createElement("div", null, "Final value: ", finalValue));
-};
+  }), /*#__PURE__*/React.createElement("div", null, "Value after interaction: ", finalValue));
+}; // const EphemeralTooltip = () => {
+//   const [ value, setValue ] = React.useState(0);
+//   const [ touched, setTouched ] = React.useState(false);
+//   return (
+//     <RangeSlider
+//       value={value}
+//       onChange={e => {
+//         setValue(e.target.value);
+//         setTouched(true);
+//       }}
+//       onAfterChange={e => {
+//           setTouched(false);
+//       }}
+//       tooltip={touched ? 'off' : 'on'}
+//       tooltipLabel={() => 'Choose your amount'}
+//     />
+//   );
+// };
 
-var EphemeralTooltip = function EphemeralTooltip() {
-  var _React$useState55 = React.useState(0),
-      _React$useState56 = _slicedToArray(_React$useState55, 2),
-      value = _React$useState56[0],
-      setValue = _React$useState56[1];
-
-  var _React$useState57 = React.useState(false),
-      _React$useState58 = _slicedToArray(_React$useState57, 2),
-      touched = _React$useState58[0],
-      setTouched = _React$useState58[1];
-
-  return /*#__PURE__*/React.createElement(RangeSlider, {
-    value: value,
-    onChange: function onChange(e) {
-      setValue(e.target.value);
-      setTouched(true);
-    },
-    onAfterChange: function onAfterChange(e) {
-      setTouched(false);
-    },
-    tooltip: touched ? 'off' : 'on',
-    tooltipLabel: function tooltipLabel() {
-      return 'Choose your amount';
-    }
-  });
-};
 
 ReactDOM.render( /*#__PURE__*/React.createElement(SimpleSlider, null), document.getElementById('simple-usage'));
 ReactDOM.render( /*#__PURE__*/React.createElement(SliderWithLabel, null), document.getElementById('with-label'));
@@ -498,5 +489,7 @@ ReactDOM.render( /*#__PURE__*/React.createElement(TooltipLabel, null), document.
 ReactDOM.render( /*#__PURE__*/React.createElement(Disabled, null), document.getElementById('disabled'));
 ReactDOM.render( /*#__PURE__*/React.createElement(Step, null), document.getElementById('step'));
 ReactDOM.render( /*#__PURE__*/React.createElement(MinMax, null), document.getElementById('min-max'));
-ReactDOM.render( /*#__PURE__*/React.createElement(AfterChange, null), document.getElementById('after-change'));
-ReactDOM.render( /*#__PURE__*/React.createElement(EphemeralTooltip, null), document.getElementById('ephemeral-tooltip'));
+ReactDOM.render( /*#__PURE__*/React.createElement(AfterChange, null), document.getElementById('after-change')); // ReactDOM.render(
+//   <EphemeralTooltip />,
+//   document.getElementById('ephemeral-tooltip')
+// );

@@ -195,11 +195,13 @@ input[type=range].range-slider {
  
     &.range-slider__tooltip--top {
       bottom: calc(0.75em + 0.375rem + 1px + .4rem + 10px + 3px);
+      // bottom: 0;
       top: auto;
     }
 
     &.range-slider__tooltip--bottom {
       top: calc(0.75em + 0.375rem + 1px + .4rem + 10px + 3px);
+      // top: 0;
       bottom: auto;
     }
 
@@ -228,7 +230,7 @@ input[type=range].range-slider {
       white-space: nowrap;
     }
  
-    .range-slider__tooltip__arrow {
+    .range-slider__tooltip__caret {
       position: absolute;
       transform: translateX(-50%);
       display: block;
@@ -245,7 +247,7 @@ input[type=range].range-slider {
       }
     }
  
-    &.range-slider__tooltip--top .range-slider__tooltip__arrow {
+    &.range-slider__tooltip--top .range-slider__tooltip__caret {
       bottom: -0.4rem;
 
       &::before {
@@ -255,7 +257,7 @@ input[type=range].range-slider {
       }
     }
 
-    &.range-slider__tooltip--bottom .range-slider__tooltip__arrow {
+    &.range-slider__tooltip--bottom .range-slider__tooltip__caret {
       top: -0.4rem;
 
       &::before {
