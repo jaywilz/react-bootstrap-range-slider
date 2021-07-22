@@ -1,4 +1,5 @@
 import React, { useCallback, useState, MouseEvent, TouchEvent, ChangeEvent, Ref } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const DEFAULT_CLASS_PREFIX = 'range-slider';
@@ -49,18 +50,18 @@ const Input = React.forwardRef(({
 const InputMemo = React.memo(Input);
 
 interface RangeSliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  value: number;
-  onChange: (ev: ChangeEvent, value: number) => void;
-  onAfterChange: (ev: ChangeEvent, value: number) => void;
+  value: number | string;
+  onChange?: (ev: ChangeEvent, value: number) => void;
+  onAfterChange?: (ev: ChangeEvent, value: number) => void;
   disabled?: boolean;
   size?: 'sm' | 'lg';
   min?: number;
   max?: number;
   step?: number;
-  variant: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light' ;
-  inputProps: Partial<React.InputHTMLAttributes<HTMLInputElement>>;
-  tooltip:  'auto' | 'on' | 'off';
-  tooltipPlacement: 'top' | 'bottom';
+  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'dark' | 'light' ;
+  inputProps?: Partial<React.InputHTMLAttributes<HTMLInputElement>>;
+  tooltip?:  'auto' | 'on' | 'off';
+  tooltipPlacement?: 'top' | 'bottom';
   tooltipLabel?: (value: number) => string;
   tooltipStyle?: React.CSSProperties;
   tooltipProps?: Partial<React.HTMLAttributes<HTMLDivElement>>;
@@ -169,7 +170,7 @@ const RangeSlider = React.forwardRef(({
 
           <div className={`${prefix}__tooltip__label`}>
 
-            {tooltipLabel ? tooltipLabel(value) : value}
+            {tooltipLabel ? tooltipLabel(Number(value)) : value}
 
           </div>
 
@@ -182,5 +183,25 @@ const RangeSlider = React.forwardRef(({
   );
 
 });
+
+RangeSlider.propTypes = {
+  value: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]).isRequired,
+  onChange: PropTypes.func,
+  onAfterChange: PropTypes.func,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
+  disabled: PropTypes.bool,
+  size: PropTypes.oneOf([ 'sm', 'lg' ]),
+  variant: PropTypes.oneOf([ 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light' ]),
+  inputProps: PropTypes.object,
+  tooltip: PropTypes.oneOf([ 'auto', 'on', 'off' ]),
+  tooltipPlacement: PropTypes.oneOf([ 'top', 'bottom' ]),
+  tooltipLabel: PropTypes.func,
+  tooltipStyle: PropTypes.object,
+  tooltipProps: PropTypes.object,
+  className: PropTypes.string,
+  bsPrefix: PropTypes.string,
+};
 
 export default React.memo(RangeSlider);

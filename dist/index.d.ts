@@ -2,18 +2,18 @@
 import React from "react";
 import { ChangeEvent } from "react";
 interface RangeSliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
-    value: number;
-    onChange: (ev: ChangeEvent, value: number) => void;
-    onAfterChange: (ev: ChangeEvent, value: number) => void;
+    value: number | string;
+    onChange?: (ev: ChangeEvent, value: number) => void;
+    onAfterChange?: (ev: ChangeEvent, value: number) => void;
     disabled?: boolean;
     size?: "sm" | "lg";
     min?: number;
     max?: number;
     step?: number;
-    variant: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "dark" | "light";
-    inputProps: Partial<React.InputHTMLAttributes<HTMLInputElement>>;
-    tooltip: "auto" | "on" | "off";
-    tooltipPlacement: "top" | "bottom";
+    variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "dark" | "light";
+    inputProps?: Partial<React.InputHTMLAttributes<HTMLInputElement>>;
+    tooltip?: "auto" | "on" | "off";
+    tooltipPlacement?: "top" | "bottom";
     tooltipLabel?: (value: number) => string;
     tooltipStyle?: React.CSSProperties;
     tooltipProps?: Partial<React.HTMLAttributes<HTMLDivElement>>;

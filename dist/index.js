@@ -25,11 +25,13 @@
 'use strict';
 
 var React = require('react');
+var PropTypes = require('prop-types');
 var classNames = require('classnames');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 var classNames__default = /*#__PURE__*/_interopDefaultLegacy(classNames);
 
 /*! *****************************************************************************
@@ -109,9 +111,28 @@ var RangeSlider = React__default['default'].forwardRef(function (_a, ref) {
     return (React__default['default'].createElement("span", { className: wrapClasses },
         inputEl,
         isTooltip && (React__default['default'].createElement("div", __assign({ className: tooltipClasses, style: __assign(__assign({}, (tooltipStyle || {})), { left: "calc(" + percentLeft + "% + " + adjustment + "px)" }) }, tooltipProps),
-            React__default['default'].createElement("div", { className: prefix + "__tooltip__label" }, tooltipLabel ? tooltipLabel(value) : value),
+            React__default['default'].createElement("div", { className: prefix + "__tooltip__label" }, tooltipLabel ? tooltipLabel(Number(value)) : value),
             React__default['default'].createElement("div", { className: prefix + "__tooltip__caret" })))));
 });
+RangeSlider.propTypes = {
+    value: PropTypes__default['default'].oneOfType([PropTypes__default['default'].number, PropTypes__default['default'].string]).isRequired,
+    onChange: PropTypes__default['default'].func,
+    onAfterChange: PropTypes__default['default'].func,
+    min: PropTypes__default['default'].number,
+    max: PropTypes__default['default'].number,
+    step: PropTypes__default['default'].number,
+    disabled: PropTypes__default['default'].bool,
+    size: PropTypes__default['default'].oneOf(['sm', 'lg']),
+    variant: PropTypes__default['default'].oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'dark', 'light']),
+    inputProps: PropTypes__default['default'].object,
+    tooltip: PropTypes__default['default'].oneOf(['auto', 'on', 'off']),
+    tooltipPlacement: PropTypes__default['default'].oneOf(['top', 'bottom']),
+    tooltipLabel: PropTypes__default['default'].func,
+    tooltipStyle: PropTypes__default['default'].object,
+    tooltipProps: PropTypes__default['default'].object,
+    className: PropTypes__default['default'].string,
+    bsPrefix: PropTypes__default['default'].string,
+};
 var RangeSlider$1 = React__default['default'].memo(RangeSlider);
 
 module.exports = RangeSlider$1;
