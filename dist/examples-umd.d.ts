@@ -3,8 +3,8 @@ import React from "react";
 import { ChangeEvent } from "react";
 interface RangeSliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
     value: number | string;
-    onChange?: (ev: ChangeEvent, value: number) => void;
-    onAfterChange?: (ev: ChangeEvent, value: number) => void;
+    onChange?: (ev: ChangeEvent<HTMLInputElement>, value: number) => void;
+    onAfterChange?: (ev: ChangeEvent<HTMLInputElement>, value: number) => void;
     disabled?: boolean;
     size?: "sm" | "lg";
     min?: number;

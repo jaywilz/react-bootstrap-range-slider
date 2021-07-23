@@ -6,7 +6,7 @@ const DEFAULT_CLASS_PREFIX = 'range-slider';
 
 interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   classes: string;
-  onChange: (ev: ChangeEvent, value: number) => void;
+  onChange: (ev: ChangeEvent<HTMLInputElement>, value: number) => void;
   onMouseUpOrTouchEnd?: (ev: MouseEvent|TouchEvent) => void;
   onMouseUp?: (ev: MouseEvent) => void;
   onTouchEnd?: (ev: TouchEvent) => void;
@@ -51,8 +51,8 @@ const InputMemo = React.memo(Input);
 
 interface RangeSliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value: number | string;
-  onChange?: (ev: ChangeEvent, value: number) => void;
-  onAfterChange?: (ev: ChangeEvent, value: number) => void;
+  onChange?: (ev: ChangeEvent<HTMLInputElement>, value: number) => void;
+  onAfterChange?: (ev: ChangeEvent<HTMLInputElement>, value: number) => void;
   disabled?: boolean;
   size?: 'sm' | 'lg';
   min?: number;
