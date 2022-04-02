@@ -12,4 +12,3 @@ CONTRIBUTING.md
 *.tgz
 dist/examples-umd.d.ts
 tsconfig.json
-*.js.map
