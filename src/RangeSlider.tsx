@@ -1,4 +1,4 @@
-import React, { useCallback, useState, MouseEvent, TouchEvent, ChangeEvent, Ref } from 'react';
+import React, { useCallback, useState, MouseEvent, TouchEvent, ChangeEvent, Ref, ReactElement } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -62,7 +62,7 @@ interface RangeSliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
   inputProps?: Partial<React.InputHTMLAttributes<HTMLInputElement>>;
   tooltip?:  'auto' | 'on' | 'off';
   tooltipPlacement?: 'top' | 'bottom';
-  tooltipLabel?: (value: number) => string;
+  tooltipLabel?: (value: number) => string | ReactElement;
   tooltipStyle?: React.CSSProperties;
   tooltipProps?: Partial<React.HTMLAttributes<HTMLDivElement>>;
   bsPrefix?: string;

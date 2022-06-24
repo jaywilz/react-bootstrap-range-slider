@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-range-slider",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "A range slider component with tooltips for React Bootstrap that extends the HTML input (type=range) element.",
   "keywords": [
     "react",
