@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import React from "react";
-import { ChangeEvent } from "react";
+import { ChangeEvent, ReactElement } from "react";
 interface RangeSliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
     value: number | string;
     onChange?: (ev: ChangeEvent<HTMLInputElement>, value: number) => void;
@@ -14,7 +14,7 @@ interface RangeSliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "o
     inputProps?: Partial<React.InputHTMLAttributes<HTMLInputElement>>;
     tooltip?: "auto" | "on" | "off";
     tooltipPlacement?: "top" | "bottom";
-    tooltipLabel?: (value: number) => string;
+    tooltipLabel?: (value: number) => string | ReactElement;
     tooltipStyle?: React.CSSProperties;
     tooltipProps?: Partial<React.HTMLAttributes<HTMLDivElement>>;
     bsPrefix?: string;
